@@ -7,13 +7,15 @@ Dependera de ti ayudarla a arrancar confundiendo a los habrientos conejos para q
 1. Para comenzar debes elegir las dimensiones del tablero de juego y la cantidad de conejos iniciales en el tablero.
 2. Puedes introducir las siguientes acciones validas:
 	a. Para moverte por el tablero puedes usar el teclado numerico como las teclas aqui listadas:
-		
-		| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  || &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Y | __U__ | I | __\|__ | 7 | __8__ | 9 |
-| __H__ | J | __K__ | __\|__ | __4__ | 5 | __6__ |
-| N | __M__ | , | __\|__ | 1 | __2__ | 3 |
-	
+		* __Arriba:__ U o 8
+		* __Arriba Derecha:__ I o 9
+		* __Derecha:__ K o 6
+		* __Abajo Derecha:__ , o 3
+		* __Abajo:__ M o 2
+		* __Abajo Izquierda:__ N o 1
+		* __Izquierda:__ H o 4
+		* __Arriba Izquierda:__ Y o 7
+		* __Centro:__ J o 5
 	b. Para __Salir__ ingresa __"q"__
 	c. Para __Teletransportarte__ presiona __"t"__
 	d. Para __Guardar__ presiona __"s"__
