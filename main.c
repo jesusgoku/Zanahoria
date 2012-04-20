@@ -105,7 +105,7 @@ int main(int argc, char **argv)
 				ubicarConejosIniciales(tablero, m , n, conejosVivos);
 				// Ubico los Trampolines
 				if(nivel >= NIVEL_TRAMPOLINES_START){
-					trampolines = TRAMPOLINES_INICIALES;
+					trampolines = TRAMPOLINES_INICIALES + redondeoEntero(TASA_AUMENTO_TRAMPOLINES * (nivel - NIVEL_TRAMPOLINES_START));
 					ubicarTrampolines(tablero, m, n, trampolines);
 				}
 			}
