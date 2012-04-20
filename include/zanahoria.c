@@ -266,15 +266,17 @@ int ejecutarMovimientoConejos(char **tablero, char **tableroCopia, const int fil
 	int i, j;
 	int coordZC, coordZF;
 	int coordMoveF, coordMoveC;
+	int movSize;
 	// Borramos el tablero copia
 	tablero_ini(tableroCopia, filas, columnas);
 	// Transladamos desde el tablero al tablero copia
 	// La zanahoria, los cadaveres y trampolines
 	for(i = 0; i < filas; i++){
 		for(j = 0; j < columnas; j++){
-			if(tablero[i][j] == ZANAHORIA || tablero[i][j] == CADAVER || tablero[i][j] == TRAMPOLIN){
-				tableroCopia[i][j] = tablero[i][j];
-				// Guardamos la nueva posicion de la zanahoria
+			if(tablero[i][j] == ZANAHORIA || tablero[i][j] == CADAVER || tablero[i][j] == TRAMPOLIN || tablero[i][j] == CONEJO_TRAMPOLIN){
+				// Si es que es un conejo sobre un trampolin lo copio solo como trampolin, ya que el conejo se movera
+				tableroCopia[i][j] = (tablero[i][j] == CONEJO_TRAMPOLIN) ? TRAMPOLIN : tablero[i][j];
+				// Guardamos la posicion de la zanahoria
 				if(tablero[i][j] == ZANAHORIA){
 					coordZF = i;
 					coordZC = j;
@@ -285,14 +287,16 @@ int ejecutarMovimientoConejos(char **tablero, char **tableroCopia, const int fil
 	// Ahora comenzamos a mover los conejos acercandose a la zanahoria
 	for(i = 0; i < filas; i++){
 		for(j = 0; j < columnas; j++){
-			if(tablero[i][j] == CONEJO){
+			if(tablero[i][j] == CONEJO || tablero[i][j] == CONEJO_TRAMPOLIN){
+				// Fijamos la magnitud del movimiento
+				movSize = tablero[i][j] == CONEJO ? 1 : 2;
 				// Establecemos la posicion a la que lo moveremos
-				if(coordZF > i) coordMoveF = i + 1;
-				else if(coordZF < i) coordMoveF = i - 1;
+				if(coordZF > i) coordMoveF = i + movSize;
+				else if(coordZF < i) coordMoveF = i - movSize;
 				else coordMoveF = i;
 
-				if(coordZC > j) coordMoveC = j + 1;
-				else if(coordZC < j) coordMoveC = j - 1;
+				if(coordZC > j) coordMoveC = j + movSize;
+				else if(coordZC < j) coordMoveC = j - movSize;
 				else coordMoveC = j;
 
 				// Verificamos el contenido del destino
