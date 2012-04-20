@@ -45,7 +45,7 @@ int redondeoEntero(float num){
     void clearScr(){ system("cls"); }
 #elif defined(CYGWIN)
     void clearStdin(){ fpurge(stdin); }
-    void clearScr(){ system("clear"); }
+    void clearScr(){ int i; for(i = 0; i < 100; i++) printf("\n"); }
 #else
 	#error "Sistema Operativo Incorrecto"
 #endif // Definicion clearStdin();

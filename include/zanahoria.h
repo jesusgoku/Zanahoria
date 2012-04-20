@@ -58,7 +58,7 @@
 #define TASA_AUMENTO_CONEJOS 0.25
 #define TASA_AUMENTO_TRAMPOLINES 0.2
 
-#define NIVEL_TRAMPOLINES_START 2 // Comienza desde el 0
+#define NIVEL_TRAMPOLINES_START 2
 #define TRAMPOLINES_INICIALES 2
 
 void pedirConejosIniciales(int *f, int *c, int *ci);

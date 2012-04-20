@@ -305,6 +305,7 @@ int ejecutarMovimientoConejos(char **tablero, char **tableroCopia, const int fil
 						tableroCopia[coordMoveF][coordMoveC] = CONEJO;
 						break;
 					case CONEJO:
+					case CONEJO_TRAMPOLIN:
 						tableroCopia[coordMoveF][coordMoveC] = CADAVER;
 						(*puntaje) += PUNTAJE_CHOQUE * 2;
 						(*conejosVivos) -= 2;
