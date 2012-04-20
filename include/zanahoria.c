@@ -54,7 +54,13 @@
 
 #define PUNTAJE_MOV 5
 #define PUNTAJE_CHOQUE 50
-#define PUNTAJE_ETAPA 100
+#define PUNTAJE_NIVEL 100
+
+#define TASA_AUMENTO_CONEJOS 0.25
+#define TASA_AUMENTO_TRAMPOLINES 0.2
+
+#define NIVEL_TRAMPOLINES_START 2
+#define TRAMPOLINES_INICIALES 2
 
 void pedirConejosIniciales(int *f, int *c, int *ci){
 	int max = (int)floor( (*c) * (*f) * 0.1 );
@@ -107,6 +113,19 @@ void ubicarConejosIniciales(char **tablero, const int m, const int n, const int 
 		k = rand() % n;
 		if(tablero[j][k] == CELDA_VACIA){
 			tablero[j][k] = CONEJO;
+			i--;
+		}
+	}
+}
+
+void ubicarTrampolines(char **tablero, const int m, const int n, const int trampolines){
+	int i = 0, j = 0, k = 0;
+	srand(time(NULL));
+	for(i = trampolines; i > 0;){
+		j = rand() % m;
+		k = rand() % n;
+		if(tablero[j][k] == CELDA_VACIA){
+			tablero[j][k] = TRAMPOLIN;
 			i--;
 		}
 	}
@@ -195,7 +214,7 @@ int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, 
 	int coordZF, coordZC;
 	int y = 0, x = 0;
 	int i = 0, j = 0;
-	// Determinamos la magnitud del movimiento
+	// Determinamos la magnitud del movimiento segun la direccion ingresada
 	switch(mov){
 		case MOVE_TOP:
 			y = -1;
@@ -224,20 +243,15 @@ int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, 
 			y = -1;
 			x = -1;
 			break;
+		case MOVE_CENTER:
+			// No hay movimiento que hacer y retornomar movimiento correcto
+			return 1;
 		default:
 			y = 0;
 			x = 0;
 	}
 	// Buscamos la zanahoria y revisamos si se pude mover
-	for(i = 0; i < filas; i++){
-		for(j = 0; j < columnas; j++){
-			if(tablero[i][j] == ZANAHORIA){
-				coordZF = i;
-				coordZC = j;
-				break;
-			}
-		}
-	}
+	posicionZanahoria(tablero, filas, columnas, &coordZF, &coordZC);
 	// Valido que sea un mov. en el tablero y que la celda este vacia
 	coordMoveF = coordZF + y;
 	coordMoveC = coordZC + x;

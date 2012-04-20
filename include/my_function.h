@@ -9,6 +9,7 @@
 typedef enum {False, True} Bool;
 
 int println(const char *formato, ...);
+int redondeoEntero(float num);
 void clearScr();
 void clearStdin();
 

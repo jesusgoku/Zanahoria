@@ -22,6 +22,18 @@ int println(const char *formato, ...)
     return resultado;
 }
 
+int redondeoEntero(float num){
+    int num10 = num * 10;
+    int num10mod10 = num10 % 10;
+    int redondeo = 0;
+    if(num10mod10 >= 5){
+        redondeo = (num10 + 10 - num10mod10);
+    }else{
+        redondeo = num10 - num10mod10;
+    }
+    return redondeo / 10;
+}
+
 #if defined(MAC)
     void clearStdin(){ fpurge(stdin); }
     void clearScr(){ system("clear"); }

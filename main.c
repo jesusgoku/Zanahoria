@@ -15,8 +15,9 @@ int main(int argc, char **argv)
 	char ** tableroCopia; // Tablero de Copia
 	char ** auxiliar; // Apuntador Auxiliar
 	int i = 0, j = 0, k = 0; // Variables auxiliares
-	int conejosIniciales = 0;
+	int conejosIniciales = 0; // Se almacenaran los conejos ingresados por el usuario
 	int puntaje = 0, nivel = 0, conejosVivos = 0; // Estado del juego
+	int trampolines = 0; // Se llevara la cantidad de trampolines
 	int coordZF = 0, coordZC = 0;
 	int siguienteMovimiento = 0;
 	Bool gameOver = False;
@@ -88,6 +89,26 @@ int main(int argc, char **argv)
 			auxiliar = tablero;
 			tablero = tableroCopia;
 			tableroCopia = auxiliar;
+
+			// Paso de Nivel
+			if(conejosVivos == 0){
+				// Inicializo el Tablero
+				posicionZanahoria(tablero, m, n, &coordZF, &coordZC);
+				tablero_ini(tablero, m , n);
+				tablero[coordZF][coordZC] = ZANAHORIA;
+				// Aumento el nivel en una unidad
+				nivel++;
+				// Aumento el puntaje
+				puntaje += PUNTAJE_NIVEL;
+				// Incremento los conejos
+				conejosVivos = conejosIniciales + (redondeoEntero(conejosIniciales * TASA_AUMENTO_CONEJOS) * nivel);
+				ubicarConejosIniciales(tablero, m , n, conejosVivos);
+				// Ubico los Trampolines
+				if(nivel >= NIVEL_TRAMPOLINES_START){
+					trampolines = TRAMPOLINES_INICIALES;
+					ubicarTrampolines(tablero, m, n, trampolines);
+				}
+			}
 		}
 
 		// Acciones en caso de Perder el Juego

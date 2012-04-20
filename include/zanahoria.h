@@ -51,7 +51,15 @@
 
 #define PUNTAJE_MOV 5
 #define PUNTAJE_CHOQUE 50
-#define PUNTAJE_ETAPA 100
+#define PUNTAJE_NIVEL 100
+
+#define TASA_AUMENTO_CONEJOS 0.25
+
+#define TASA_AUMENTO_CONEJOS 0.25
+#define TASA_AUMENTO_TRAMPOLINES 0.2
+
+#define NIVEL_TRAMPOLINES_START 2 // Comienza desde el 0
+#define TRAMPOLINES_INICIALES 2
 
 void pedirConejosIniciales(int *f, int *c, int *ci);
 void pedirDimensionTablero(int *c, int *f);
@@ -61,6 +69,7 @@ void tablero_view(char **tablero, int f, int c);
 
 void ubicarZanahoriaInicial(char **tablero, const int f, const int c);
 void ubicarConejosIniciales(char **tablero, const int m, const int n, const int conejos);
+void ubicarTrampolines(char **tablero, const int m, const int n, const int trampolines);
 
 
 void posicionZanahoria(char **tablero, const int filas, const int columnas, int *coordZF, int *coordZC);
