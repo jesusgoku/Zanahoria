@@ -3,7 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <time.h>
+#include <ctype.h>
 #include <my_function.h>
+#include <memoria.h>
 
 #define ZANAHORIA 'z'
 #define CONEJO '&'
@@ -61,6 +65,8 @@
 #define NIVEL_TRAMPOLINES_START 2
 #define TRAMPOLINES_INICIALES 2
 
+#define FILE_PARTIDA "partida.dat"
+
 void pedirConejosIniciales(int *f, int *c, int *ci);
 void pedirDimensionTablero(int *c, int *f);
 
@@ -77,5 +83,8 @@ int pedirSiguienteMovimiento();
 int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas);
 int ejecutarMovimientoConejos(char **tablero, char **tableroCopy, const int filas, const int columnas, int *conejosVivos, int *puntaje);
 void ejecutarTeletransportacion(char **tablero, const int filas, const int columnas);
+
+char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje);
+int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
 
 #endif // __ZANAHORIA_H__

@@ -77,6 +77,10 @@ int main(int argc, char **argv)
 			ejecutarTeletransportacion(tablero, m , n);
 			gameOver = (ejecutarMovimientoConejos(tablero, tableroCopia, m, n, &conejosVivos, &puntaje) == 0) ? True : False;
 		}else if(siguienteMovimiento == ACTION_SAVE){
+			if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
+				println("Partida Guardada!");
+				clearStdin();
+				getc(stdin);
 			break;
 		}else if(siguienteMovimiento == ACTION_QUIT){
 			clearScr();

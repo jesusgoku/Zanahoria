@@ -7,6 +7,7 @@
 #include <time.h>
 #include <ctype.h>
 #include <my_function.h>
+#include <memoria.h>
 
 #define ZANAHORIA 'z'
 #define CONEJO '&'
@@ -61,6 +62,8 @@
 
 #define NIVEL_TRAMPOLINES_START 2
 #define TRAMPOLINES_INICIALES 2
+
+#define FILE_PARTIDA "partida.dat"
 
 void pedirConejosIniciales(int *f, int *c, int *ci){
 	int max = (int)floor( (*c) * (*f) * 0.1 );
@@ -348,6 +351,50 @@ void ejecutarTeletransportacion(char **tablero, const int filas, const int colum
 		}
 	}
 	if(done) tablero[coordZF][coordZC] = CELDA_VACIA;
+}
+
+char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje){
+	FILE *fp;
+	char **tablero;
+	int i,j;
+	fp = fopen(ficheroName, "r");
+	if(fp == NULL) return NULL;
+	fscanf(fp, "%i\n", conejosIniciales);
+	fscanf(fp, "%i\n", conejosVivos);
+	fscanf(fp, "%i\n", nivel);
+	fscanf(fp, "%i\n", puntaje);
+	fscanf(fp, "%i\n", filas);
+	fscanf(fp, "%i\n", columnas);
+	tablero = (char **)pedirMemoriaMatriz(*filas, *columnas, 'c');
+	for(i = 0; i < *filas; i++){
+		for(j = 0; j < (*columnas) - 1; j++){
+			fscanf(fp, "%c", &tablero[i][j]);
+		}
+		fscanf(fp, "%c\n", &tablero[i][j]);
+	}
+	fclose(fp);
+	return tablero;
+}
+
+int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje){
+	FILE *fp;
+	int i,j;
+	fp = fopen(ficheroName, "w");
+	if(fp == NULL) return 0;
+	fprintf(fp, "%i\n", conejosIniciales);
+	fprintf(fp, "%i\n", conejosVivos);
+	fprintf(fp, "%i\n", nivel);
+	fprintf(fp, "%i\n", puntaje);
+	fprintf(fp, "%i\n", filas);
+	fprintf(fp, "%i\n", columnas);
+	for(i = 0; i < filas; i++){
+		for(j = 0; j < columnas; j++){
+			fprintf(fp ,"%c", tablero[i][j]);
+		}
+		fprintf(fp, "\n");
+	}
+	fclose(fp);
+	return 1;
 }
 
 #endif // __ZANAHORIA_C__
