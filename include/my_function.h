@@ -12,5 +12,7 @@ int println(const char *formato, ...);
 int redondeoEntero(float num);
 void clearScr();
 void clearStdin();
+void pausa();
+void pausaMensaje(const char *mensaje);
 
 #endif // __MY_FUNCTION_H__

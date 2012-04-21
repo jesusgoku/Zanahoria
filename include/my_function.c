@@ -50,4 +50,14 @@ int redondeoEntero(float num){
 	#error "Sistema Operativo Incorrecto"
 #endif // Definicion clearStdin();
 
+void pausa(){
+    clearStdin();
+    getc(stdin);
+}
+
+void pausaMensaje(const char *mensaje){
+    println(mensaje);
+    pausa();
+}
+
 #endif // __MY_FUNCTION_C__

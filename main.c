@@ -22,31 +22,51 @@ int main(int argc, char **argv)
 	int siguienteMovimiento = 0;
 	Bool gameOver = False;
 	Bool movValido = False;
+	FILE * fp;
 
+	// Limpio la pantalla
 	clearScr();
+	// Doy la bienvenida
 	println("Bienvenido al Juego de la Zanahoria");
 
-	// Preguntamos el tamano del tablero
-	pedirDimensionTablero(&m, &n);
+	// Verifico si existe una partida guardada
+	fp = fopen(FILE_PARTIDA, "r");
 
-	// Preguntamos los conejos iniciales
-	pedirConejosIniciales(&m, &n, &conejosIniciales);
-	conejosVivos = conejosIniciales;
-	
-	// Reservo memoria para el tablero
-	tablero = (char **)pedirMemoriaMatriz(m, n, 'c');
+	// Existe una partida guardada
+	if(fp != NULL){
+		
+		// Cierro el fichero para poder abrirlo desde la funcion
+		fclose(fp);
+		// Recupero el tablero
+		tablero = cargarPartida(FILE_PARTIDA, &m, &n, &conejosIniciales, &conejosVivos, &nivel, &puntaje);
+
+	}else{
+
+		// Preguntamos el tamano del tablero
+		pedirDimensionTablero(&m, &n);
+
+		// Preguntamos los conejos iniciales
+		pedirConejosIniciales(&m, &n, &conejosIniciales);
+		conejosVivos = conejosIniciales;
+		
+		// Reservo memoria para el tablero
+		tablero = (char **)pedirMemoriaMatriz(m, n, 'c');
+		tablero_ini(tablero, m , n);
+		
+		// Ubico la zanahoria
+		ubicarZanahoriaInicial(tablero, m, n);
+
+		// Ubico los conejos iniciales
+		ubicarConejosIniciales(tablero, m, n, conejosVivos);
+
+
+	}
+
+
 	// Reservo la memoria para una copia del tablero
 	tableroCopia = (char **)pedirMemoriaMatriz(m, n, 'c');
-
 	// Doy valores iniciales al tablero
-	tablero_ini(tablero, m , n);
 	tablero_ini(tableroCopia, m, n);
-	
-	// Ubico la zanahoria
-	ubicarZanahoriaInicial(tablero, m, n);
-
-	// Ubico los conejos iniciales
-	ubicarConejosIniciales(tablero, m, n, conejosVivos);
 
 	// Comienza el Ciclo de Juego
 	for(;;){
@@ -78,10 +98,8 @@ int main(int argc, char **argv)
 			gameOver = (ejecutarMovimientoConejos(tablero, tableroCopia, m, n, &conejosVivos, &puntaje) == 0) ? True : False;
 		}else if(siguienteMovimiento == ACTION_SAVE){
 			if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
-				println("Partida Guardada!");
-				clearStdin();
-				getc(stdin);
-			break;
+				pausaMensaje("Partida Guardada!");
+			// break;
 		}else if(siguienteMovimiento == ACTION_QUIT){
 			clearScr();
 			println("Gracias por jugar!");
@@ -118,7 +136,7 @@ int main(int argc, char **argv)
 		// Acciones en caso de Perder el Juego
 		if(gameOver){
 			clearScr();
-			tablero_view(tablero, m, n);
+			// tablero_view(tablero, m, n);
 			println("GAME OVER!");
 			break;
 			// Pendiente: Podria preguntar si desea iniciar otra partida
