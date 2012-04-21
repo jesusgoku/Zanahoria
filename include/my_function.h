@@ -14,5 +14,6 @@ void clearScr();
 void clearStdin();
 void pausa();
 void pausaMensaje(const char *mensaje);
+int preguntayn(const char *pregunta);
 
 #endif // __MY_FUNCTION_H__

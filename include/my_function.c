@@ -60,4 +60,16 @@ void pausaMensaje(const char *mensaje){
     pausa();
 }
 
+int preguntayn(const char *pregunta){
+    char respuesta;
+    do{
+        printf(pregunta);
+        clearStdin();
+        scanf("%c", &respuesta);
+        if(respuesta != 'y' && respuesta != 'n')
+            println("Respuesta no valida!");
+    }while(respuesta != 'y' && respuesta != 'n');
+    return respuesta == 'y' ? 1 : 0;
+}
+
 #endif // __MY_FUNCTION_C__

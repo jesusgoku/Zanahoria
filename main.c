@@ -23,6 +23,7 @@ int main(int argc, char **argv)
 	Bool gameOver = False;
 	Bool movValido = False;
 	FILE * fp;
+	Bool recuperarPartida;
 
 	// Limpio la pantalla
 	clearScr();
@@ -37,10 +38,17 @@ int main(int argc, char **argv)
 		
 		// Cierro el fichero para poder abrirlo desde la funcion
 		fclose(fp);
-		// Recupero el tablero
-		tablero = cargarPartida(FILE_PARTIDA, &m, &n, &conejosIniciales, &conejosVivos, &nivel, &puntaje);
 
-	}else{
+		recuperarPartida = False;
+		recuperarPartida = (Bool)preguntayn("Existe una partida guardada, desea cargarla? (y/n): ");
+
+		// Si la respuesta fue afirmativa recupero el estado del juego
+		if(recuperarPartida)
+			tablero = cargarPartida(FILE_PARTIDA, &m, &n, &conejosIniciales, &conejosVivos, &nivel, &puntaje);
+
+	}
+
+	if(!recuperarPartida){
 
 		// Preguntamos el tamano del tablero
 		pedirDimensionTablero(&m, &n);
@@ -52,7 +60,7 @@ int main(int argc, char **argv)
 		// Reservo memoria para el tablero
 		tablero = (char **)pedirMemoriaMatriz(m, n, 'c');
 		tablero_ini(tablero, m , n);
-		
+
 		// Ubico la zanahoria
 		ubicarZanahoriaInicial(tablero, m, n);
 
