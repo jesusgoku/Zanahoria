@@ -74,6 +74,10 @@ typedef struct itemRanking {
 	int puntaje;
 } ItemRanking;
 
+/************************************
+/* FUNCIONES DE PETICION AL USUARIO
+/***********************************/
+
 void pedirConejosIniciales(int *f, int *c, int *ci){
 	int max = (int)floor( (*c) * (*f) * 0.1 );
 	do{
@@ -94,6 +98,10 @@ void pedirDimensionTablero(int *f, int *c){
 	*c = *f;
 }
 
+/***********************************
+/* FUNCIONES DEL TABLERO
+/**********************************/
+
 void tablero_ini(char **tablero, int f, int c){
 	int i = 0, j = 0;
 	for(i = 0; i < f; i++)
@@ -110,6 +118,10 @@ void tablero_view(char **tablero, int f, int c){
 		putchar('\n');
 	}
 }
+
+/******************************
+/* FUNCIONES DE INICIALIZACION
+******************************/
 
 void ubicarZanahoriaInicial(char **tablero, const int f, const int c){
 	int coordZF = (int)floor(f / 2.0);
@@ -220,6 +232,10 @@ int pedirSiguienteMovimiento(){
 	}while(mov == 0);
 	return mov;
 }
+
+/********************************************
+/* FUNCIONES PARA EJECUTAR MOVIMIENTOS
+/*******************************************/
 
 int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas){
 	int coordMoveF, coordMoveC;
@@ -362,6 +378,10 @@ void ejecutarTeletransportacion(char **tablero, const int filas, const int colum
 	if(done) tablero[coordZF][coordZC] = CELDA_VACIA;
 }
 
+/************************************
+/* FUNCIONES SALVAR Y CARGAR PARTIDA
+/***********************************/
+
 char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje){
 	FILE *fp;
 	char **tablero;
@@ -406,9 +426,9 @@ int guardarPartida(char *ficheroName, char **tablero, const int filas, const int
 	return 1;
 }
 
-/*******************************
-/* Funciones para el Ranking
-/*******************************/
+/*****************************************
+/* FUNCIONES PARA ADMINISTRAR EL RANKING
+/****************************************/
 
 void mostrarRanking(ItemRanking *ranking, const int n){
 	int i;
