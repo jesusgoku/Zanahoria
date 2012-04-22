@@ -7,6 +7,7 @@
 #include <my_function.h>
 #include <zanahoria.h>
 #include <memoria.h>
+#include <colores.h>
 
 int main(int argc, char **argv)
 {
