@@ -4,7 +4,7 @@ CFLAGS := -D$(OS) -Iinclude
 OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o
 FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c
 
-.PHONY: clean start
+.PHONY: clean start push
 
 zanahoria: $(OBJETOS)
 	$(CC) $(CFLAGS) $(OBJETOS) -o zanahoria
@@ -26,3 +26,6 @@ clean:
 
 start:
 	clear && ./zanahoria
+
+push:
+	git push origin master && git push bitorigin master
