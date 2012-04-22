@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+#if defined(MAC) || defined(LINUX) || defined(CYGWIN)
+
 void fijarColorNormal(){
 	printf("\033[0m");
 }
@@ -30,5 +32,23 @@ void fijarColorTextoFondoEstilo(const int texto, const int fondo, const int esti
 void fijarColorTextoEstilo(const int texto, const int estilo){
 	printf("\033[%i;%im", estilo, texto);
 }
+
+#elif defined(WINDOWS)
+
+void fijarColorNormal(){}
+
+void fijarColorTexto(const int color){}
+
+void fijarColorFondo(const int color){}
+
+void fijarColorEstilo(const int estilo){}
+
+void fijarColorTextoFondo(const int texto, const int fondo){}
+
+void fijarColorTextoFondoEstilo(const int texto, const int fondo, const int estilo){}
+
+void fijarColorTextoEstilo(const int texto, const int estilo){}
+
+#endif
 
 #endif // __COLORES_C__
