@@ -1,3 +1,13 @@
+/** @brief Mis Funciones Reutilizables.
+*
+* En esta libreria se encuentras funciones de uso general
+*
+* @file my_function.h
+* @version 0.1
+* @date 22/04/2012
+* @author JesusGoku
+* 
+*/
 #ifndef __MY_FUNCTION_H__
 #define __MY_FUNCTION_H__
 
@@ -6,9 +16,15 @@
 #include <stdarg.h>
 #include <string.h>
 
+/** @brief Emulacion del tipo Booleano
+*
+*/
 typedef enum {False, True} Bool;
 
-/** Como el print de python da un salto de carro luego de imprimir
+/** @brief Como el print de python.
+*
+* Da un salto de carro luego de imprimir, por lo demas se comporta igual que printf
+*
 * @param formato cadena de formato
 * @param ... los distintos atributos especificados en formato
 *
@@ -16,7 +32,7 @@ typedef enum {False, True} Bool;
 */
 int println(const char *formato, ...);
 
-/** Redondea un flotante a entero
+/** @brief: Redondea un flotante a entero
 *
 * @param num numero que desea ser redondeado
 *
@@ -24,25 +40,25 @@ int println(const char *formato, ...);
 */
 int redondeoEntero(float num);
 
-/** Limpiar Buffer de Entrada
+/** @brief Limpiar Buffer de Entrada
 */
 void clearScr();
 
-/** Limpiar Pantalla
+/** @brief Limpiar Pantalla
 */
 void clearStdin();
 
-/** Introducir una pausa en la ejecucion
+/** @brief Introducir una pausa en la ejecucion
 */
 void pausa();
 
-/** Muestra un mensaje e introduce una pausa
+/** @brief Muestra un mensaje e introduce una pausa
 *
 * @param mensaje mensaje que se desea mostrar antes de introducir la pausa
 */
 void pausaMensaje(const char *mensaje);
 
-/** Pregunta al usuario dando la posibilidad de responder y/n
+/** @brief Pregunta al usuario dando la posibilidad de responder y/n
 *
 * @param pregunta pregunta a mostrar al usuario
 *
@@ -50,7 +66,7 @@ void pausaMensaje(const char *mensaje);
 */
 int preguntayn(const char *pregunta);
 
-/** Captura una cadena desde la entrada estadar
+/** @brief Captura una cadena desde la entrada estadar.
 *
 * Mas segura que gets ya que se debe especificar el limite a capturar
 * y se elimina el "ENTER" dejado por fgets
@@ -60,7 +76,7 @@ int preguntayn(const char *pregunta);
 */
 void mygets(char *cadena, const int max);
 
-/** Pide una cadena al usuario de forma segura
+/** @brief Pide una cadena al usuario de forma segura.
 *
 * Para su utilizacion utiliza la funcion mygets de esta misma libreria
 *
