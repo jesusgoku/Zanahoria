@@ -13,8 +13,8 @@ void fijarColorTexto(const int color){
 	printf("\033[0;%im", color);
 }
 
-void fijarColorFondo(const int color){
-	printf("\033[0;%im", color);
+void fijarColorFondo(const int fondo){
+	printf("\033[0;%im", fondo);
 }
 
 void fijarColorEstilo(const int estilo){
@@ -39,7 +39,7 @@ void fijarColorNormal(){}
 
 void fijarColorTexto(const int color){}
 
-void fijarColorFondo(const int color){}
+void fijarColorFondo(const int fondo){}
 
 void fijarColorEstilo(const int estilo){}
 

@@ -56,11 +56,11 @@ void fijarColorNormal();
 */
 void fijarColorTexto(const int color);
 
-/** @brief Fija el color del fondo a color.
+/** @brief Fija el color del fondo a fondo.
 *
-* @param color corresponde a la constantes FONDO_XXX donde XXX son el color dentro de los disponibles
+* @param fondo corresponde a las constantes FONDO_XXX donde XXX puede ser cualquiera de los fondos disponibles
 */
-void fijarColorFondo(const int color);
+void fijarColorFondo(const int fondo);
 
 /** @brief Fija el estilo de la terminal.
 *
