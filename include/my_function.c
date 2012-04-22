@@ -56,19 +56,19 @@ void pausa(){
 }
 
 void pausaMensaje(const char *mensaje){
-    println(mensaje);
+    fputs(mensaje, stdout);
     pausa();
 }
 
 int preguntayn(const char *pregunta){
-    char respuesta;
-    do{
-        printf(pregunta);
+    char respuesta = 0;
+    do {
+        fputs(pregunta, stdout);
         clearStdin();
         scanf("%c", &respuesta);
         if(respuesta != 'y' && respuesta != 'n')
             println("Respuesta no valida!");
-    }while(respuesta != 'y' && respuesta != 'n');
+    } while (respuesta != 'y' && respuesta != 'n');
     return respuesta == 'y' ? 1 : 0;
 }
 

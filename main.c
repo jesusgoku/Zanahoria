@@ -22,8 +22,8 @@ int main(int argc, char **argv)
 	int siguienteMovimiento = 0;
 	Bool gameOver = False;
 	Bool movValido = False;
-	FILE * fp;
-	Bool recuperarPartida;
+	FILE *fp = NULL;
+	Bool recuperarPartida = False;
 
 	// Limpio la pantalla
 	clearScr();
@@ -38,6 +38,7 @@ int main(int argc, char **argv)
 		
 		// Cierro el fichero para poder abrirlo desde la funcion
 		fclose(fp);
+		fp = NULL;
 
 		recuperarPartida = False;
 		recuperarPartida = (Bool)preguntayn("Existe una partida guardada, desea cargarla? (y/n): ");
@@ -105,9 +106,20 @@ int main(int argc, char **argv)
 			ejecutarTeletransportacion(tablero, m , n);
 			gameOver = (ejecutarMovimientoConejos(tablero, tableroCopia, m, n, &conejosVivos, &puntaje) == 0) ? True : False;
 		}else if(siguienteMovimiento == ACTION_SAVE){
-			if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
-				pausaMensaje("Partida Guardada!");
-			// break;
+			// Verficamos si ya existe una partida guardada
+			fp = fopen(FILE_PARTIDA, "r");
+			if(fp != NULL){
+				fclose(fp);
+				fp = NULL;
+				// Preguntamos si desea sobreescribir la partida existe
+				if(preguntayn("Ya existe una partida guardada, desea sobreescribirla? (y/n): ")){
+					if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
+						pausaMensaje("Partida Guardada!");
+				}
+			}else{
+				if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
+					pausaMensaje("Partida Guardada!");
+			}
 		}else if(siguienteMovimiento == ACTION_QUIT){
 			clearScr();
 			println("Gracias por jugar!");
