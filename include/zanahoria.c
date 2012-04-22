@@ -443,7 +443,17 @@ int guardarPartida(char *ficheroName, char **tablero, const int filas, const int
 
 void mostrarRanking(ItemRanking *ranking, const int n){
 	int i;
-	for(i = n - 1; i >= 0; i--) printf("%2i) Puntaje: %5i * Por: %s\n", n - i, ranking[i].puntaje, ranking[i].nombre);
+	// El Titulo
+	fijarColorTextoEstilo(COLOR_VERDE, ESTILO_PARPADEANTE);
+	printf("..:: RANKING ::..\n\n");
+	fijarColorNormal();
+	// El Ranking
+	for(i = n - 1; i >= 0; i--){
+		if(i % 2) fijarColorTexto(COLOR_CYAN);
+		else fijarColorTexto(COLOR_VERDE);
+		printf("%2i) Puntaje: %5i * Por: %s\n", n - i, ranking[i].puntaje, ranking[i].nombre);
+	}
+	fijarColorNormal();
 }
 
 int ingresarRanking(ItemRanking *ranking, const int n, ItemRanking *elemento){
