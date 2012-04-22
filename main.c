@@ -166,13 +166,7 @@ int main(int argc, char **argv)
 			// Verificamos si puede entrar al ranking
 			if(puntaje > ranking[0].puntaje){
 				paso.puntaje = puntaje;
-				fputs("Felcidades has ingresado al ranking\nDame tu nombre: ", stdout);
-				clearStdin();
-				fgets(paso.nombre, MAX_SIZE_NAME, stdin);
-				for(i = 0; paso.nombre[i] != '\n';i++){
-
-				}
-				paso.nombre[i] = '\0';
+				pedirCadena("¡¡Felicidades has ingresado al ranking!!\n\nDate tu nombre: ", paso.nombre, MAX_SIZE_NAME);
 				ingresarRanking(ranking, RANKING_NUM, &paso);
 				mostrarRanking(ranking, RANKING_NUM);
 			}

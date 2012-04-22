@@ -72,4 +72,17 @@ int preguntayn(const char *pregunta){
     return respuesta == 'y' ? 1 : 0;
 }
 
+void mygets(char *cadena, const int max){
+    int i = 0;
+    clearStdin();
+    fgets(cadena, max, stdin);
+    for(i = 0; cadena[i] != '\n'; i++);
+    cadena[i] = '\0';
+}
+
+void pedirCadena(const char *mensaje, char *destino, const int max){
+    fputs(mensaje, stdout);
+    mygets(destino, max);
+}
+
 #endif // __MY_FUNCTION_C__

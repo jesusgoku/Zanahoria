@@ -16,4 +16,7 @@ void pausa();
 void pausaMensaje(const char *mensaje);
 int preguntayn(const char *pregunta);
 
+void mygets(char *cadena, const int max);
+void pedirCadena(const char *mensaje, char *destino, const int max);
+
 #endif // __MY_FUNCTION_H__
