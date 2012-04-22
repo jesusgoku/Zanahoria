@@ -24,6 +24,12 @@ int main(int argc, char **argv)
 	Bool movValido = False;
 	FILE *fp = NULL;
 	Bool recuperarPartida = False;
+	ItemRanking ranking[RANKING_NUM];
+	ItemRanking paso;
+
+	// Cargo el Ranking
+	inicializarRanking(ranking, RANKING_NUM);
+	cargarRanking(ranking, RANKING_NUM);
 
 	// Limpio la pantalla
 	clearScr();
@@ -70,7 +76,6 @@ int main(int argc, char **argv)
 
 
 	}
-
 
 	// Reservo la memoria para una copia del tablero
 	tableroCopia = (char **)pedirMemoriaMatriz(m, n, 'c');
@@ -158,6 +163,19 @@ int main(int argc, char **argv)
 			clearScr();
 			// tablero_view(tablero, m, n);
 			println("GAME OVER!");
+			// Verificamos si puede entrar al ranking
+			if(puntaje > ranking[0].puntaje){
+				paso.puntaje = puntaje;
+				fputs("Felcidades has ingresado al ranking\nDame tu nombre: ", stdout);
+				clearStdin();
+				fgets(paso.nombre, MAX_SIZE_NAME, stdin);
+				for(i = 0; paso.nombre[i] != '\n';i++){
+
+				}
+				paso.nombre[i] = '\0';
+				ingresarRanking(ranking, RANKING_NUM, &paso);
+				mostrarRanking(ranking, RANKING_NUM);
+			}
 			break;
 			// Pendiente: Podria preguntar si desea iniciar otra partida
 		}
@@ -166,6 +184,8 @@ int main(int argc, char **argv)
 	// Libero la memoria otorgada para el tablero
 	liberarMemoriaMatriz((void **)tablero);
 	liberarMemoriaMatriz((void **)tableroCopia);
+
+	guardarRanking(ranking, RANKING_NUM);
 
 	return 0;
 }

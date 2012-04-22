@@ -67,6 +67,14 @@
 
 #define FILE_PARTIDA "partida.dat"
 
+#define MAX_SIZE_NAME 50
+#define RANKING_NUM 10
+
+typedef struct itemRanking {
+	char nombre[MAX_SIZE_NAME + 1];
+	int puntaje;
+} ItemRanking;
+
 void pedirConejosIniciales(int *f, int *c, int *ci);
 void pedirDimensionTablero(int *c, int *f);
 
@@ -86,5 +94,11 @@ void ejecutarTeletransportacion(char **tablero, const int filas, const int colum
 
 char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje);
 int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
+
+void mostrarRanking(ItemRanking *ranking, const int n);
+int ingresarRanking(ItemRanking *ranking, const int n, ItemRanking *elemento);
+int guardarRanking(ItemRanking *ranking, const int n);
+int cargarRanking(ItemRanking *ranking, const int n);
+void inicializarRanking(ItemRanking *ranking, const int n);
 
 #endif // __ZANAHORIA_H__

@@ -65,6 +65,15 @@
 
 #define FILE_PARTIDA "partida.dat"
 
+#define MAX_SIZE_NAME 50
+#define RANKING_NUM 10
+#define FILE_RANKING "ranking.dat"
+
+typedef struct itemRanking {
+	char nombre[MAX_SIZE_NAME + 1];
+	int puntaje;
+} ItemRanking;
+
 void pedirConejosIniciales(int *f, int *c, int *ci){
 	int max = (int)floor( (*c) * (*f) * 0.1 );
 	do{
@@ -395,6 +404,71 @@ int guardarPartida(char *ficheroName, char **tablero, const int filas, const int
 	}
 	fclose(fp);
 	return 1;
+}
+
+/*******************************
+/* Funciones para el Ranking
+/*******************************/
+
+void mostrarRanking(ItemRanking *ranking, const int n){
+	int i;
+	for(i = n - 1; i >= 0; i--) printf("%2i) Puntaje: %5i * Por: %s\n", n - i, ranking[i].puntaje, ranking[i].nombre);
+}
+
+int ingresarRanking(ItemRanking *ranking, const int n, ItemRanking *elemento){
+	int i;
+	if(elemento->puntaje > ranking[0].puntaje){
+
+		for(i = 0; i < n; i++){
+			if(elemento->puntaje > ranking[i].puntaje){
+				if( (i + 1) < n){
+					ranking[i].puntaje = ranking[i + 1].puntaje;
+					strcpy(ranking[i].nombre, ranking[i + 1].nombre);
+				}else{
+					ranking[i].puntaje = elemento->puntaje;
+					strcpy(ranking[i].nombre, elemento->nombre);
+				}
+			}else{
+				if(i - 1 >= 0){
+					ranking[i - 1].puntaje = elemento->puntaje;
+					strcpy(ranking[i - 1].nombre, elemento->nombre);
+				}else{
+					ranking[i].puntaje = elemento->puntaje;
+					strcpy(ranking[i].nombre, elemento->nombre);
+				}
+				break;
+			}
+		}
+
+	}else return 0; // No ingresa al Ranking
+	// Retorno la posicion en el Ranking
+	return n - i;
+}
+
+int guardarRanking(ItemRanking *ranking, const int n){
+	FILE *fp;
+	fp = fopen(FILE_RANKING, "wb");
+	if(fp == NULL) return 0;
+	fwrite(ranking, sizeof(ItemRanking) * n, 1, fp);
+	fclose(fp);
+	return 1;
+}
+
+int cargarRanking(ItemRanking *ranking, const int n){
+	FILE *fp;
+	fp = fopen(FILE_RANKING, "rb");
+	if(fp == NULL) return 0;
+	fread(ranking, sizeof(ItemRanking) * n, 1, fp);
+	fclose(fp);
+	return 1;
+}
+
+void inicializarRanking(ItemRanking *ranking, const int n){
+	int i;
+	for(i = 0; i < n; i++){
+		ranking[i].puntaje = 0;
+		strcpy(ranking[i].nombre, "---");
+	}
 }
 
 #endif // __ZANAHORIA_C__
