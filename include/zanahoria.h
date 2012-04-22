@@ -8,6 +8,7 @@
 #include <ctype.h>
 #include <my_function.h>
 #include <memoria.h>
+#include <colores.h>
 
 // Constantes para describir los elementos de tablero
 #define ZANAHORIA 'z'

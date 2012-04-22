@@ -8,6 +8,7 @@
 #include <ctype.h>
 #include <my_function.h>
 #include <memoria.h>
+#include <colores.h>
 
 // Constantes para describir los elementos de tablero
 #define ZANAHORIA 'z'
@@ -121,7 +122,9 @@ void tablero_view(char **tablero, int f, int c){
 	int i = 0, j = 0;
 	for(i = 0; i < f; i++){
 		for(j = 0; j < c; j++){
+			if(tablero[i][j] == ZANAHORIA) fijarColorTextoEstilo(COLOR_CYAN, ESTILO_PARPADEANTE);
 			printf("%c ", tablero[i][j]);
+			if(tablero[i][j] == ZANAHORIA) fijarColorNormal();
 		}
 		putchar('\n');
 	}
