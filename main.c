@@ -169,6 +169,7 @@ int main(int argc, char **argv)
 				paso.puntaje = puntaje;
 				pedirCadena("¡¡Felicidades has ingresado al ranking!!\n\nDate tu nombre: ", paso.nombre, MAX_SIZE_NAME);
 				ingresarRanking(ranking, RANKING_NUM, &paso);
+				clearScr();
 				mostrarRanking(ranking, RANKING_NUM);
 			}
 			break;
