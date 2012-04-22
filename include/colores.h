@@ -4,7 +4,7 @@
 * poder dar color, fondo y estilo a la terminal y asi agregar un poco de riquesa al
 * contenido mostrado.
 *
-* @file my_function.h
+* @file colores.h
 * @version 0.1
 * @date 22/04/2012
 * @author JesusGoku
