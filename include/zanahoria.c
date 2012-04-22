@@ -9,6 +9,7 @@
 #include <my_function.h>
 #include <memoria.h>
 
+// Constantes para describir los elementos de tablero
 #define ZANAHORIA 'z'
 #define CONEJO '&'
 #define CADAVER '#'
@@ -16,6 +17,7 @@
 #define CONEJO_TRAMPOLIN '?'
 #define CELDA_VACIA '_'
 
+// Constantes para describir los movimientos
 #define MOV_TOP_N '8'
 #define MOV_TOP_C 'u'
 #define MOV_TOPLEFT_N '7'
@@ -53,22 +55,28 @@
 #define ACTION_QUIT 11
 #define ACTION_SAVE 12
 
+// Constantes con el aumento de puntaje
 #define PUNTAJE_MOV 5
 #define PUNTAJE_CHOQUE 50
 #define PUNTAJE_NIVEL 100
 
+// Tasas de aumentos para las etaoas
 #define TASA_AUMENTO_CONEJOS 0.25
 #define TASA_AUMENTO_TRAMPOLINES 0.2
 
+// Constantes para los tampolines
 #define NIVEL_TRAMPOLINES_START 2
 #define TRAMPOLINES_INICIALES 2
 
+// Constantes para la partida
 #define FILE_PARTIDA "partida.dat"
 
+// Constantes para el Ranking
 #define MAX_SIZE_NAME 50
 #define RANKING_NUM 10
 #define FILE_RANKING "ranking.dat"
 
+// Estructura de Datos para los datos del Ranking
 typedef struct itemRanking {
 	char nombre[MAX_SIZE_NAME + 1];
 	int puntaje;
