@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include <my_function.h>
 
 int println(const char *formato, ...)
 {
