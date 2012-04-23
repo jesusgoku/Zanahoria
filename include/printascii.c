@@ -113,3 +113,17 @@ void printLuminoso(char *cadena){
 	for(i = 0;i < len; i++) printf(" \\_/");
 	printf("\n");
 }
+
+void printMasMenos(char *cadena){
+	int i = 0;
+	int len = strlen(cadena);
+	// Primera Linea
+	printf("+");
+	for(i = 0; i < len; i++) printf("-+");
+	// Linea Central
+	printf("\n|");
+	for(i = 0; i < len; i++) printf("-+");
+	// Ultima Linea
+	printf("\n+");
+	for(i = 0; i < len; i++) printf("-+");
+}
