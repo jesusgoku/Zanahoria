@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <colores.h>
 
 void printZanahoria(){
@@ -86,4 +87,29 @@ void printGraciasPorJugar(){
 	printf("( |_n|   / o ( (_ | || o |\\_ \\ |  _( o )   / n_| || U ( |_n| o ||   /  \n");
 	printf(" \\__/|_|\\\\_n_|\\__||_||_n_||__/ |_|  \\_/|_|\\\\ \\__/ |___|\\__/|_n_||_|\\\\()\n");
 	fijarColorNormal();
+}
+
+void printLuminoso(char *cadena){
+	int i = 0;
+	int len = strlen(cadena);
+	// Primera Linea
+	printf(" ");
+	for(i = 0;i < len; i++) printf(" _  ");
+	// Segunda Linea
+	printf("\n");
+	for(i = 0;i < len; i++) printf(" / \\");
+	// Texto
+	printf("\n");
+	for(i = 0;i < len; i++){
+		if( i == 0 ) printf("( ");
+		else printf("| ");
+		fijarColorTextoEstilo(COLOR_ROJO, ESTILO_PARPADEANTE);
+		printf("%c ", cadena[i]);
+		fijarColorNormal();
+		if( i == len - 1) printf(")");
+	}
+	// Penultima Linea
+	printf("\n");
+	for(i = 0;i < len; i++) printf(" \\_/");
+	printf("\n");
 }

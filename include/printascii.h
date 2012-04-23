@@ -3,5 +3,6 @@
 
 void printZanahoria();
 void printConejo();
+void printLuminoso(char *cadena);
 
 #endif // __PRINTASCII_H__
