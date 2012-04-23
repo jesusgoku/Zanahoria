@@ -40,6 +40,7 @@ int main(int argc, char **argv)
 	pausa();
 	clearScr();
 
+
 	// Verifico si existe una partida guardada
 	fp = fopen(FILE_PARTIDA, "r");
 
