@@ -372,9 +372,7 @@ int guardarPartida(char *ficheroName, char **tablero, const int filas, const int
 void mostrarRanking(ItemRanking *ranking, const int n){
 	int i;
 	// El Titulo
-	fijarColorTextoEstilo(COLOR_VERDE, ESTILO_PARPADEANTE);
-	printf("..:: RANKING ::..\n\n");
-	fijarColorNormal();
+	printLuminoso("RANKING");
 	// El Ranking
 	for(i = n - 1; i >= 0; i--){
 		if(i % 2) fijarColorTexto(COLOR_CYAN);
