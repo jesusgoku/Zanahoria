@@ -1,8 +1,8 @@
 CC := gcc
 OS := MAC
 CFLAGS := -D$(OS) -Iinclude
-OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o include/colores.o
-FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c include/colores.c
+OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o include/colores.o include/printascii.o
+FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c include/colores.c include/printascii.c
 
 .PHONY: clean start push
 
@@ -23,6 +23,9 @@ memoria.o: memoria.c
 
 colores.o: colores.c
 	$(CC) $(CFLGAS) -c colores.c
+
+printascii.o: printascii.c
+	$(CC) $(CFLAGS) -c printascii.c
 
 clean:
 	rm -f *.o zanahoria include/*.o

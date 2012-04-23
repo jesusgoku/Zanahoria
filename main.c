@@ -8,6 +8,7 @@
 #include <zanahoria.h>
 #include <memoria.h>
 #include <colores.h>
+#include <printascii.h>
 
 int main(int argc, char **argv)
 {
@@ -35,7 +36,9 @@ int main(int argc, char **argv)
 	// Limpio la pantalla
 	clearScr();
 	// Doy la bienvenida
-	println("Bienvenido al Juego de la Zanahoria");
+	printZanahoria();
+	pausa();
+	clearScr();
 
 	// Verifico si existe una partida guardada
 	fp = fopen(FILE_PARTIDA, "r");
@@ -128,7 +131,8 @@ int main(int argc, char **argv)
 			}
 		}else if(siguienteMovimiento == ACTION_QUIT){
 			clearScr();
-			println("Gracias por jugar!");
+			//println("Gracias por jugar!");
+			printGraciasPorJugar();
 			break;
 		}
 
@@ -163,7 +167,7 @@ int main(int argc, char **argv)
 		if(gameOver){
 			clearScr();
 			// tablero_view(tablero, m, n);
-			println("GAME OVER!");
+			printConejoGameOver();
 			// Verificamos si puede entrar al ranking
 			if(puntaje > ranking[0].puntaje){
 				paso.puntaje = puntaje;

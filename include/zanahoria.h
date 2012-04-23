@@ -1,3 +1,14 @@
+/** @brief Funciones Exclusivas para el juego.
+*
+* Esta liberia contiene aquellas funciones que son de uso poco generico y que fueron creadas para este juego
+* y que dificilmente seran utilizadas en otra aplicacion diferente
+*
+* @file zanahoria.h
+* @version 0.1
+* @date 22/04/2012
+* @author JesusGoku
+* 
+*/
 #ifndef __ZANAHORIA_H__
 #define __ZANAHORIA_H__
 
