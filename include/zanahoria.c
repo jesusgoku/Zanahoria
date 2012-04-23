@@ -373,6 +373,7 @@ void mostrarRanking(ItemRanking *ranking, const int n){
 	int i;
 	// El Titulo
 	printLuminoso("RANKING");
+	printf("\n");
 	// El Ranking
 	for(i = n - 1; i >= 0; i--){
 		if(i % 2) fijarColorTexto(COLOR_CYAN);
