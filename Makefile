@@ -1,6 +1,6 @@
 CC := gcc
 OS := MAC
-CFLAGS := -D$(OS) -Iinclude
+CFLAGS := -D$(OS) -Iinclude -lm
 OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o include/colores.o include/printascii.o
 FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c include/colores.c include/printascii.c
 
