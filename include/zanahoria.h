@@ -88,26 +88,141 @@
 #define RANKING_NUM 10
 #define FILE_RANKING "ranking.dat"
 
-// Estructura de Datos para los datos del Ranking
+/** @brief Estructura de Datos para los datos del Ranking
+*/
 typedef struct itemRanking {
-	char nombre[MAX_SIZE_NAME + 1];
+	char nombre[MAX_SIZE_NAME + 1]; //<! 
 	int puntaje;
 } ItemRanking;
 
+/** @brief Solicita la cantidad de conejos iniciales al usuario.
+*
+* Se deben enviar las dimensiones del tablero para calcular una numero max
+* para la cantidad de conejos ingresadas por el usuario, cosa de que el juego tenga sentido.
+* Se ha establecido arbitrariamente al 10% del tamaño total de casillas disponibles en el tablero
+* esto pensando en que a medida de que avanze el juego la cantidad de conejos ira aumentando.
+*
+* Tambien se fija la cantidad minina de conejos en 2 ya que de lo contrario
+* seria imposible que hibiera un choque entre ellos.
+*
+* @param f puntero a entero con el numero de filas del tablero de juego
+* @param c puntero a entero con el numero de columnas del tablero de juego
+* @param ci puntero a entero donde se almacenara el numero de conejos iniciales ingresado.
+*
+*/
 void pedirConejosIniciales(int *f, int *c, int *ci);
-void pedirDimensionTablero(int *c, int *f);
 
+/** @brief Solicita al usuario las dimensiones del tablero.
+*
+* Se ha establecido arbitrariamente que las dimensiones del tablero deben de ser impar
+* con el objeto de que haya un solo centro en lugar de cuatro cuando las dimensiones del
+* tablero es par.
+*
+* Tambien se ha establecido como tamaño minimo de tablero el numero 5 ya que es el minimo aceptable
+* para que caiga la zanahoria en el centro y un 10% de conejos y se pueda desarrollar un juego.
+*
+* Como comentario adicional se establecen la cantidad de filas y columnas por separado, aun cuando
+* para este juego la dimension del tablero es cuadrada, pero he decidido dejarla asi para que pueda ser modificado
+* facilmente en caso de que se desee que no sea asi.
+*
+* @param f puntero a entero donde se almacenara el numero de filas
+* @param c puntero a entero donde se almacenara el numero de columnas
+*/
+void pedirDimensionTablero(int *f, int *c);
+
+/** @brief Inicializa el tablero al equivalente a CELDA_VACIA.
+*
+* llena todo las casillas del tablero con el caracter representado por la constante
+* CELDA_VACIA
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param f entero con la cantidad de filas del tablero
+* @param c entero con la cantidad de columnas del tablero
+*
+*/
 void tablero_ini(char **tablero, int f, int c);
+
+/** @brief Muestra el tablero en pantalla.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param f entero con la cantidad de filas del tablero
+* @param c entero con la cantidad de columnas del tablero
+*
+*/
 void tablero_view(char **tablero, int f, int c);
 
+/** @brief Ubica a la zanahoria en el centro del escenario.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param f entero con la cantidad de filas del tablero
+* @param c entero con la cantidad de columnas del tablero
+*/
 void ubicarZanahoriaInicial(char **tablero, const int f, const int c);
+
+/** @brief Ubica una cierta cantidad de conejos aleatoriamente por el tablero.
+*
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param m entero con la cantidad de filas del tablero
+* @param n entero con la cantidad de columnas del tablero
+* @param conejos entero con la cantidad de conejos a ubicar aleatoriamente
+*
+*/
 void ubicarConejosIniciales(char **tablero, const int m, const int n, const int conejos);
+
+/** @brief Ubicar los tamprolines aleatoriamente por el tablero.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param m entero con la cantidad de filas del tablero
+* @param n entero con la cantidad de columnas del tablero
+* @param trampolines entero con la cantidad de tableros a ubicar aleatoriamente
+*/
 void ubicarTrampolines(char **tablero, const int m, const int n, const int trampolines);
 
-
+/** @brief Devuelve las coordenas de la zanahoria en el tablero.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param filas entero con la cantidad de filas del tablero
+* @param columnas entero con la cantidad de columnas del tablero
+* @param coordZF puntero a entero donde se almacenara la coordena fila de la zanahoria
+* @param coordZC puntero a entero donde se almacenara la coordena columna de la zanahoria
+*/
 void posicionZanahoria(char **tablero, const int filas, const int columnas, int *coordZF, int *coordZC);
+
+/** @brief Pide el siguiemte movimiento a ejecutar al usuario.
+*
+* Se encarga de validar que al menos sea un comando de juego valido o lo vuelve a pedir
+*
+* @return devuelve un entero que representa el movimiento ingresado por el usuario
+*/
 int pedirSiguienteMovimiento();
+
+/** @brief Ejecuta el movimiento de la zanahoria hasta mov.
+*
+* El movimiento se ejecuta siempre de que sea un movimiento valido
+* es decir que no se salga del tablero o que no haya otro objeto
+* en la casilla a la que se desea mover.
+*
+* @param mov entero que representa al movimiento que solicito el usuario
+* @param tablero puntero a la matriz que representa al tablero
+* @param filas entero con la cantidad de filas del tablero
+* @param columnas entero con la cantidad de columnas del tablero
+*
+* @return Devuelve 0 si el movimiento no es valido, y 1 si lo es y la mueve hasta la posicion
+*/
 int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas);
+
+/** @brief Ejecuta el movimiento de todos los conejos persiguiendo al conejo
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param tableroCopy puntero a la matriz que representa a una copia del tablero para poder realizar los movimientos
+* @param filas entero con la cantidad de filas del tablero
+* @param columnas entero con la cantidad de columnas del tablero
+* @param conejosVivos puntero a entero donde se almacena la cantidad de conejos vivos que se disminuira en caso de colision de conejos
+* @param puntaje puntero a entero donde se lleva el puntaje que ira aumentando en caso de colision de acuerdo a los establecido en la constante PUNTAJE_CHOQUE
+*
+* @return Devuelve 0 en caso de que un conejo haya caido sobre la zanahoria, en caso contrario retorna 1
+*/
 int ejecutarMovimientoConejos(char **tablero, char **tableroCopy, const int filas, const int columnas, int *conejosVivos, int *puntaje);
 void ejecutarTeletransportacion(char **tablero, const int filas, const int columnas);
 
