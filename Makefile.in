@@ -4,7 +4,7 @@ CFLAGS := -D$(OS) -Iinclude -lm
 OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o include/colores.o include/printascii.o
 FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c include/colores.c include/printascii.c
 
-.PHONY: clean start push
+.PHONY: clean distclean start push
 
 zanahoria: $(OBJETOS)
 	$(CC) $(CFLAGS) $(OBJETOS) -o zanahoria
@@ -29,6 +29,9 @@ printascii.o: printascii.c
 
 clean:
 	rm -f *.o zanahoria include/*.o
+
+distclean:
+	rm *.dat Makefile
 
 start:
 	clear && ./zanahoria
