@@ -28,6 +28,7 @@
 #define TRAMPOLIN '<'
 #define CONEJO_TRAMPOLIN '?'
 #define CELDA_VACIA '_'
+#define ZANAHORIA_MUERTA 'x'
 
 // Constantes para describir los movimientos
 #define MOV_TOP_N '8'

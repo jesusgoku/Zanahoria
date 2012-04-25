@@ -139,6 +139,7 @@ int main(int argc, char **argv)
 
 		if(movValido){
 			puntaje += PUNTAJE_MOV;
+			// Intercambio los tableros
 			auxiliar = tablero;
 			tablero = tableroCopia;
 			tableroCopia = auxiliar;

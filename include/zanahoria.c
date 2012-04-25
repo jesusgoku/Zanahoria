@@ -212,7 +212,9 @@ int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, 
 			break;
 		case MOVE_CENTER:
 			// No hay movimiento que hacer y retornomar movimiento correcto
-			return 1;
+			//return 1;
+			y = 0;
+			x = 0;
 		default:
 			y = 0;
 			x = 0;
@@ -222,9 +224,11 @@ int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, 
 	// Valido que sea un mov. en el tablero y que la celda este vacia
 	coordMoveF = coordZF + y;
 	coordMoveC = coordZC + x;
-	if( (coordMoveF) < filas && (coordMoveF) >= 0 && (coordMoveC) < columnas && (coordMoveC) >= 0 && tablero[coordMoveF][coordMoveC] == CELDA_VACIA){
-		tablero[coordMoveF][coordMoveC] = ZANAHORIA;
-		tablero[coordZF][coordZC] = CELDA_VACIA;
+	if( (coordMoveF) < filas && (coordMoveF) >= 0 && (coordMoveC) < columnas && (coordMoveC) >= 0 && ( tablero[coordMoveF][coordMoveC] == CELDA_VACIA || tablero[coordMoveF][coordMoveC] == ZANAHORIA ) && verificarVecindadZanahoria(tablero, filas, columnas, coordMoveF, coordMoveC, 1) ){
+		if(coordMoveF != coordZF || coordMoveC != coordZC){
+			tablero[coordMoveF][coordMoveC] = ZANAHORIA;
+			tablero[coordZF][coordZC] = CELDA_VACIA;
+		}
 	}else return 0;
 	return 1;
 }
@@ -234,6 +238,7 @@ int ejecutarMovimientoConejos(char **tablero, char **tableroCopia, const int fil
 	int coordZC, coordZF;
 	int coordMoveF, coordMoveC;
 	int movSize;
+	int zanahoriaViva = 1;
 	// Borramos el tablero copia
 	tablero_ini(tableroCopia, filas, columnas);
 	// Transladamos desde el tablero al tablero copia
@@ -283,8 +288,9 @@ int ejecutarMovimientoConejos(char **tablero, char **tableroCopia, const int fil
 						(*conejosVivos) -= 1;
 						break;
 					case ZANAHORIA:
-						tableroCopia[coordMoveF][coordMoveC] = 'X';
-						return 0;
+					case ZANAHORIA_MUERTA:
+						tableroCopia[coordMoveF][coordMoveC] = ZANAHORIA_MUERTA;
+						zanahoriaViva = 0;
 						break;
 					case TRAMPOLIN:
 						tableroCopia[coordMoveF][coordMoveC] = CONEJO_TRAMPOLIN;
@@ -293,7 +299,7 @@ int ejecutarMovimientoConejos(char **tablero, char **tableroCopia, const int fil
 			}
 		}
 	}
-	return 1;
+	return zanahoriaViva;
 }
 
 void ejecutarTeletransportacion(char **tablero, const int filas, const int columnas){
@@ -315,6 +321,23 @@ void ejecutarTeletransportacion(char **tablero, const int filas, const int colum
 		}
 	}
 	if(done) tablero[coordZF][coordZC] = CELDA_VACIA;
+}
+
+int verificarVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c, const int salto){
+	int i = 0;
+	int j = f - salto; // Representa a las filas
+	int k = c; // Representa a las columnas
+	char celda = (salto == 1) ? CONEJO : CONEJO_TRAMPOLIN;
+	for( i = 1; i <= 8; i++){
+		if(j >= 0 && j < m && k >= 0 && k < n) // Verifico si es una coordenada valida
+			if(tablero[j][k] == celda) // Verifico si hay un conejo o un conejo en trampolin
+				return 0;
+		if( i >= 0 && i < 2 ) k += salto;
+		if( i >= 2 && i < 4 ) j += salto;
+		if( i >= 4 && i < 6 ) k -= salto;
+		if( i >= 6 && i < 8 ) j -= salto;
+	}
+	return 1;
 }
 
 /************************************
