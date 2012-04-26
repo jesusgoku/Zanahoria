@@ -91,7 +91,7 @@ int main(int argc, char **argv)
 	for(;;){
 		clearScr();
 		// Muestro el tablero
-		tablero_view(tablero, m , n);
+		tablero_pretty_view(tablero, m , n);
 		// Muestro el estado del juego
 		println("Conejos Vivos: %i - Nivel: %i - Puntaje: %i", conejosVivos, nivel, puntaje);
 		// Pido movimiento al usuario
