@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 		if(siguienteMovimiento >= 1 && siguienteMovimiento <= 9){
 			// Verificamos si el movimiento ingresado se puede realizar
 			// Si es asi movemos la zanahoria
-			movValido = ejecutarMovimientoZanahoria(siguienteMovimiento, tablero, m, n) ? True : False;
+			movValido = ejecutarMovimientoZanahoria(siguienteMovimiento, tablero, m, n, nivel) ? True : False;
 			if(!movValido){
 				println("Movimiento no valido!...");
 				clearStdin();
