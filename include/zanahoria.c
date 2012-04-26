@@ -176,7 +176,7 @@ int pedirSiguienteMovimiento(){
 /* FUNCIONES PARA EJECUTAR MOVIMIENTOS
 /*******************************************/
 
-int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas){
+int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas, const int nivel){
 	int coordMoveF, coordMoveC;
 	int coordZF, coordZC;
 	int y = 0, x = 0;
@@ -224,7 +224,7 @@ int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, 
 	// Valido que sea un mov. en el tablero y que la celda este vacia
 	coordMoveF = coordZF + y;
 	coordMoveC = coordZC + x;
-	if( (coordMoveF) < filas && (coordMoveF) >= 0 && (coordMoveC) < columnas && (coordMoveC) >= 0 && ( tablero[coordMoveF][coordMoveC] == CELDA_VACIA || tablero[coordMoveF][coordMoveC] == ZANAHORIA ) && verificarVecindadZanahoria(tablero, filas, columnas, coordMoveF, coordMoveC, 1) ){
+	if( (coordMoveF) < filas && (coordMoveF) >= 0 && (coordMoveC) < columnas && (coordMoveC) >= 0 && ( tablero[coordMoveF][coordMoveC] == CELDA_VACIA || tablero[coordMoveF][coordMoveC] == ZANAHORIA ) && verificarPrimeraVecindadZanahoria(tablero, filas, columnas, coordMoveF, coordMoveC) && ( nivel < NIVEL_TRAMPOLINES_START || verificarSegundaVecindadZanahoria(tablero, filas, columnas, coordMoveF, coordMoveC) ) ){
 		if(coordMoveF != coordZF || coordMoveC != coordZC){
 			tablero[coordMoveF][coordMoveC] = ZANAHORIA;
 			tablero[coordZF][coordZC] = CELDA_VACIA;
@@ -263,12 +263,12 @@ int ejecutarMovimientoConejos(char **tablero, char **tableroCopia, const int fil
 				// Fijamos la magnitud del movimiento
 				movSize = tablero[i][j] == CONEJO ? 1 : 2;
 				// Establecemos la posicion a la que lo moveremos
-				if(coordZF > i) coordMoveF = i + movSize;
-				else if(coordZF < i) coordMoveF = i - movSize;
+				if(coordZF > i) coordMoveF = ((i + movSize) > coordZF) ? (i + 1) : (i + movSize);
+				else if(coordZF < i) coordMoveF = ((i - movSize) < coordZF) ? (i - 1) : (i - movSize);
 				else coordMoveF = i;
 
-				if(coordZC > j) coordMoveC = j + movSize;
-				else if(coordZC < j) coordMoveC = j - movSize;
+				if(coordZC > j) coordMoveC = ((j + movSize) > coordZC) ? (j + 1) : (j + movSize);
+				else if(coordZC < j) coordMoveC = ((j - movSize) < coordZC) ? (j - 1) : (j - movSize);
 				else coordMoveC = j;
 
 				// Verificamos el contenido del destino
@@ -336,6 +336,46 @@ int verificarVecindadZanahoria(char **tablero, const int m, const int n, const i
 		if( i >= 2 && i < 4 ) j += salto;
 		if( i >= 4 && i < 6 ) k -= salto;
 		if( i >= 6 && i < 8 ) j -= salto;
+	}
+	return 1;
+}
+
+int verificarPrimeraVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c){
+	int i = 0;
+	int j = f - 1; // Representa a las filas, me ubico una fila mas arriba para comenzar
+	int k = c; // Representa a las columnas, y me quedo en la misma columna
+	int saltos = 8;
+	int quiebre[4];
+	for(i = 0; i < 4; i++) quiebre[i] = (int)(saltos * (i + 1) / 4);
+
+	for( i = 1; i <= 8; i++){
+		if(j >= 0 && j < m && k >= 0 && k < n) // Verifico si es una coordenada valida
+			if(tablero[j][k] == CONEJO || tablero[j][k] == CONEJO_TRAMPOLIN) // Verifico si hay un conejo o un conejo en trampolin
+				return 0;
+		if( i >= 0 && i < quiebre[0] ) k += 1;
+		if( i >= quiebre[0] && i < quiebre[1] ) j += 1;
+		if( i >= quiebre[1] && i < quiebre[2] ) k -= 1;
+		if( i >= quiebre[2] && i < quiebre[3] ) j -= 1;
+	}
+	return 1;
+}
+
+int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c){
+	int i = 0;
+	int j = f - 2; // Representa a las filas, Me ubico en 2 filas mas arriba para comenzar
+	int k = c - 1; // Representa a las columnas, Me ubico una columna mas a la izquierda para comenzar
+	int saltos = 16;
+	int quiebre[4];
+	for(i = 0; i < 4; i++) quiebre[i] = (int)(saltos * (i + 1) / 4);
+		
+	for( i = 1; i <= 8; i++){
+		if(j >= 0 && j < m && k >= 0 && k < n) // Verifico si es una coordenada valida
+			if(tablero[j][k] == CONEJO_TRAMPOLIN) // Verifico si hay un conejo o un conejo en trampolin
+				return 0;
+		if( i >= 0 && i < quiebre[0] ) k += 1;
+		if( i >= quiebre[0] && i < quiebre[1] ) j += 1;
+		if( i >= quiebre[1] && i < quiebre[2] ) k -= 1;
+		if( i >= quiebre[2] && i < quiebre[3] ) j -= 1;
 	}
 	return 1;
 }

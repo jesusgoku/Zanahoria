@@ -204,14 +204,34 @@ int pedirSiguienteMovimiento();
 * es decir que no se salga del tablero o que no haya otro objeto
 * en la casilla a la que se desea mover.
 *
+* Ademas se debe validar que para que el movimiento sea valido, no exista el riesgo
+* de que en la casilla a donde se va a mover vaya a ser comido. Por eso se utilizan dos
+* funciones auxiliares para verificar las dos vecindades de si hay algun potencial conejo
+* que pueda hacer invalida la jugada. Por ese motivo se pasa el nivel que a primeras podria
+* parecer inecesario pero a como los trampolines solo comienzan a aparecer desde el 2do
+* nivel y estos son lo que permiten a los conejos saltar de a dos espacios, no tiene sentido
+* gastar tiempo llamando a la funcion que se encarga de revisar la segunda vecindad si no
+* hay riesgo aun.
+*
+* Para realizar el ahorro comentado en el parrafo anterior se aprovecha la evaluacion de
+* expresiones logicas de C por cortocircuito evaluando si el nivel es menos que el nivel
+* en que comienzan a aparecer los trampolines O verificar la vecindad, y ya que hasta que
+* se alcanze el nivel la primera expresion siempre dara verdadero, se ya sabe que la expresion
+* es verdadera y no ejecutara la funcion para revisar la vecindad. No asi cuando se alcanza el
+* nivel para los trampolines donde la primera expresion dara falso y C se vera obligado a
+* evaluar la seguna expresion, osea la funcion que verifica el segundo cuandrante para
+* conocer el valor de verdad de la expresion, dependiendo ahora exclusivamente de ella el
+* valor de la expresion.
+*
 * @param mov entero que representa al movimiento que solicito el usuario
 * @param tablero puntero a la matriz que representa al tablero
 * @param filas entero con la cantidad de filas del tablero
 * @param columnas entero con la cantidad de columnas del tablero
+* @param nivel entero con el nivel en el que se encuentra el juego
 *
 * @return Devuelve 0 si el movimiento no es valido, y 1 si lo es y la mueve hasta la posicion
 */
-int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas);
+int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas, const int nivel);
 
 /** @brief Ejecuta el movimiento de todos los conejos persiguiendo al conejo
 *
@@ -226,6 +246,9 @@ int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, 
 */
 int ejecutarMovimientoConejos(char **tablero, char **tableroCopy, const int filas, const int columnas, int *conejosVivos, int *puntaje);
 void ejecutarTeletransportacion(char **tablero, const int filas, const int columnas);
+int verificarVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c, const int salto);
+int verificarPrimeraVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c);
+int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c);
 
 char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje);
 int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
