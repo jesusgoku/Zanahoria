@@ -27,7 +27,7 @@
 #define CADAVER '#'
 #define TRAMPOLIN '<'
 #define CONEJO_TRAMPOLIN '?'
-#define CELDA_VACIA '_'
+#define CELDA_VACIA ' '
 #define ZANAHORIA_MUERTA 'x'
 
 // Constantes para describir los movimientos
@@ -151,6 +151,21 @@ void tablero_ini(char **tablero, int f, int c);
 *
 */
 void tablero_view(char **tablero, int f, int c);
+
+/** @brief Muestra el tablero en pantalla de forma espectacular.
+*
+* Esta es una version mejorar la version anterior que muestra el tablero de una forma
+* mas organizada a la vista al simular verdaderamente un tablero y sus casillas
+* por donde se desplazan la zanahoria y los conejos que quieren devorarla.
+* Tiene la desventaja de ocupar mas espacio para su representacion, lo que limita el
+* tamano de los tableros posibles.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param filas entero con la cantidad de filas del tablero
+* @param columnas entero con la cantidad de columnas del tablero
+*
+*/
+void tablero_pretty_view(char **tablero, const int filas, const int columnas);
 
 /** @brief Ubica a la zanahoria en el centro del escenario.
 *

@@ -58,6 +58,28 @@ void tablero_view(char **tablero, int f, int c){
 	}
 }
 
+void tablero_pretty_view(char **tablero, const int filas, const int columnas){
+	int i = 0, j = 0, k = 0;
+	// Imprimo la Primera linea
+	putchar('+');
+	for(k = 0; k < columnas; k++) printf(" - +");
+	putchar('\n');
+	
+	for( i = 0; i < filas; i ++){
+		// Imprimo el primer caracter de cada fila
+		putchar('|');
+		for( j = 0; j < columnas; j++){
+			printf(" %c |", tablero[i][j]);
+		}
+		// Imprimo la linea divisoria a cada fila
+		putchar('\n');
+		putchar('+');
+		for(k = 0; k < columnas; k++) printf(" - +");
+		putchar('\n');
+
+	}
+}
+
 /******************************
 /* FUNCIONES DE INICIALIZACION
 ******************************/
