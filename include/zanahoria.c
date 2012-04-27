@@ -477,7 +477,7 @@ void mostrarRankingDestacado(ItemRanking *ranking, const int n, const int pos){
 	// El Titulo
 	printLuminoso("RANKING");
 	printf("\n");
-	// El Ranking
+
 	// Muestro el encabezado de las columnas
 	fijarColorTexto(COLOR_PURPURA);
 	for( j = 0; j < 40; j++) putchar('-');
@@ -485,13 +485,13 @@ void mostrarRankingDestacado(ItemRanking *ranking, const int n, const int pos){
 	for( j = 0; j < 40; j++) putchar('-');
 	putchar('\n');
 	fijarColorNormal();
+
 	// Imprimo el ranking
 	for(i = n - 1; i >= 0; i--){
-		if(i == (n - pos)) fijarColorTextoEstilo(COLOR_VERDE, ESTILO_INVERSO);
+		if(i == (n - pos)) fijarColorTextoEstilo(COLOR_MARRON, ESTILO_INVERSO);
 		printf("|%4i |%20s |%9i |\n", n - i, ranking[i].nombre, ranking[i].puntaje);
 		fijarColorNormal();
 	}
-	fijarColorNormal();
 	for( j = 0; j < 40; j++) putchar('-');
 	putchar('\n');
 }
