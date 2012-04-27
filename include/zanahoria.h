@@ -269,6 +269,16 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
 
 void mostrarRanking(ItemRanking *ranking, const int n);
+
+/**
+* @brief Muestra el ranking destacando una poscion
+*
+* @param ranking puntero a estructura que contiene el ranking
+* @param n entero correspondiente al tamano del ranking
+* @param pos entero con la posicion que se desea destacar
+*
+*/
+void mostrarRankingDestacado(ItemRanking *ranking, const int n, const int pos);
 int ingresarRanking(ItemRanking *ranking, const int n, ItemRanking *elemento);
 int guardarRanking(ItemRanking *ranking, const int n);
 int cargarRanking(ItemRanking *ranking, const int n);

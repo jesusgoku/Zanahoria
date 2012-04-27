@@ -472,6 +472,30 @@ void mostrarRanking(ItemRanking *ranking, const int n){
 	fijarColorNormal();
 }
 
+void mostrarRankingDestacado(ItemRanking *ranking, const int n, const int pos){
+	int i, j;
+	// El Titulo
+	printLuminoso("RANKING");
+	printf("\n");
+	// El Ranking
+	// Muestro el encabezado de las columnas
+	fijarColorTexto(COLOR_PURPURA);
+	for( j = 0; j < 40; j++) putchar('-');
+	printf("\n|%4s |%20s |%9s |\n", "Pos.", "Nombre", "Puntaje");
+	for( j = 0; j < 40; j++) putchar('-');
+	putchar('\n');
+	fijarColorNormal();
+	// Imprimo el ranking
+	for(i = n - 1; i >= 0; i--){
+		if(i == (n - pos)) fijarColorTextoEstilo(COLOR_VERDE, ESTILO_INVERSO);
+		printf("|%4i |%20s |%9i |\n", n - i, ranking[i].nombre, ranking[i].puntaje);
+		fijarColorNormal();
+	}
+	fijarColorNormal();
+	for( j = 0; j < 40; j++) putchar('-');
+	putchar('\n');
+}
+
 int ingresarRanking(ItemRanking *ranking, const int n, ItemRanking *elemento){
 	int i;
 	if(elemento->puntaje > ranking[0].puntaje){
@@ -499,7 +523,7 @@ int ingresarRanking(ItemRanking *ranking, const int n, ItemRanking *elemento){
 
 	}else return 0; // No ingresa al Ranking
 	// Retorno la posicion en el Ranking
-	return n - i;
+	return n - i + 1;
 }
 
 int guardarRanking(ItemRanking *ranking, const int n){
