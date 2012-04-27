@@ -92,7 +92,7 @@
 /** @brief Estructura de Datos para los datos del Ranking
 */
 typedef struct itemRanking {
-	char nombre[MAX_SIZE_NAME + 1]; //<! 
+	char nombre[MAX_SIZE_NAME + 1];
 	int puntaje;
 } ItemRanking;
 
@@ -248,7 +248,7 @@ int pedirSiguienteMovimiento();
 */
 int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, const int columnas, const int nivel);
 
-/** @brief Ejecuta el movimiento de todos los conejos persiguiendo al conejo
+/** @brief Ejecuta el movimiento de todos los conejos persiguiendo al conejo.
 *
 * @param tablero puntero a la matriz que representa al tablero
 * @param tableroCopy puntero a la matriz que representa a una copia del tablero para poder realizar los movimientos
@@ -260,18 +260,96 @@ int ejecutarMovimientoZanahoria(const int mov, char **tablero, const int filas, 
 * @return Devuelve 0 en caso de que un conejo haya caido sobre la zanahoria, en caso contrario retorna 1
 */
 int ejecutarMovimientoConejos(char **tablero, char **tableroCopy, const int filas, const int columnas, int *conejosVivos, int *puntaje);
+
+/**
+* @brief Posicion al conejo en una posicion alatoria del trablero.
+* 
+* @param tablero puntero a la matriz que representa al tablero
+* @param filas entero con la cantidad de filas del tablero
+* @param columnas entero con la cantidad de columnas del tablero
+*
+*/
 void ejecutarTeletransportacion(char **tablero, const int filas, const int columnas);
+
+/**
+* @brief Verifica la vencindad de la zanahoria para verificar si hay peligro al ubicarse hay.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param m entero con la cantidad de filas del tablero
+* @param n entero con la cantidad de columnas del tablero
+* @param f entero que indica la fila a donde estara ubicada la zanahoria
+* @param c entero que indica la columna a donde estara ubicada la zanahoria
+* @param salto entero, si valor es 1 verifica la primera vecindad, si valor es 2 verifica la segunda vecindad
+*
+*/
 int verificarVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c, const int salto);
+
+/**
+* @brief Verifica la primera vecindad en busca de peligros.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param m entero con la cantidad de filas del tablero
+* @param n entero con la cantidad de columnas del tablero
+* @param f entero que indica la fila a donde estara ubicada la zanahoria
+* @param c entero que indica la columna a donde estara ubicada la zanahoria
+*
+*/
 int verificarPrimeraVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c);
+
+/**
+* @brief Verifica la segunda vencindad en caso de peligros.
+*
+* @param tablero puntero a la matriz que representa al tablero
+* @param m entero con la cantidad de filas del tablero
+* @param n entero con la cantidad de columnas del tablero
+* @param f entero que indica la fila a donde estara ubicada la zanahoria
+* @param c entero que indica la columna a donde estara ubicada la zanahoria
+* @param salto entero, si valor es 1 verifica la primera vecindad, si valor es 2 verifica la segunda vecindad
+*
+*/
 int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, const int f, const int c);
 
+/**
+* @brief Carga una partida desde un fichero.
+*
+* @param ficheroName puntero a cadena con el nombre del archivo que contiene la partida
+* @param filas puntero a entero donde se almacena la cantidad de filas del tablero guardado
+* @param columnas puntero a entero donde se almacena la cantidad de columnas del tablero guardado
+* @param conejosIniciales puntero a entero donde se almacenara la cantidad de conejos iniciales
+* @param conejosVivos puntero a entero donde se alamacenara la cantidad de conejos vivos en la partida guardada
+* @param nivel puntero a entero donde se almacenara el nivel de la partida guardada
+* @param puntaje puntero a entero donde se almacenara el puntaje en la partida guardada
+*
+* @return devulve un puntero al tablero con los datos de la partida guardada
+*
+*/
 char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje);
+
+/**
+* @brief Guarda una partida en un fichero.
+*
+* @param ficheroName puntero a cadena con el nombre del fichero donde se guardara la partida
+* @param tablero puntero a el tablero que se desea guardar
+* @param filas entero con la cantidad de filas del tablero
+* @param columnas entero con la cantidad de columnas del tablero
+* @param conejosIniciales entero con la cantidad inicial de conejos ingresada por el usuario
+* @param conejosVivos entero con la cantidad de conejos vivos al momento de llamar la funcion
+* @param nivel entero con el nivel al momento de llamar a la funcion
+* @param puntaje entero con el puntaje al momento de llamar a la funcion
+*/
 int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
 
+/**
+* @brief Muesta el ranking.
+*
+* @param ranking puntero al arreglo de estructuras que contiene el ranking
+* @param n cantidad de entradas que tiene el ranking
+*
+*/
 void mostrarRanking(ItemRanking *ranking, const int n);
 
 /**
-* @brief Muestra el ranking destacando una poscion
+* @brief Muestra el ranking destacando una poscion.
 *
 * @param ranking puntero a estructura que contiene el ranking
 * @param n entero correspondiente al tamano del ranking
@@ -279,9 +357,46 @@ void mostrarRanking(ItemRanking *ranking, const int n);
 *
 */
 void mostrarRankingDestacado(ItemRanking *ranking, const int n, const int pos);
+
+/**
+* @brief Ingresa un elemento al ranking.
+*
+* @param ranking puntero a un arreglo de estructura itemRanking que contiene el ranking
+* @param n entero correspondiente al tamano del ranking
+* @param elemento puntero a estructura con los datos que quieres ingresar al ranking
+*
+* @return devuelve 0 si no puede ingresar al ranking o el numero de la posicion en que quedo en el ranking
+*/
 int ingresarRanking(ItemRanking *ranking, const int n, ItemRanking *elemento);
+
+/**
+* @brief Guarda el ranking a un archivo.
+*
+* El ranking se guarda un archivo binario ya que hace mucho mas sencillo el recuperar la informacion posteriormente.
+*
+* @param ranking puntero a un arreglo de estructura itemRanking que contiene el ranking
+* @param n entero correspondiente al tamano del ranking
+*
+* @return 1 si se logro abrir y guardar el ranking, 0 de lo contrario
+*/
 int guardarRanking(ItemRanking *ranking, const int n);
+
+/**
+* @brief Carga el ranking desde un archivo
+*
+* @param ranking puntero a un arreglo de estructura itemRanking que contendra el ranking
+* @param n entero correspondiente al tamano del ranking que se espera en el archivo
+*
+* @return devuelve 1 si logro abrir el archivo y recuperar el rankin, 0 de lo contrario
+*/
 int cargarRanking(ItemRanking *ranking, const int n);
+
+/**
+* @brief Inicializa las variables del ranking con valores iniciales
+*
+* @param ranking puntero a un arreglo de estructura itemRanking que apunta a el ranking
+* @param n entero correspondiente al tamano del ranking
+*/
 void inicializarRanking(ItemRanking *ranking, const int n);
 
 #endif // __ZANAHORIA_H__
