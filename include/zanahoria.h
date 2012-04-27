@@ -85,7 +85,7 @@
 #define FILE_PARTIDA "partida.dat"
 
 // Constantes para el Ranking
-#define MAX_SIZE_NAME 50
+#define MAX_SIZE_NAME 20
 #define RANKING_NUM 10
 #define FILE_RANKING "ranking.dat"
 
