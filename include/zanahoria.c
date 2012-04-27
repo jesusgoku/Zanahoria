@@ -422,8 +422,10 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 	for(i = 0; i < *filas; i++){
 		for(j = 0; j < (*columnas) - 1; j++){
 			fscanf(fp, "%c", &tablero[i][j]);
+			tablero[i][j] = tablero[i][j] == '_' ? CELDA_VACIA : tablero[i][j];
 		}
 		fscanf(fp, "%c\n", &tablero[i][j]);
+		tablero[i][j] = tablero[i][j] == '_' ? CELDA_VACIA : tablero[i][j];
 	}
 	fclose(fp);
 	return tablero;
@@ -432,6 +434,7 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje){
 	FILE *fp;
 	int i,j;
+	char guardar;
 	fp = fopen(ficheroName, "w");
 	if(fp == NULL) return 0;
 	fprintf(fp, "%i\n", conejosIniciales);
@@ -442,7 +445,8 @@ int guardarPartida(char *ficheroName, char **tablero, const int filas, const int
 	fprintf(fp, "%i\n", columnas);
 	for(i = 0; i < filas; i++){
 		for(j = 0; j < columnas; j++){
-			fprintf(fp ,"%c", tablero[i][j]);
+			guardar = tablero[i][j] == CELDA_VACIA ? '_' : tablero[i][j];
+			fprintf(fp ,"%c", guardar);
 		}
 		fprintf(fp, "\n");
 	}
