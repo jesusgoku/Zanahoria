@@ -173,7 +173,7 @@ int main(int argc, char **argv)
 			// Verificamos si puede entrar al ranking
 			if(puntaje > ranking[0].puntaje){
 				paso.puntaje = puntaje;
-				pedirCadena("\nFelicidades has ingresado al ranking!!\n\nDate tu nombre: ", paso.nombre, MAX_SIZE_NAME);
+				pedirCadena("\nFelicidades has ingresado al ranking!!\n\nDate tu nombre", paso.nombre, MAX_SIZE_NAME);
 				i = ingresarRanking(ranking, RANKING_NUM, &paso);
 				clearScr();
 				mostrarRankingDestacado(ranking, RANKING_NUM, i);
