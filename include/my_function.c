@@ -77,13 +77,13 @@ int preguntayn(const char *pregunta){
 void mygets(char *cadena, const int max){
     int i = 0;
     clearStdin();
-    fgets(cadena, max, stdin);
+    fgets(cadena, max + 1, stdin);
     for(i = 0; cadena[i] != '\n'; i++);
     cadena[i] = '\0';
 }
 
 void pedirCadena(const char *mensaje, char *destino, const int max){
-    fputs(mensaje, stdout);
+    printf("%s, (max. %i): ", mensaje, max);
     mygets(destino, max);
 }
 
