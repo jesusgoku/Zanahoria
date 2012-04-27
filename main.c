@@ -174,9 +174,9 @@ int main(int argc, char **argv)
 			if(puntaje > ranking[0].puntaje){
 				paso.puntaje = puntaje;
 				pedirCadena("\nFelicidades has ingresado al ranking!!\n\nDate tu nombre: ", paso.nombre, MAX_SIZE_NAME);
-				ingresarRanking(ranking, RANKING_NUM, &paso);
+				i = ingresarRanking(ranking, RANKING_NUM, &paso);
 				clearScr();
-				mostrarRanking(ranking, RANKING_NUM);
+				mostrarRankingDestacado(ranking, RANKING_NUM, i);
 			}
 			break;
 		}
