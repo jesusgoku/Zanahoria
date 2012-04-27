@@ -1,6 +1,6 @@
 CC := gcc
 OS := SISTEMA_OPERATIVO
-CFLAGS := -D$(OS) -Iinclude -lm
+CFLAGS := -D$(OS) -Iinclude
 OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o include/colores.o include/printascii.o
 FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c include/colores.c include/printascii.c
 
@@ -10,13 +10,13 @@ zanahoria: $(OBJETOS)
 	$(CC) $(CFLAGS) $(OBJETOS) -o zanahoria
 
 main.o: main.c
-	$(CC) $(CFLAGS) -c main.c
+	$(CC) $(CFLAGS) -lm -c main.c
 
 my_function.o: my_function.c
 	$(CC) $(CFLAGS) -c my_function.c
 
 zanahoria.o: zanahoria.c
-	$(CC) $(CFLAGS) -c zanahoria.c
+	$(CC) $(CFLAGS) -lm -c zanahoria.c
 
 memoria.o: memoria.c
 	$(CC) $(CFLAGS) -c memoria.c
