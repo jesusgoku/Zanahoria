@@ -1,3 +1,12 @@
+/**
+* @brief Juego de la Zanahoria
+*
+* @file main.c
+* @author JesusGoku
+* @date 22/04/2012
+* @version 0.1
+*
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>

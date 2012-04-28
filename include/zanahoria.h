@@ -1,7 +1,7 @@
 /** @brief Funciones Exclusivas para el juego.
 *
-* Esta liberia contiene aquellas funciones que son de uso poco generico y que fueron creadas para este juego
-* y que dificilmente seran utilizadas en otra aplicacion diferente
+* Aqui encontraras las funciones que son de utilidad para este juego y que dificilmente podran ser utilizadas
+* en otros proyectos a menos que sean muy similares.
 *
 * @file zanahoria.h
 * @version 0.1
