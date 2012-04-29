@@ -26,12 +26,15 @@ void pedirConejosIniciales(int *f, int *c, int *ci){
 }
 
 void pedirDimensionTablero(int *f, int *c){
+	println("Dimensiones Recomendadas:\n");
+	println("\tVentana Estandar: 9x9 casilleros");
+	println("\tPantala Completa (1280x800px): 23x23 casilleros\n");
 	do{
-		printf("Dimensiones Tablero (Numero impar >= 5 y <= 255): ");
+		printf("Ingrese Dimension Tablero (Numero impar >= %i y <= %i): ", TABLERO_MIN_SIZE, TABLERO_MAX_SIZE);
 		clearStdin();
 		scanf("%i", f);
-		if(*f < 5 || *f > 255 || *f % 2 == 0) println("Dimension no valida.");
-	}while(*f < 5 || *f > 255 || *f % 2 == 0);
+		if(*f < TABLERO_MIN_SIZE || *f > TABLERO_MAX_SIZE || *f % 2 == 0) println("Dimension no valida.");
+	}while(*f < TABLERO_MIN_SIZE || *f > TABLERO_MAX_SIZE || *f % 2 == 0);
 	*c = *f;
 }
 

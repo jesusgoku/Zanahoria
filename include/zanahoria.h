@@ -21,6 +21,10 @@
 #include <memoria.h>
 #include <colores.h>
 
+// Limites
+#define TABLERO_MIN_SIZE 5
+#define TABLERO_MAX_SIZE 25
+
 // Constantes para describir los elementos de tablero
 #define ZANAHORIA 'z'
 #define CONEJO '&'
