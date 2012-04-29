@@ -72,7 +72,29 @@ void tablero_pretty_view(char **tablero, const int filas, const int columnas){
 		// Imprimo el primer caracter de cada fila
 		putchar('|');
 		for( j = 0; j < columnas; j++){
-			printf(" %c |", tablero[i][j]);
+			switch(tablero[i][j]){
+				case ZANAHORIA:
+					fijarColorTextoEstilo(COLOR_ROJO, ESTILO_PARPADEANTE);
+					break;
+				case CONEJO:
+					fijarColorTexto(COLOR_MARRON);
+					break;
+				case CONEJO_TRAMPOLIN:
+					fijarColorTexto(COLOR_ROJO);
+					break;
+				case TRAMPOLIN:
+					fijarColorTexto(COLOR_AZUL);
+					break;
+				case CADAVER:
+					fijarColorTexto(COLOR_PURPURA);
+					break;
+				case ZANAHORIA_MUERTA:
+					fijarColorTexto(COLOR_PURPURA);
+					break;
+			}
+			printf(" %c ", tablero[i][j]);
+			fijarColorNormal();
+			printf("|");
 		}
 		// Imprimo la linea divisoria a cada fila
 		putchar('\n');
