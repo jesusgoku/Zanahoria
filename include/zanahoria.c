@@ -163,7 +163,8 @@ int pedirSiguienteMovimiento(){
 	do{
 		printf("Ingresa tu siguiente movimiento: ");
 		clearStdin();
-		scanf("%c", &movIn);
+		movIn = 0;
+		movIn = getc(stdin);
 		movIn = tolower(movIn);
 		switch(movIn){
 			case MOV_TOP_N:
