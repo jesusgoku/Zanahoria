@@ -46,6 +46,50 @@
 #define FONDO_CYAN 46
 #define FONDO_GRIS 47
 
+/** @brief Cadenas  Disponibles */
+#define ESTILO_NORMAL_S "\033[0m"
+#define ESTILO_CLARO_S "\033[1m"
+#define ESTILO_SUBRAYADO_S "\033[4m"
+#define ESTILO_PARPADEANTE_S "\033[5m"
+#define ESTILO_INVERSO_S "\033[7m"
+#define ESTILO_OCULTO_S "\033[8m"
+
+#define COLOR_NEGRO_S "\033[0;30m"
+#define COLOR_ROJO_S "\033[0;31m"
+#define COLOR_VERDE_S "\033[0;32m"
+#define COLOR_MARRON_S "\033[0;33m"
+#define COLOR_AZUL_S "\033[0;34m"
+#define COLOR_PURPURA_S "\033[0;35m"
+#define COLOR_CYAN_S "\033[0;36m"
+#define COLOR_GRIS_S "\033[0;37m"
+
+#define COLOR_NEGRO_CLARO_S "\033[1;30m"
+#define COLOR_ROJO_CLARO_S "\033[1;31m"
+#define COLOR_VERDE_CLARO_S "\033[1;32m"
+#define COLOR_MARRON_CLARO_S "\033[1;33m"
+#define COLOR_AZUL_CLARO_S "\033[1;34m"
+#define COLOR_PURPURA_CLARO_S "\033[1;35m"
+#define COLOR_CYAN_CLARO_S "\033[1;36m"
+#define COLOR_GRIS_CLARO_S "\033[1;37m"
+
+#define FONDO_NEGRO_S "\033[0;40m"
+#define FONDO_ROJO_S "\033[0;41m"
+#define FONDO_VERDE_S "\033[0;42m"
+#define FONDO_MARRON_S "\033[0;43m"
+#define FONDO_AZUL_S "\033[0;44m"
+#define FONDO_PURPURA_S "\033[0;45m"
+#define FONDO_CYAN_S "\033[0;46m"
+#define FONDO_GRIS_S "\033[0;47m"
+
+#define FONDO_NEGRO_CLARO_S "\033[1;40m"
+#define FONDO_ROJO_CLARO_S "\033[1;41m"
+#define FONDO_VERDE_CLARO_S "\033[1;42m"
+#define FONDO_MARRON_CLARO_S "\033[1;43m"
+#define FONDO_AZUL_CLARO_S "\033[1;44m"
+#define FONDO_PURPURA_CLARO_S "\033[1;45m"
+#define FONDO_CYAN_CLARO_S "\033[1;46m"
+#define FONDO_GRIS_CLARO_S "\033[1;47m"
+
 /** @brief Resetea la terminal a sus colores originales.
 */
 void fijarColorNormal();
