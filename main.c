@@ -72,9 +72,11 @@ int main(int argc, char **argv)
 	if(!recuperarPartida){
 
 		// Preguntamos el tamano del tablero
+		clearScr();
 		pedirDimensionTablero(&m, &n);
 
 		// Preguntamos los conejos iniciales
+		clearScr();
 		pedirConejosIniciales(&m, &n, &conejosIniciales);
 		conejosVivos = conejosIniciales;
 		
