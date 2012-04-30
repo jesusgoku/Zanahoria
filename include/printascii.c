@@ -127,3 +127,39 @@ void printMasMenos(char *cadena){
 	printf("\n+");
 	for(i = 0; i < len; i++) printf("-+");
 }
+
+void printMsjError(const char *msj){
+	fijarColorTexto(COLOR_ROJO);
+	println("%s", msj);
+	fijarColorNormal();
+}
+
+void printMsjErrorPausa(const char *msj){
+	fijarColorTexto(COLOR_ROJO);
+	pausaMensaje(msj);
+	fijarColorNormal();
+}
+
+void printMsjOk(const char * msj){
+	fijarColorTexto(COLOR_VERDE);
+	println("%s", msj);
+	fijarColorNormal();
+}
+
+void printMsjOkPausa(const char *msj){
+	fijarColorTexto(COLOR_VERDE);
+	pausaMensaje(msj);
+	fijarColorNormal();
+}
+
+void printMsjInfo(const char *msj){
+	fijarColorTexto(COLOR_MARRON);
+	println("%s", msj);
+	fijarColorNormal();	
+}
+
+void printMsjInfoPausa(const char *msj){
+	fijarColorTexto(COLOR_MARRON);
+	pausaMensaje(msj);
+	fijarColorNormal();
+}

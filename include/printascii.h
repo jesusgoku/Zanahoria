@@ -12,6 +12,7 @@
 #define __PRINTASCII_H__
 
 #include <stdio.h>
+#include <my_function.h>
 #include <string.h>
 #include <colores.h>
 
@@ -42,5 +43,41 @@ void printLuminoso(char *cadena);
 * @param cadena puntero al string que se quiere mostrar en el mensaje
 */
 void printMasMenos(char *cadena);
+
+/** @brief Imprime un mensaje de error en color rojo
+*
+* @param msj puntero a cadena con el mensaje que se desea mostrar
+*/
+void printMsjError(const char *msj);
+
+/** @brief Imprimir un mesaje de error en color rojo e introducir una pausa en la ejecucion
+*
+* @param msj puntero a cadena con el mensaje a mostrar
+*/
+void printMsjErrorPausa(const char *msj);
+
+/** @brief Imprime un mensaje de error en color verde
+*
+* @param msj puntero a cadena con el mensaje que se desea mostrar
+*/
+void printMsjOk(const char *msj);
+
+/** @brief Imprimir un mesaje de confirmacion en color verde e introducir una pausa en la ejecucion
+*
+* @param msj puntero a cadena con el mensaje a mostrar
+*/
+void printMsjOkPausa(const char *msj);
+
+/** @brief Imprime un mensaje de error en color marron
+*
+* @param msj puntero a cadena con el mensaje que se desea mostrar
+*/
+void printMsjInfo(const char *msj);
+
+/** @brief Imprimir un mesaje de informacion en color marron e introducir una pausa en la ejecucion
+*
+* @param msj puntero a cadena con el mensaje a mostrar
+*/
+void printMsjInfoPausa(const char *msj);
 
 #endif // __PRINTASCII_H__
