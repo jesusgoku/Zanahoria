@@ -113,9 +113,7 @@ int main(int argc, char **argv)
 			// Si es asi movemos la zanahoria
 			movValido = ejecutarMovimientoZanahoria(siguienteMovimiento, tablero, m, n, nivel) ? True : False;
 			if(!movValido){
-				println("Movimiento no valido!...");
-				clearStdin();
-				getc(stdin);
+				printMsjErrorPausa("Movimiento no valido!");
 			}else{
 				gameOver = (ejecutarMovimientoConejos(tablero, tableroCopia, m, n, &conejosVivos, &puntaje) == 0) ? True : False;
 			}
@@ -133,11 +131,11 @@ int main(int argc, char **argv)
 				// Preguntamos si desea sobreescribir la partida existe
 				if(preguntayn("Ya existe una partida guardada, desea sobreescribirla? (y/n): ")){
 					if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
-						pausaMensaje("Partida Guardada!");
+						printMsjOkPausa("Partida Guardada!");
 				}
 			}else{
 				if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
-					pausaMensaje("Partida Guardada!");
+					printMsjOkPausa("Partida Guardada!");
 			}
 		}else if(siguienteMovimiento == ACTION_QUIT){
 			clearScr();
