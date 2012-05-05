@@ -49,6 +49,10 @@ int main(int argc, char **argv)
 	pausa();
 	clearScr();
 
+	// Instrucciones del Juego
+	if(!preguntayn("Conoces las reglas del juego?")){
+		mostrarAyuda();
+	}
 
 	// Verifico si existe una partida guardada
 	fp = fopen(FILE_PARTIDA, "r");
@@ -59,9 +63,10 @@ int main(int argc, char **argv)
 		// Cierro el fichero para poder abrirlo desde la funcion
 		fclose(fp);
 		fp = NULL;
-
+		
+		clearScr();
 		recuperarPartida = False;
-		recuperarPartida = (Bool)preguntayn("Existe una partida guardada, desea cargarla? (y/n): ");
+		recuperarPartida = (Bool)preguntayn("Existe una partida guardada, desea cargarla?");
 
 		// Si la respuesta fue afirmativa recupero el estado del juego
 		if(recuperarPartida)

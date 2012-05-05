@@ -65,7 +65,7 @@ void pausaMensaje(const char *mensaje){
 int preguntayn(const char *pregunta){
     char respuesta = 0;
     do {
-        fputs(pregunta, stdout);
+        printf("%s (y/n): ", pregunta);
         clearStdin();
         scanf("%c", &respuesta);
         if(respuesta != 'y' && respuesta != 'n')

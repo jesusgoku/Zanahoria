@@ -403,4 +403,9 @@ int cargarRanking(ItemRanking *ranking, const int n);
 */
 void inicializarRanking(ItemRanking *ranking, const int n);
 
+/**
+* @brief Muestra las instrucciones del juego.
+*/
+void mostrarAyuda();
+
 #endif // __ZANAHORIA_H__

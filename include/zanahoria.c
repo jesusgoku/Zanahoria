@@ -578,4 +578,109 @@ void inicializarRanking(ItemRanking *ranking, const int n){
 	}
 }
 
+/****************************************
+/* AYUDA
+/****************************************/
+
+void mostrarAyuda(){
+	clearScr();
+	println("Juego de la Zanahoria - Instrucciones");
+	println("-------------------------------------");
+	println("\nEl juego consiste en unos conejos hambrientos que perseguiran a la zanahoria");
+	println("(osea tu) hasta alcanzarla y poder devorarla.");
+	println("\nPara salvarte de la voraz hambre de los conejos debes moverte por el escenario");
+	println("logrando que ellos choquen entre si o con los cadaveres que hayan dejado choques anteriores.");
+
+	pausaMensaje("\nSiguiente... (Presiona Enter)");
+
+	clearScr();
+	println("Juego de la Zanahoria - Movimientos");
+	println("-----------------------------------");
+	println("\nPara moverte debes ingresar cualquiera de los siguientes comandos:");
+	println("\n\t--------------------------------------------------------------");
+	println("\t| %-20s | %-35s |", "", "Teclas que lo Accionan");
+	println("\t|                      | ----------------------------------- |");
+	println("\t| %-20s | %16s | %16s |", "Movimiento", "Teclado Numerico", "Teclado Normal");
+	println("\t| -------------------- | ---------------- | ---------------- |");
+	println("\t| %-20s | %16s | %16s |", "Arriba", "8", "u");
+	println("\t| %-20s | %16s | %16s |", "Arriba - Derecha", "9", "i");
+	println("\t| %-20s | %16s | %16s |", "Derecha", "6", "k");
+	println("\t| %-20s | %16s | %16s |", "Abajo - Derecha", "3", ",");
+	println("\t| %-20s | %16s | %16s |", "Abajo", "2", "m");
+	println("\t| %-20s | %16s | %16s |", "Abajo - Izquierda", "1" , "n");
+	println("\t| %-20s | %16s | %16s |", "Izquierda", "4", "h");
+	println("\t| %-20s | %16s | %16s |", "Arriba - Izquierda", "7", "y");
+	println("\t| %-20s | %16s | %16s |", "Mantener Posicion", "5", "j");
+	println("\t--------------------------------------------------------------");
+
+	pausaMensaje("\nSiguiente... (Presiona Enter)");
+
+	clearScr();
+	println("Juego de la Zanahoria - Movimientos (Otra Vista)");
+	println("------------------------------------------------");
+	println("\nUna forma mas grafica de los movimientos disponibles");
+	println("donde el %s5%s equivale a quedarse en la posicion.", COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("Y los demas a moverse en la direccion esperada a partir de la posicion central.");
+	println("\n\t-------------   -------------");
+	println("\t| Tec. Num. |   | Tec. Norm.|");
+	println("\t-------------   -------------");
+	println("\t| 7 | 8 | 9 |   | y | u | i |");
+	println("\t-------------   -------------");
+	println("\t| 4 | 5 | 6 |   | h | j | k |");
+	println("\t-------------   -------------");
+	println("\t| 1 | 2 | 3 |   | n | m | , |");
+	println("\t-------------   -------------");
+
+	pausaMensaje("\nSiguiente... (Presiona Enter)");
+
+	clearScr();
+	println("Juego de la Zanahoria - Teletransportacion");
+	println("------------------------------------------");
+	println("\nSi te encuentras encerrado y no hay donde te puedas mover sin ser comido");
+	println("(No se te permitira moverte a una posicion donde puedas ser comido)");
+	println("puedes teletrasportarte presionando el comando: %st%s", COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("\nAunque debes tener cuidado, ya que nada asegura que no caeras");
+	println("junto a un conejo y este te devore.");
+
+	pausaMensaje("\nSiguiente... (Presiona Enter)");
+
+	clearScr();
+	println("Juego de la Zanahoria - Puntuacion");
+	println("----------------------------------");
+	println("\nConseguiras punto con cualquiera de los siguientes eventos:");
+	println("\n\t  5 ptos. - Por cada movimiento correcto");
+	println("\t 50 ptos. - Por cada conejo que choque.");
+	println("\t100 ptos. - Cuando pases de nivel.");
+	println("\nPara pasar de nivel debes lograr que todos los conejos");
+	println("choquen entre si o con otro cadaver en el campo.");
+	println("\nSi juntas muchos puntos, puedes entrar en el top 10");
+	println("de los mejores puntajes y dejar tu puntaje registrado");
+	println("junto con tu nombre para competir contra tus amigos.");
+
+	pausaMensaje("\nSiguiente... (Presiona Enter)");
+
+	clearScr();
+	println("Juego de la Zanahoria - Trampolines");
+	println("-----------------------------------");
+	println("\nA partir del 3 nivel apareceran los trampolines");
+	println("\nPermitira a los conejos moverse hasta dos espacios");
+	println("para poder comerte.");
+
+	pausaMensaje("\nSiguiente... (Presiona Enter)");
+
+	clearScr();
+	println("Juego de la Zanahoria - Elementos del Tablero");
+	println("---------------------------------------------");
+	println("\nEstos son los posibles elementos que encontraras en el tablero:");
+	println("\n\t%s%s%c%s: Zanahoria", COLOR_ROJO_S, ESTILO_PARPADEANTE_S, ZANAHORIA, ESTILO_NORMAL_S);
+	println("\t%s%c%s: Conejo", COLOR_MARRON_S, CONEJO, ESTILO_NORMAL_S);
+	println("\t%s%c%s: Cadaveres", COLOR_PURPURA_S, CADAVER, ESTILO_NORMAL_S);
+	println("\t%s%c%s: Trampolin", COLOR_AZUL_S, TRAMPOLIN, ESTILO_NORMAL_S);
+	println("\t%s%c%s: Conejo sobre trampolin", COLOR_ROJO_S, CONEJO_TRAMPOLIN, ESTILO_NORMAL_S);
+
+	println("\nSUERTE!");
+	
+	pausaMensaje("\nComenzar... (Presiona Enter)");
+}
+
 #endif // __ZANAHORIA_C__
