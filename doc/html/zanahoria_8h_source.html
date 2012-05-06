@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Juego Zanahoria: Fichero Fuente include/zanahoria.h</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Juego Zanahoria
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Generado por Doxygen 1.8.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="modules.html"><span>Módulos</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumeraciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">include/zanahoria.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="zanahoria_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00012"></a>00012 <span class="preprocessor">#ifndef __ZANAHORIA_H__</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define __ZANAHORIA_H__</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;math.h&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;time.h&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;ctype.h&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;<a class="code" href="my__function_8h.html" title="Mis Funciones Reutilizables.">my_function.h</a>&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;<a class="code" href="memoria_8h.html" title="Libreria para solicitar y Liberar Memoria.">memoria.h</a>&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;<a class="code" href="colores_8h.html" title="Para implementar colores en terminales ANSI.">colores.h</a>&gt;</span>
+<a name="l00023"></a>00023 
+<a name="l00035"></a>00035 <span class="preprocessor">#define TABLERO_MIN_SIZE 5</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#define TABLERO_MAX_SIZE 25</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span> <span class="comment">// end of TableroConf</span>
+<a name="l00038"></a>00038 
+<a name="l00045"></a>00045 <span class="preprocessor">#define ZANAHORIA &#39;z&#39;</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#define CONEJO &#39;&amp;&#39;</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#define CADAVER &#39;#&#39;</span>
+<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#define TRAMPOLIN &#39;&lt;&#39;</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="preprocessor">#define CONEJO_TRAMPOLIN &#39;?&#39;</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="preprocessor">#define CELDA_VACIA &#39; &#39;</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span><span class="preprocessor">#define ZANAHORIA_MUERTA &#39;x&#39;</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span> <span class="comment">// end of ElementosTablero</span>
+<a name="l00054"></a>00054 
+<a name="l00062"></a>00062 <span class="preprocessor">#define MOV_TOP_N &#39;8&#39;</span>
+<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOP_C &#39;u&#39;</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPLEFT_N &#39;7&#39;</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPLEFT_C &#39;y&#39;</span>
+<a name="l00066"></a>00066 <span class="preprocessor"></span><span class="preprocessor">#define MOV_LEFT_N &#39;4&#39;</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span><span class="preprocessor">#define MOV_LEFT_C &#39;h&#39;</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMLEFT_N &#39;1&#39;</span>
+<a name="l00069"></a>00069 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMLEFT_C &#39;n&#39;</span>
+<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOM_N &#39;2&#39;</span>
+<a name="l00071"></a>00071 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOM_C &#39;m&#39;</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMRIGHT_N &#39;3&#39;</span>
+<a name="l00073"></a>00073 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMRIGHT_C &#39;,&#39;</span>
+<a name="l00074"></a>00074 <span class="preprocessor"></span><span class="preprocessor">#define MOV_RIGHT_N &#39;6&#39;</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span><span class="preprocessor">#define MOV_RIGHT_C &#39;k&#39;</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPRIGHT_N &#39;9&#39;</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPRIGHT_C &#39;i&#39;</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span><span class="preprocessor">#define MOV_CENTER_N &#39;5&#39;</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span><span class="preprocessor">#define MOV_CENTER_C &#39;j&#39;</span>
+<a name="l00080"></a>00080 <span class="preprocessor"></span>
+<a name="l00081"></a>00081 <span class="preprocessor">#define MOV_TRANSPORT_C &#39;t&#39;</span>
+<a name="l00082"></a>00082 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_QUIT_C &#39;q&#39;</span>
+<a name="l00083"></a>00083 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_SAVE_C &#39;s&#39;</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span> <span class="comment">// end of MovimientosPermitidos</span>
+<a name="l00086"></a>00086 
+<a name="l00093"></a>00093 <span class="preprocessor">#define MOVE_TOP 8</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_TOPLEFT 7</span>
+<a name="l00095"></a>00095 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_LEFT 4</span>
+<a name="l00096"></a>00096 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOMLEFT 1</span>
+<a name="l00097"></a>00097 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOM 2</span>
+<a name="l00098"></a>00098 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOMRIGHT 3</span>
+<a name="l00099"></a>00099 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_RIGHT 6</span>
+<a name="l00100"></a>00100 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_TOPRIGHT 9</span>
+<a name="l00101"></a>00101 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_CENTER 5</span>
+<a name="l00102"></a>00102 <span class="preprocessor"></span>
+<a name="l00103"></a>00103 <span class="preprocessor">#define MOVE_TRANSPORT 10</span>
+<a name="l00104"></a>00104 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_QUIT 11</span>
+<a name="l00105"></a>00105 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_SAVE 12</span>
+<a name="l00106"></a>00106 <span class="preprocessor"></span> <span class="comment">// end of MovimientosCodigos</span>
+<a name="l00108"></a>00108 
+<a name="l00115"></a>00115 <span class="preprocessor">#define PUNTAJE_MOV 5</span>
+<a name="l00116"></a>00116 <span class="preprocessor"></span><span class="preprocessor">#define PUNTAJE_CHOQUE 50</span>
+<a name="l00117"></a>00117 <span class="preprocessor"></span><span class="preprocessor">#define PUNTAJE_NIVEL 100</span>
+<a name="l00118"></a>00118 <span class="preprocessor"></span> <span class="comment">// end of MontoPuntajes</span>
+<a name="l00119"></a>00119 
+<a name="l00127"></a>00127 <span class="preprocessor">#define TASA_AUMENTO_CONEJOS 0.25</span>
+<a name="l00128"></a>00128 <span class="preprocessor"></span><span class="preprocessor">#define TASA_AUMENTO_TRAMPOLINES 0.2</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span> <span class="comment">// end of TasasIncremento</span>
+<a name="l00130"></a>00130 
+<a name="l00138"></a>00138 <span class="preprocessor">#define NIVEL_TRAMPOLINES_START 2</span>
+<a name="l00139"></a>00139 <span class="preprocessor"></span><span class="preprocessor">#define TRAMPOLINES_INICIALES 2</span>
+<a name="l00140"></a>00140 <span class="preprocessor"></span> <span class="comment">// end of TrampolinesConfig</span>
+<a name="l00141"></a>00141 
+<a name="l00143"></a><a class="code" href="zanahoria_8h.html#ab574bb9d2f8cb1fdafba3d3878a67c12">00143</a> <span class="preprocessor">#define FILE_PARTIDA &quot;partida.dat&quot;</span>
+<a name="l00144"></a>00144 <span class="preprocessor"></span>
+<a name="l00153"></a>00153 <span class="preprocessor">#define MAX_SIZE_NAME 20</span>
+<a name="l00154"></a>00154 <span class="preprocessor"></span><span class="preprocessor">#define RANKING_NUM 10</span>
+<a name="l00155"></a>00155 <span class="preprocessor"></span><span class="preprocessor">#define FILE_RANKING &quot;ranking.dat&quot;</span>
+<a name="l00156"></a>00156 <span class="preprocessor"></span> <span class="comment">// end of RankingConf</span>
+<a name="l00157"></a>00157 
+<a name="l00160"></a><a class="code" href="structitem_ranking.html">00160</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">itemRanking</a> {
+<a name="l00161"></a>00161         <span class="keywordtype">char</span> nombre[MAX_SIZE_NAME + 1];
+<a name="l00162"></a>00162         <span class="keywordtype">int</span> puntaje;
+<a name="l00163"></a>00163 } <a class="code" href="zanahoria_8h.html#abbb2527e37ec9dec9af4c0deda64f717" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a>;
+<a name="l00164"></a>00164 
+<a name="l00180"></a>00180 <span class="keywordtype">void</span> pedirConejosIniciales(<span class="keywordtype">int</span> *f, <span class="keywordtype">int</span> *c, <span class="keywordtype">int</span> *ci);
+<a name="l00181"></a>00181 
+<a name="l00198"></a>00198 <span class="keywordtype">void</span> pedirDimensionTablero(<span class="keywordtype">int</span> *f, <span class="keywordtype">int</span> *c);
+<a name="l00199"></a>00199 
+<a name="l00210"></a>00210 <span class="keywordtype">void</span> tablero_ini(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">int</span> f, <span class="keywordtype">int</span> c);
+<a name="l00211"></a>00211 
+<a name="l00219"></a>00219 <span class="keywordtype">void</span> tablero_view(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">int</span> f, <span class="keywordtype">int</span> c);
+<a name="l00220"></a>00220 
+<a name="l00234"></a>00234 <span class="keywordtype">void</span> tablero_pretty_view(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas);
+<a name="l00235"></a>00235 
+<a name="l00242"></a>00242 <span class="keywordtype">void</span> ubicarZanahoriaInicial(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
+<a name="l00243"></a>00243 
+<a name="l00253"></a>00253 <span class="keywordtype">void</span> ubicarConejosIniciales(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> conejos);
+<a name="l00254"></a>00254 
+<a name="l00262"></a>00262 <span class="keywordtype">void</span> ubicarTrampolines(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> trampolines);
+<a name="l00263"></a>00263 
+<a name="l00272"></a>00272 <span class="keywordtype">void</span> posicionZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keywordtype">int</span> *coordZF, <span class="keywordtype">int</span> *coordZC);
+<a name="l00273"></a>00273 
+<a name="l00280"></a>00280 <span class="keywordtype">int</span> pedirSiguienteMovimiento();
+<a name="l00281"></a>00281 
+<a name="l00315"></a>00315 <span class="keywordtype">int</span> ejecutarMovimientoZanahoria(<span class="keyword">const</span> <span class="keywordtype">int</span> mov, <span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keyword">const</span> <span class="keywordtype">int</span> nivel);
+<a name="l00316"></a>00316 
+<a name="l00328"></a>00328 <span class="keywordtype">int</span> ejecutarMovimientoConejos(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">char</span> **tableroCopy, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keywordtype">int</span> *conejosVivos, <span class="keywordtype">int</span> *puntaje);
+<a name="l00329"></a>00329 
+<a name="l00338"></a>00338 <span class="keywordtype">void</span> ejecutarTeletransportacion(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas);
+<a name="l00339"></a>00339 
+<a name="l00351"></a>00351 <span class="keywordtype">int</span> verificarVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c, <span class="keyword">const</span> <span class="keywordtype">int</span> salto);
+<a name="l00352"></a>00352 
+<a name="l00363"></a>00363 <span class="keywordtype">int</span> verificarPrimeraVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
+<a name="l00364"></a>00364 
+<a name="l00376"></a>00376 <span class="keywordtype">int</span> verificarSegundaVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
+<a name="l00377"></a>00377 
+<a name="l00392"></a>00392 <span class="keywordtype">char</span> **cargarPartida(<span class="keywordtype">char</span> *ficheroName, <span class="keywordtype">int</span> *filas, <span class="keywordtype">int</span> *columnas, <span class="keywordtype">int</span> *conejosIniciales, <span class="keywordtype">int</span> *conejosVivos, <span class="keywordtype">int</span> *nivel, <span class="keywordtype">int</span> *puntaje);
+<a name="l00393"></a>00393 
+<a name="l00406"></a>00406 <span class="keywordtype">int</span> guardarPartida(<span class="keywordtype">char</span> *ficheroName, <span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keyword">const</span> <span class="keywordtype">int</span> conejosIniciales, <span class="keyword">const</span> <span class="keywordtype">int</span> conejosVivos, <span class="keyword">const</span> <span class="keywordtype">int</span> nivel, <span class="keyword">const</span> <span class="keywordtype">int</span> puntaje);
+<a name="l00407"></a>00407 
+<a name="l00415"></a>00415 <span class="keywordtype">void</span> mostrarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00416"></a>00416 
+<a name="l00425"></a>00425 <span class="keywordtype">void</span> mostrarRankingDestacado(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> pos);
+<a name="l00426"></a>00426 
+<a name="l00436"></a>00436 <span class="keywordtype">int</span> ingresarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *elemento);
+<a name="l00437"></a>00437 
+<a name="l00448"></a>00448 <span class="keywordtype">int</span> guardarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00449"></a>00449 
+<a name="l00458"></a>00458 <span class="keywordtype">int</span> cargarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00459"></a>00459 
+<a name="l00466"></a>00466 <span class="keywordtype">void</span> inicializarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00467"></a>00467 
+<a name="l00471"></a>00471 <span class="keywordtype">void</span> mostrarAyuda();
+<a name="l00472"></a>00472 
+<a name="l00473"></a>00473 <span class="preprocessor">#endif // __ZANAHORIA_H__</span>
+</pre></div></div><!-- contents -->
+
+
+<hr class="footer"/><address class="footer"><small>
+Generado el Domingo, 6 de Mayo de 2012 01:14:18 para Juego Zanahoria por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.0
+</small></address>
+
+</body>
+</html>
