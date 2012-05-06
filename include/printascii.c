@@ -5,19 +5,18 @@
 void printZanahoria(){
 	fijarColorTextoEstilo(COLOR_VERDE, ESTILO_CLARO);
 	clearScr();
-	printf("                                                          %sLliii%s                 \n", COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
-	printf("  !!BIENVENIDO!!                                         %sF iIiii%s                \n", COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
+	printf("                                                         %sF iIiii%s                \n", COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
 	printf("                                                        %sI  Sv in%s                \n", COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
-	printf("          AL                                           %sxiili iii%s                \n", COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
-	printf("                                              %siiii    %sisiiilIcivl%s               \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
-	printf("        JUEGO                              %siiiiiiiiX%sLTDucMDUiiii%s                \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
-	printf("                                        %sivOF        iig%sDQZLvii%s                  \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
-	printf("         DE LA                       %sivciiiiui       ioO%s  iiioL%s                 \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
+	printf("                                                       %sxiili iii%s                \n", COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
+	printf("  %s¡¡BIENVENIDO!!                            %siiii    %sisiiilIcivl%s               \n", COLOR_MARRON_CLARO_S, COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
+	printf("      %sAL JUEGO                           %siiiiiiiiX%sLTDucMDUiiii%s                \n", COLOR_MARRON_CLARO_S, COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
+	printf("         %sDE LA                        %sivOF        iig%sDQZLvii%s                  \n", COLOR_MARRON_CLARO_S, COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
+	printf("       %sZANAHORIA                   %sivciiiiui       ioO%s  iiioL%s                 \n", COLOR_MARRON_CLARO_S, COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
 	printf("                                   %svISi      x   ii   bv%s                        \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
-	printf("       ZANAHORIA               %siiiiiixi           Di  Xi%s                        \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
-	printf("                             %siLi      i   i       lc  x%s             by          \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
+	printf("                               %siiiiiixi           Di  Xi%s                        \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
+	printf("                             %siLi      i   i       lc  x             %sby%s          \n", COLOR_ROJO_CLARO_S, COLOR_PURPURA_CLARO_S, ESTILO_NORMAL_S);
 	printf("                           %slLi     i      ic     iokii%s                          \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
-	printf("         %scvii           iiLCz      iX     iH   iiii%s              JESUSGOKU      \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
+	printf("         %scvii           iiLCz      iX     iH   iiii              %sJESUSGOKU%s      \n", COLOR_ROJO_CLARO_S, COLOR_PURPURA_CLARO_S, ESTILO_NORMAL_S);
 	printf("         %siiTkMci   iivii        c   zi   ivncii%s                                 \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
 	printf("              %siiiilsF    ii     Hi iSviiFUTii%s                                   \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
 	printf("              %sicsi  l     F   ilZiii vI icLzIUnTviiiiiiiiiii%s                    \n", COLOR_ROJO_CLARO_S, ESTILO_NORMAL_S);
