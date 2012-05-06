@@ -104,7 +104,7 @@
 
 /** @} */ // end of CadenasColor
 
-#elif
+#else
 
 /** @defgroup CadenasColorWindows Cadenas De Color y Estilo
 *
