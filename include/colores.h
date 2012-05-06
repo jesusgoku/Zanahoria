@@ -23,8 +23,6 @@
 *
 * @{
 */
-
-/** @brief Estilos Disponibles para pasar a las funciones. */
 #define ESTILO_NORMAL 0
 #define ESTILO_CLARO 1
 #define ESTILO_SUBRAYADO 4
@@ -32,7 +30,6 @@
 #define ESTILO_INVERSO 7
 #define ESTILO_OCULTO 8
 
-/** @brief Colores disponibles para pasar a las funciones. */
 #define COLOR_NEGRO 30
 #define COLOR_ROJO 31
 #define COLOR_VERDE 32
@@ -42,7 +39,6 @@
 #define COLOR_CYAN 36
 #define COLOR_GRIS 37
 
-/** @brief Fondos disponibles para pasar a las funciones. */
 #define FONDO_NEGRO 40
 #define FONDO_ROJO 41
 #define FONDO_VERDE 42

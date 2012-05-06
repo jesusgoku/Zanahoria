@@ -21,7 +21,7 @@
 #include <memoria.h>
 #include <colores.h>
 
-/** @defgroup TableroConf Configracion Tablero
+/** @defgroup TableroConf Configuracion Tablero
 *
 * Configuracion del tamano maximo y minimo de tablero
 * el tamano minimo es debido a la cantidad minima para que se desarrolle
@@ -34,7 +34,7 @@
 */
 #define TABLERO_MIN_SIZE 5
 #define TABLERO_MAX_SIZE 25
-/** @] */ // end of TableroConf
+/** @} */ // end of TableroConf
 
 /** @defgroup ElementosTablero Elementos de tablero.
 *
