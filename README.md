@@ -32,7 +32,7 @@ Dependera de ti ayudarla a arrancar confundiendo a los habrientos conejos para q
 El programa fue principalmente programado y probado en MacOSX, a pesar de ello el codigo se penso para que funcionara ademas en plataformas Linux, Windows (Aqui es donde se pierden gran cantidad de caracteristicas esteticas), y Cygwin (Emulador de Bash en Windows).
 
 ### Sistemas Unix
-Para sistemas unix (Linux, MacOSX, Cygwin y otros) al programa se adjunta un script de configracion __configura.sh__ que intentara determinar el sistema en el cual sera compilado el programa o de lo contrario le hara que elija las opciones disponibles. El archivo de configuracion generara un archivo Makefile que le permitira compilar el juego.
+Para sistemas unix (Linux, MacOSX, Cygwin y otros) al programa se adjunta un script de configracion __configure.sh__ que intentara determinar el sistema en el cual sera compilado el programa o de lo contrario le hara que elija las opciones disponibles. El archivo de configuracion generara un archivo Makefile que le permitira compilar el juego.
 
 #### Paso 1 - Ejecutar el Script Configure
 
