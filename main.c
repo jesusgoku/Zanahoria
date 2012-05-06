@@ -19,6 +19,12 @@
 #include <colores.h>
 #include <printascii.h>
 
+#ifndef WINDOWS
+#define IS_UNIX 1
+#else
+#define IS_UNIX 0
+#endif // defined WINDOWS
+
 int main(int argc, char **argv)
 {
 	int m = 0, n = 0; // m para filas, n para columnas
@@ -45,7 +51,7 @@ int main(int argc, char **argv)
 	// Limpio la pantalla
 	clearScr();
 	// Doy la bienvenida
-	printZanahoria();
+	if(IS_UNIX) printZanahoria(); else printJuegoDeLaZanahoriaLetras();
 	pausa();
 	clearScr();
 

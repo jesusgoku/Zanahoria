@@ -81,11 +81,34 @@ void printConejoGameOver(){
 
 void printGraciasPorJugar(){
 	fijarColorTextoEstilo(COLOR_ROJO, ESTILO_CLARO);
+	clearScr();
 	printf("  __  ___  _   __  _   _   __   ___  _  ___     _  _ _  __   _   ___ ||\n");
 	printf(" / _|| o \\/ \\ / _|| | / \\ / _| | o \\/ \\| o \\   | || | |/ _| / \\ | o \\L|\n");
 	printf("( |_n|   / o ( (_ | || o |\\_ \\ |  _( o )   / n_| || U ( |_n| o ||   /  \n");
 	printf(" \\__/|_|\\\\_n_|\\__||_||_n_||__/ |_|  \\_/|_|\\\\ \\__/ |___|\\__/|_n_||_|\\\\()\n");
 	fijarColorNormal();
+}
+
+void printJuegoDeLaZanahoriaLetras(){
+    fijarColorTextoEstilo(COLOR_ROJO, ESTILO_CLARO);
+	clearScr();
+	printf(",---.o                          o    |              |    \n");
+	printf("|---..,---.,---..    ,,---.,---..,---|,---.    ,---.|    \n");
+	printf("|   |||---'|   | \\  / |---'|   |||   ||   |    ,---||    \n");
+	printf("`---'``---'`   '  `'  `---'`   '``---'`---'    `---^`---'\n");
+	printf("    |                            |         |         \n");
+	printf("    |.   .,---.,---.,---.    ,---|,---.    |    ,---.\n");
+	printf("    ||   ||---'|   ||   |    |   ||---'    |    ,---|\n");
+	printf("`---'`---'`---'`---|`---'    `---'`---'    `---'`---^\n");
+	printf("               `---'                                 \n");
+	printf(",---,               |              o     \n");
+	printf(" .-' ,---.,---.,---.|---.,---.,---..,---.\n");
+	printf("|    ,---||   |,---||   ||   ||    |,---|\n");
+	printf("`---'`---^`   '`---^`   '`---'`    ``---^\n");
+	fijarColorTexto(COLOR_PURPURA);
+	printf("\n  --:: Creado por JesusGoku ::--\n");
+	fijarColorNormal();
+	printf("\npresione enter para comenzar...");
 }
 
 void printLuminoso(char *cadena){

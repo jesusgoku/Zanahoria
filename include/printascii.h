@@ -32,6 +32,10 @@ void printConejoGameOver();
 */
 void printGraciasPorJugar();
 
+/** @brief Imprime el logo de bienvenida simplicado
+*/
+void printJuegoDeLaZanahoriaLetras();
+
 /** Imprime un letrro con letras parpadeantes con el string apuntado por cadena.
 *
 * @param cadena puntero al string que se quiere mostrar en el mensaje
