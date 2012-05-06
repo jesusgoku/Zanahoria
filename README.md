@@ -6,7 +6,7 @@ Dependera de ti ayudarla a arrancar confundiendo a los habrientos conejos para q
 ## Reglas del juego
 1. Para comenzar debes elegir las dimensiones del tablero de juego y la cantidad de conejos iniciales en el tablero.
 2. Puedes introducir las siguientes acciones validas:
-	a. Para moverte por el tablero puedes usar el teclado numerico como las teclas aqui listadas:
+	1. Para moverte por el tablero puedes usar el teclado numerico como las teclas aqui listadas:
 		* __Arriba:__ U o 8
 		* __Arriba Derecha:__ I o 9
 		* __Derecha:__ K o 6
@@ -16,18 +16,45 @@ Dependera de ti ayudarla a arrancar confundiendo a los habrientos conejos para q
 		* __Izquierda:__ H o 4
 		* __Arriba Izquierda:__ Y o 7
 		* __Centro:__ J o 5
-	b. Para __Salir__ ingresa __"q"__
-	c. Para __Teletransportarte__ presiona __"t"__
-	d. Para __Guardar__ presiona __"s"__
+	2. Para __Salir__ ingresa __"q"__
+	3. Para __Teletransportarte__ presiona __"t"__
+	4. Para __Guardar__ presiona __"s"__
 3. Pasas de nivel una vez que haz hecho chocar a todos los conejos.
 4. Para el siguiente nivel, se limpiara el escenario de los cadaveres que dejaron los conejos al chocar y se sumara un 25% a los conejos iniciales.
 5. Cuando alcances el tercer nivel se agregaran 3 trampolines al azar en el escenario, cuando un conejo se pose en ellos puede avanzar de a dos casillas.
 6. Por cada etapa que pases desde que entren en juego los trampolines apareceran un 20% mas que en el nivel anterior.
 7. La tabla de puntajes es la siguiente:
-	a. __5 Puntos__ por movimiento exitoso
-	b. __50 Puntos__ por cada conejo que choque
-	c. __100 Puntos__ por pasar de nivel
-	
+	* __5 Puntos__ por movimiento exitoso
+	* __50 Puntos__ por cada conejo que choque
+	* __100 Puntos__ por pasar de nivel
+
+## Compilacion
+El programa fue principalmente programado y probado en MacOSX, a pesar de ello el codigo se penso para que funcionara ademas en plataformas Linux, Windows (Aqui es donde se pierden gran cantidad de caracteristicas esteticas), y Cygwin (Emulador de Bash en Windows).
+
+### Sistemas Unix
+Para sistemas unix (Linux, MacOSX, Cygwin y otros) al programa se adjunta un script de configracion __configura.sh__ que intentara determinar el sistema en el cual sera compilado el programa o de lo contrario le hara que elija las opciones disponibles. El archivo de configuracion generara un archivo Makefile que le permitira compilar el juego.
+
+#### Paso 1 - Ejecutar el Script Configure
+
+	./configure.sh
+
+### Paso 2 - Ejecutar el Makefile
+
+	make
+
+### Paso 3 - Ejecutar el Juego
+
+	./zanahoria
+
+### Sistemas Windows
+
+En sistemas windows no se cuenta con una consola bash y solo contamos con la consola de ms-dos por lo tanto no se puede utilizar ni el archivo de configuracion y tampoco el archivo Makefile. por lo tanto aqui la compilacion debe ser a mano.
+
+Para llamar a __gcc__ y el programa funcione correctamente se debe llamar a gcc con las siguientes opciones:
+
+	gcc -DWINDOWS -Iinclude main.c include/*.c -o zanahoria -lm
+
+Esto generara un ejecutable __zanahoria.exe__ listo para poder disfrutar del juego.
 
 ## Bibliografia
 Aqui hay algunos libros que me ayudaron a entender todas las posibilidades que nos ofrece el lenguaje C.
@@ -36,4 +63,5 @@ Aqui hay algunos libros que me ayudaron a entender todas las posibilidades que n
 + Introduccion a la programacion en C / __Andres Marzal__ - __Isabel Gracia__
 
 ## Desarrollador
-[JesusGoku](http://www.twitter.com/jesusgoku)
+Jesus Urrutia
+Twitter [@jesusgoku](http://www.twitter.com/jesusgoku)
