@@ -25,7 +25,12 @@
 #define TABLERO_MIN_SIZE 5
 #define TABLERO_MAX_SIZE 25
 
-// Constantes para describir los elementos de tablero
+/** @defgroup ElementosTablero Elementos de tablero.
+*
+* Constantes que representan a los elementos del tablero de juegos
+*
+* @{
+*/
 #define ZANAHORIA 'z'
 #define CONEJO '&'
 #define CADAVER '#'
@@ -34,7 +39,15 @@
 #define CELDA_VACIA ' '
 #define ZANAHORIA_MUERTA 'x'
 
-// Constantes para describir los movimientos
+/** @} */ // end of ElementosTablero
+
+/** @defgroup MovimientosPermitidos Movimientos de juego.
+*
+* Comstamtes que representan a las teclas validas como
+* comandos de juego.
+*
+* @{
+*/
 #define MOV_TOP_N '8'
 #define MOV_TOP_C 'u'
 #define MOV_TOPLEFT_N '7'
@@ -58,6 +71,14 @@
 #define ACTION_QUIT_C 'q'
 #define ACTION_SAVE_C 's'
 
+/** @} */ // end of MovimientosPermitidos
+
+/** @defgroup MovimientosCodigos Codigo de Movimiento
+*
+* Codigos internos de las diferentes acciones dentro del juego
+*
+* @{
+*/
 #define MOVE_TOP 8
 #define MOVE_TOPLEFT 7
 #define MOVE_LEFT 4
@@ -72,26 +93,56 @@
 #define ACTION_QUIT 11
 #define ACTION_SAVE 12
 
-// Constantes con el aumento de puntaje
+/** @} */ // end of MovimientosCodigos
+
+/** @defgroup MontoPuntajes Constantes con el aumento de puntaje
+*
+* Constantes con la cantidad de puntaje que se otorga por cada accion
+*
+* @{
+*/
 #define PUNTAJE_MOV 5
 #define PUNTAJE_CHOQUE 50
 #define PUNTAJE_NIVEL 100
+/** @} */ // end of MontoPuntajes
 
-// Tasas de aumentos para las etaoas
+/** @defgroup TasasIncremento Tasas de aumentos para las etaoas
+*
+* Tasas de incremento para los conejos y los trampolines a medida
+* que avanza el juego
+*
+* @{
+*/
 #define TASA_AUMENTO_CONEJOS 0.25
 #define TASA_AUMENTO_TRAMPOLINES 0.2
+/** @} */ // end of TasasIncremento
 
-// Constantes para los tampolines
+/** @defgroup TrampolinesConfig Configuracion para los tampolines
+*
+* Configuracion de nivel en donde inician los trampolines y 
+* la cantidad de trampolines iniciales
+*
+* @{
+*/
 #define NIVEL_TRAMPOLINES_START 2
 #define TRAMPOLINES_INICIALES 2
+/** @} */ // end of TrampolinesConfig
 
-// Constantes para la partida
+/** @brief Archivo para guardar y recuperar la partida */
 #define FILE_PARTIDA "partida.dat"
 
-// Constantes para el Ranking
+/** @defgroup RankingConf Configuracion del Ranking
+*
+* Configuracion del tamano maximo del nombre
+* Cantidad de entradas en el ranking
+* y archivo en donde se guardara el ranking
+*
+* @{
+*/
 #define MAX_SIZE_NAME 20
 #define RANKING_NUM 10
 #define FILE_RANKING "ranking.dat"
+/** @} */ // end of RankingConf
 
 /** @brief Estructura de Datos para los datos del Ranking
 */
