@@ -586,10 +586,10 @@ void mostrarAyuda(){
 	clearScr();
 	println("Juego de la Zanahoria - Instrucciones");
 	println("-------------------------------------");
-	println("\nEl juego consiste en unos conejos hambrientos que perseguiran a la zanahoria");
-	println("(osea tu) hasta alcanzarla y poder devorarla.");
+	println("\nEl juego consiste en unos %sconejos hambrientos%s que perseguiran a la %szanahoria%s", COLOR_MARRON_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("(osea tu) hasta alcanzarla y poder %sdevorarla%s.", COLOR_ROJO_S, ESTILO_NORMAL_S);
 	println("\nPara salvarte de la voraz hambre de los conejos debes moverte por el escenario");
-	println("logrando que ellos choquen entre si o con los cadaveres que hayan dejado choques anteriores.");
+	println("logrando que ellos %schoquen%s entre si o con los %scadaveres%s que hayan dejado choques anteriores.", COLOR_VERDE_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
 
 	pausaMensaje("\nSiguiente... (Presiona Enter)");
 
@@ -597,21 +597,21 @@ void mostrarAyuda(){
 	println("Juego de la Zanahoria - Movimientos");
 	println("-----------------------------------");
 	println("\nPara moverte debes ingresar cualquiera de los siguientes comandos:");
-	println("\n\t--------------------------------------------------------------");
-	println("\t| %-20s | %-35s |", "", "Teclas que lo Accionan");
-	println("\t|                      | ----------------------------------- |");
-	println("\t| %-20s | %16s | %16s |", "Movimiento", "Teclado Numerico", "Teclado Normal");
-	println("\t| -------------------- | ---------------- | ---------------- |");
-	println("\t| %-20s | %16s | %16s |", "Arriba", "8", "u");
-	println("\t| %-20s | %16s | %16s |", "Arriba - Derecha", "9", "i");
-	println("\t| %-20s | %16s | %16s |", "Derecha", "6", "k");
-	println("\t| %-20s | %16s | %16s |", "Abajo - Derecha", "3", ",");
-	println("\t| %-20s | %16s | %16s |", "Abajo", "2", "m");
-	println("\t| %-20s | %16s | %16s |", "Abajo - Izquierda", "1" , "n");
-	println("\t| %-20s | %16s | %16s |", "Izquierda", "4", "h");
-	println("\t| %-20s | %16s | %16s |", "Arriba - Izquierda", "7", "y");
-	println("\t| %-20s | %16s | %16s |", "Mantener Posicion", "5", "j");
-	println("\t--------------------------------------------------------------");
+	println("\n\t%s--------------------------------------------------------------", COLOR_MARRON_S);
+	println("\t%s| %-20s | %-35s |", COLOR_MARRON_S, "", "Teclas que lo Accionan");
+	println("\t%s|                      | ----------------------------------- |", COLOR_MARRON_S);
+	println("\t%s| %-20s | %16s | %16s |", COLOR_MARRON_S, "Movimiento", "Teclado Numerico", "Teclado Normal");
+	println("\t%s| -------------------- | ---------------- | ---------------- |", COLOR_MARRON_S);
+	println("\t%s| %-20s | %16s | %16s |", COLOR_VERDE_S, "Arriba", "8", "u");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_ROJO_S, "Arriba - Derecha", "9", "i");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_VERDE_S, "Derecha", "6", "k");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_ROJO_S, "Abajo - Derecha", "3", ",");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_VERDE_S, "Abajo", "2", "m");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_ROJO_S, "Abajo - Izquierda", "1" , "n");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_VERDE_S, "Izquierda", "4", "h");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_ROJO_S, "Arriba - Izquierda", "7", "y");
+	println("\t%s| %-20s | %16s | %16s |", COLOR_VERDE_S, "Mantener Posicion", "5", "j");
+	println("\t%s--------------------------------------------------------------%s", COLOR_MARRON_S, ESTILO_NORMAL_S);
 
 	pausaMensaje("\nSiguiente... (Presiona Enter)");
 
@@ -619,14 +619,15 @@ void mostrarAyuda(){
 	println("Juego de la Zanahoria - Movimientos (Otra Vista)");
 	println("------------------------------------------------");
 	println("\nUna forma mas grafica de los movimientos disponibles");
-	println("donde el %s5%s equivale a quedarse en la posicion.", COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("donde la tecla %s5%s o la tecla %sj%s equivale a quedarse", COLOR_VERDE_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("en la posicion.");
 	println("Y los demas a moverse en la direccion esperada a partir de la posicion central.");
 	println("\n\t-------------   -------------");
 	println("\t| Tec. Num. |   | Tec. Norm.|");
 	println("\t-------------   -------------");
 	println("\t| 7 | 8 | 9 |   | y | u | i |");
 	println("\t-------------   -------------");
-	println("\t| 4 | 5 | 6 |   | h | j | k |");
+	println("\t| 4 | %s5%s | 6 |   | h | %sj%s | k |", COLOR_VERDE_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
 	println("\t-------------   -------------");
 	println("\t| 1 | 2 | 3 |   | n | m | , |");
 	println("\t-------------   -------------");
@@ -648,9 +649,9 @@ void mostrarAyuda(){
 	println("Juego de la Zanahoria - Puntuacion");
 	println("----------------------------------");
 	println("\nConseguiras punto con cualquiera de los siguientes eventos:");
-	println("\n\t  5 ptos. - Por cada movimiento correcto");
-	println("\t 50 ptos. - Por cada conejo que choque.");
-	println("\t100 ptos. - Cuando pases de nivel.");
+	println("\n\t  %s5 ptos.%s - Por cada movimiento correcto", COLOR_ROJO_S, ESTILO_NORMAL_S);
+	println("\t %s50 ptos.%s - Por cada conejo que choque.", COLOR_ROJO_S, ESTILO_NORMAL_S);
+	println("\t%s100 ptos.%s - Cuando pases de nivel.", COLOR_ROJO_S, ESTILO_NORMAL_S);
 	println("\nPara pasar de nivel debes lograr que todos los conejos");
 	println("choquen entre si o con otro cadaver en el campo.");
 	println("\nSi juntas muchos puntos, puedes entrar en el top 10");
@@ -662,7 +663,7 @@ void mostrarAyuda(){
 	clearScr();
 	println("Juego de la Zanahoria - Trampolines");
 	println("-----------------------------------");
-	println("\nA partir del 3 nivel apareceran los trampolines");
+	println("\nA partir del %s3 nivel%s apareceran los trampolines", COLOR_ROJO_S, ESTILO_NORMAL_S);
 	println("\nPermitira a los conejos moverse hasta dos espacios");
 	println("para poder comerte.");
 
