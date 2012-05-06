@@ -27,7 +27,7 @@ void printZanahoria(){
 	printf("   %sii                                   ivii   iM    iB    v QF%siiiilSgGlviiiii%s  \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
 	printf("                                           %siiiiiMv   iT   i ski%siiiii  iLi iiii%s  \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
 	printf("                                                  %siiiii ikiii     %siiii iii%s      \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
-	printf(" presione cualquier tecla para comenzar...              %sii            %siiil%s      \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
+	printf(" presione enter para comenzar...                        %sii            %siiil%s      \n", COLOR_ROJO_CLARO_S, COLOR_VERDE_CLARO_S, ESTILO_NORMAL_S);
 	fijarColorNormal();
 }
 
