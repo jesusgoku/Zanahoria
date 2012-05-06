@@ -16,17 +16,17 @@
 /***********************************/
 
 void pedirConejosIniciales(int *f, int *c, int *ci){
-	int max = (int)floor( (*c) * (*f) * 0.1 );
+	int max = (int)floor( (*c) * (*f) * CONEJOS_INICIALES_MAX_TASA );
 	println("Cantidad de Conejos Iniciales:\n");
 	println("\t- Deben ser minimo 2 conejos, para que puedan chocar");
 	println("\t- Deben ser maximo un 10%% de las casillas disponibles");
 	println("\tpara que la zanahoria se pueda mover en el escenario.");
 	do{
-		printf("\nConejos Iniciales (>= 2 y <= %i): ", max);
+		printf("\nConejos Iniciales (%i <= Conejos <= %i): ", CONEJOS_INICIALES_MIN, max);
 		clearStdin();
 		scanf("%i", ci);
-		if(*ci < 2 || *ci > max) printMsjError("Cantindad no valida.");
-	}while(*ci < 2 || *ci > max);
+		if(*ci < CONEJOS_INICIALES_MIN || *ci > max) printMsjError("Cantindad no valida.");
+	}while(*ci < CONEJOS_INICIALES_MIN || *ci > max);
 }
 
 void pedirDimensionTablero(int *f, int *c){

@@ -36,6 +36,17 @@
 #define TABLERO_MAX_SIZE 25
 /** @} */ // end of TableroConf
 
+/** @defgroup ConejosInicialesConf Configuracion Conejos Iniciales
+*
+* Configuracion de la cantidad minima de conejos y la
+* Tasa maxima de conejos en relacion al tamano del tablero
+*
+* @{
+*/
+#define CONEJOS_INICIALES_MIN 2
+#define CONEJOS_INICIALES_MAX_TASA 0.1
+/** @} */ // end of ConejosInicialesConf
+
 /** @defgroup ElementosTablero Elementos de tablero.
 *
 * Constantes que representan a los elementos del tablero de juegos
