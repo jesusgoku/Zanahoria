@@ -17,24 +17,41 @@
 
 void pedirConejosIniciales(int *f, int *c, int *ci){
 	int max = (int)floor( (*c) * (*f) * 0.1 );
+	println("Cantidad de Conejos Iniciales:\n");
+	println("\t- Deben ser minimo 2 conejos, para que puedan chocar");
+	println("\t- Deben ser maximo un 10%% de las casillas disponibles");
+	println("\tpara que la zanahoria se pueda mover en el escenario.");
 	do{
-		printf("Conejos Iniciales (>= 2 y <= %i): ", max);
+		printf("\nConejos Iniciales (>= 2 y <= %i): ", max);
 		clearStdin();
 		scanf("%i", ci);
-		if(*ci < 2 || *ci > max) println("Cantindad no valida.");
+		if(*ci < 2 || *ci > max) printMsjError("Cantindad no valida.");
 	}while(*ci < 2 || *ci > max);
 }
 
 void pedirDimensionTablero(int *f, int *c){
-	println("Dimensiones Recomendadas:\n");
-	println("\tVentana Estandar: 9x9 casilleros");
-	println("\tPantala Completa (1280x800px): 23x23 casilleros\n");
+	println("Reglas Dimension Tablero:");
+	println("\t- Debe ser un numero impar (Para que haya un solo centro).");
+	println("\t- Debe ser mayor que %i (para que se pueda realizar el juego).", TABLERO_MIN_SIZE);
+	println("\t- Debe ser menor de %i (para que quepa en la pantalla).", TABLERO_MAX_SIZE);
+	println("\nDimensiones Recomendadas:\n");
+	println("\t1) 9x9   casilleros - Consola Estandar (80x25)");
+	println("\t2) 23x23 casilleros - Consola Pantalla Completa (1280x800px)");
+	println("\t3) Dimension Personalizada.");
 	do{
-		printf("Ingrese Dimension Tablero (Numero impar >= %i y <= %i): ", TABLERO_MIN_SIZE, TABLERO_MAX_SIZE);
+		printf("\nIngrese una opcion: ");
 		clearStdin();
 		scanf("%i", f);
-		if(*f < TABLERO_MIN_SIZE || *f > TABLERO_MAX_SIZE || *f % 2 == 0) println("Dimension no valida.");
-	}while(*f < TABLERO_MIN_SIZE || *f > TABLERO_MAX_SIZE || *f % 2 == 0);
+		if(*f < 1 || *f > 3) printMsjError("Opcion no valida.");
+	}while(*f < 1 || *f > 3);
+	if(*f == 3){
+		do{
+			printf("\nIngrese Dimension Tablero (Numero impar, %i <= Dimension <= %i): ", TABLERO_MIN_SIZE, TABLERO_MAX_SIZE);
+			clearStdin();
+			scanf("%i", f);
+			if(*f < TABLERO_MIN_SIZE || *f > TABLERO_MAX_SIZE || *f % 2 == 0) printMsjError("Dimension no valida.");
+		}while(*f < TABLERO_MIN_SIZE || *f > TABLERO_MAX_SIZE || *f % 2 == 0);
+	}else *f = (*f == 1) ? 9 : 23;
 	*c = *f;
 }
 
