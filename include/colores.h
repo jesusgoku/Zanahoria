@@ -15,8 +15,16 @@
 
 #include <stdio.h>
 
-/** @brief Estilos Disponibles para pasar a las funciones
+/** @defgroup ColoresCodigos Codigos Funciones de Colores.h
+*
+* Constantes con los codigos disponibles para pasarle a las funciones
+* definidas en colores.h que representan los diferentes colores, estilos
+* y fondos que son capaces de representar.
+*
+* @{
 */
+
+/** @brief Estilos Disponibles para pasar a las funciones. */
 #define ESTILO_NORMAL 0
 #define ESTILO_CLARO 1
 #define ESTILO_SUBRAYADO 4
@@ -24,8 +32,7 @@
 #define ESTILO_INVERSO 7
 #define ESTILO_OCULTO 8
 
-/** @brief Colores disponibles para pasar a las funciones
-*/
+/** @brief Colores disponibles para pasar a las funciones. */
 #define COLOR_NEGRO 30
 #define COLOR_ROJO 31
 #define COLOR_VERDE 32
@@ -35,8 +42,7 @@
 #define COLOR_CYAN 36
 #define COLOR_GRIS 37
 
-/** @brief Fondos disponibles para pasar a las funciones.
-*/
+/** @brief Fondos disponibles para pasar a las funciones. */
 #define FONDO_NEGRO 40
 #define FONDO_ROJO 41
 #define FONDO_VERDE 42
@@ -46,9 +52,17 @@
 #define FONDO_CYAN 46
 #define FONDO_GRIS 47
 
+/** @} */ // end of ColoresCodigos
+
 #ifndef WINDOWS
 
-/** @brief Cadenas  Disponibles */
+/** @defgroup CadenasColor Cadenas De Color y Estilo
+*
+* Cadenas de colores, estilos y fondo para el texto en la consola
+* basado, soportado por todas las consalas ANSI
+*
+* @{
+*/
 #define ESTILO_NORMAL_S "\033[0m"
 #define ESTILO_CLARO_S "\033[1m"
 #define ESTILO_SUBRAYADO_S "\033[4m"
@@ -92,7 +106,19 @@
 #define FONDO_CYAN_CLARO_S "\033[1;46m"
 #define FONDO_GRIS_CLARO_S "\033[1;47m"
 
+/** @} */ // end of CadenasColor
+
 #elif
+
+/** @defgroup CadenasColorWindows Cadenas De Color y Estilo
+*
+* La consola de comandos por defecto no soporta el estandar ANSI
+* por lo tanto las cadenas se mostrarian como caracteres extranos
+* por eso para agregar compatibilidad se usan las mismas constantes
+* pero como una cadena vacia.
+*
+* @{
+*/
 
 #define ESTILO_NORMAL_S ""
 #define ESTILO_CLARO_S ""
@@ -136,6 +162,8 @@
 #define FONDO_PURPURA_CLARO_S "\033[1;45m"
 #define FONDO_CYAN_CLARO_S "\033[1;46m"
 #define FONDO_GRIS_CLARO_S "\033[1;47m"
+
+/** @} */ // end of CadenasColorWindows
 
 #endif // WINDOWS
 
