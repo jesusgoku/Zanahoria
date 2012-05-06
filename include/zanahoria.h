@@ -21,9 +21,20 @@
 #include <memoria.h>
 #include <colores.h>
 
-// Limites
+/** @defgroup TableroConf Configracion Tablero
+*
+* Configuracion del tamano maximo y minimo de tablero
+* el tamano minimo es debido a la cantidad minima para que se desarrolle
+* un juego, con al menos dos conejos
+* El tamano maximo esta dado por el espacio que ocuparia el tablero en una
+* consola a pantalla completa (resolucion 1280x800) para que el tablero
+* pudiera caer entero y ser jugable sin hacer scroll
+*
+* @{
+*/
 #define TABLERO_MIN_SIZE 5
 #define TABLERO_MAX_SIZE 25
+/** @] */ // end of TableroConf
 
 /** @defgroup ElementosTablero Elementos de tablero.
 *
