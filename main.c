@@ -142,7 +142,7 @@ int main(int argc, char **argv)
 				fclose(fp);
 				fp = NULL;
 				// Preguntamos si desea sobreescribir la partida existe
-				if(preguntayn("Ya existe una partida guardada, desea sobreescribirla? (y/n): ")){
+				if(preguntayn("Ya existe una partida guardada, desea sobreescribirla?")){
 					if(guardarPartida(FILE_PARTIDA, tablero, m, n, conejosIniciales, conejosVivos, nivel, puntaje))
 						printMsjOkPausa("Partida Guardada!");
 				}
