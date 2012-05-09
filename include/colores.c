@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#if defined(MAC) || defined(LINUX) || defined(CYGWIN)
+#if !defined(WINDOWS) || defined(ANSICON)
 
 void fijarColorNormal(){
 	printf("\033[0m");
@@ -33,7 +33,7 @@ void fijarColorTextoEstilo(const int texto, const int estilo){
 	printf("\033[%i;%im", estilo, texto);
 }
 
-#elif defined(WINDOWS)
+#else
 
 void fijarColorNormal(){}
 

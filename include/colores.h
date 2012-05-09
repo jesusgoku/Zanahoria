@@ -50,7 +50,7 @@
 
 /** @} */ // end of ColoresCodigos
 
-#ifndef WINDOWS
+#if !defined(WINDOWS) || defined(ANSICON)
 
 /** @defgroup CadenasColor Cadenas De Color y Estilo
 *

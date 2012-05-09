@@ -56,6 +56,37 @@ Para llamar a __gcc__ y el programa funcione correctamente se debe llamar a gcc 
 
 Esto generara un ejecutable __zanahoria.exe__ listo para poder disfrutar del juego.
 
+#### Mejorar experiencia windows
+
+El juego cuenta con algunas pantallas de colores que ayudan a resaltar distintos elementos del juego y ayudan a hacer mas rica la experiencia, el problema es que solo funciona en plataformas unix que cuentas con consolas que tienen soporte para comandos ANSI.
+
+Pero existe una solucion para poder disfrutar de esta experiencia en un entorno windows, ya que por defecto vienen deshabilitados. La solucion se llama __ANSICON__ y es un programa que permite habilitar de manera facil los comandos ANSI en la consola de MS-DOS.
+
+##### Instalacion ANSICON
+
+Descargar desde la siguiente direccion:
+
+	http://adoxa.110mb.com/ansicon/dl.php?f=ansicon
+
+Ahora debes seguir los siguientes pasos:
+
+1. Descomprime el archivo
+2. Abre una consola de MS-DOS y dirigite a la carpeta que acabas de descomprimir
+3. Ingresa a la carpeta __x86__ o __x64__ dependiendo de tu sistema
+4. ejecuta el siguiente comando:
+
+	ansicon -i
+
+Esto habilitara a __ANSICON__ en el autorun de MS-DOS para habilitar los comandos ANSI cada vez que ejecutes la consola de forma normal.
+
+##### Compilacion con soporte para ANSICON
+
+Ahora que ya tienes instalado __ANSICON__ debes volver a compilar tu codigo en windows para habilitar la presentacion con comandos ANSI.
+
+	gcc -DWINDOWS -DANSICON -Iinclude main.c include/*.c -o zanahoria -lm
+
+Prueba! y Disfruta de la experiencia!
+
 ## Bibliografia
 Aqui hay algunos libros que me ayudaron a entender todas las posibilidades que nos ofrece el lenguaje C.
 
@@ -63,5 +94,7 @@ Aqui hay algunos libros que me ayudaron a entender todas las posibilidades que n
 + Introduccion a la programacion en C / __Andres Marzal__ - __Isabel Gracia__
 
 ## Desarrollador
+
 Jesus Urrutia
-Twitter [@jesusgoku](http://www.twitter.com/jesusgoku)
+
+Twitter: [@jesusgoku](http://www.twitter.com/jesusgoku)
