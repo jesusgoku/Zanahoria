@@ -56,10 +56,9 @@ int main(int argc, char **argv)
 	inicializarRanking(ranking, RANKING_NUM);
 	cargarRanking(ranking, RANKING_NUM);
 
-	// Limpio la pantalla
-	clearScr();
 	// Doy la bienvenida
-	if(IS_UNIX) printZanahoria(); else printJuegoDeLaZanahoriaLetras();
+	clearScr();
+	printZanahoria();
 	pausa();
 	clearScr();
 
