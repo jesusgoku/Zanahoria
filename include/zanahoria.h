@@ -20,6 +20,7 @@
 #include <my_function.h>
 #include <memoria.h>
 #include <colores.h>
+#include <lista.h>
 
 /** @defgroup TableroConf Configuracion Tablero
 *
@@ -165,6 +166,15 @@
 #define RANKING_NUM 10
 #define FILE_RANKING "ranking.dat"
 /** @} */ // end of RankingConf
+
+/* @defgoup ConfigListaPartidas Configuracion lista de partidas
+*
+* @{
+*/
+#define FOLDER_PARTIDAS "partidas/" /*!< Carpeta donde se guardas las partidas */
+#define FILE_PARTIDA_PREFIX "partida-" /*!< Prefijo para las partidas guardas */
+#define FILE_PARTIDA_EXT ".dat" /*!< Extension de los archivos de partida */
+/** @} */ // end of ConfigListaPartidas
 
 /** @brief Estructura de Datos para los datos del Ranking
 */
@@ -409,12 +419,22 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 * @param tablero puntero a el tablero que se desea guardar
 * @param filas entero con la cantidad de filas del tablero
 * @param columnas entero con la cantidad de columnas del tablero
+* @param partina_nombre puntero a cadena con el nombre asignado a la partida
 * @param conejosIniciales entero con la cantidad inicial de conejos ingresada por el usuario
 * @param conejosVivos entero con la cantidad de conejos vivos al momento de llamar la funcion
 * @param nivel entero con el nivel al momento de llamar a la funcion
 * @param puntaje entero con el puntaje al momento de llamar a la funcion
 */
-int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
+int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
+
+/** @brief Genera una lista con las partidas disponibles en el directorio de partidas.
+*
+* Va intentando abrir archivos consecutivos que sean posibles partidas guardadas,
+* cuando el primero de ellos no se puede abrir significa que no hay mas.
+*
+* @return devulve un puntero a la lista de partidas
+*/
+TipoNodoNombre * generar_lista_partidas();
 
 /**
 * @brief Muesta el ranking.

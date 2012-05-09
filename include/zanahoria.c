@@ -10,6 +10,7 @@
 #include <memoria.h>
 #include <colores.h>
 #include <zanahoria.h>
+#include <lista.h>
 
 /************************************
 /* FUNCIONES DE PETICION AL USUARIO
@@ -452,9 +453,11 @@ int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, 
 char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje){
 	FILE *fp;
 	char **tablero;
+	char basura[NODO_NOMBRE_MAX_LENGTH + 1];
 	int i,j;
 	fp = fopen(ficheroName, "r");
 	if(fp == NULL) return NULL;
+	fgets(basura, NODO_NOMBRE_MAX_LENGTH, fp);
 	fscanf(fp, "%i\n", conejosIniciales);
 	fscanf(fp, "%i\n", conejosVivos);
 	fscanf(fp, "%i\n", nivel);
@@ -474,12 +477,13 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 	return tablero;
 }
 
-int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje){
+int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje){
 	FILE *fp;
 	int i,j;
 	char guardar;
 	fp = fopen(ficheroName, "w");
 	if(fp == NULL) return 0;
+	fprintf(fp, "%s\n", partida_nombre);
 	fprintf(fp, "%i\n", conejosIniciales);
 	fprintf(fp, "%i\n", conejosVivos);
 	fprintf(fp, "%i\n", nivel);
@@ -495,6 +499,42 @@ int guardarPartida(char *ficheroName, char **tablero, const int filas, const int
 	}
 	fclose(fp);
 	return 1;
+}
+
+TipoNodoNombre * generar_lista_partidas(){
+	
+	TipoNodoNombre *lista;
+	FILE *fp = NULL;
+	char ruta_archivo[50];
+	char nombre[NODO_NOMBRE_MAX_LENGTH + 1];
+	int i, x;
+
+	lista = lista_vacia();
+
+	for(i = 0; True; i++)
+	{
+		sprintf(ruta_archivo, "%s%s%i%s", FOLDER_PARTIDAS, FILE_PARTIDA_PREFIX, i, FILE_PARTIDA_EXT);
+		// printf("%s", ruta_archivo);break;
+		fp = fopen(ruta_archivo, "r");
+		if(fp == NULL)
+		{
+			break;
+		}
+		else
+		{
+			// Leo el nombre de la partida
+			fgets(nombre, NODO_NOMBRE_MAX_LENGTH, fp);
+			// Le quito el caracter salto de carro
+			for(x = 0; nombre[x] != '\n'; x++);
+			nombre[x] = '\0';
+			// Lo inserto en la lista
+			lista = insertar_por_cola(lista, nombre);
+			// Cierro el archivo y dirigo el puntero a null
+			fclose(fp);
+			fp = NULL;
+		}
+	}
+	return lista;
 }
 
 /*****************************************

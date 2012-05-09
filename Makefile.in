@@ -1,8 +1,8 @@
 CC := gcc
 OS := SISTEMA_OPERATIVO
 CFLAGS := -D$(OS) -Iinclude
-OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o include/colores.o include/printascii.o
-FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c include/colores.c include/printascii.c
+OBJETOS := main.o include/my_function.o include/zanahoria.o include/memoria.o include/colores.o include/printascii.o include/lista.o
+FUENTES := main.c include/my_function.c include/zanahoria.c include/memoria.c include/colores.c include/printascii.c include/lista.c
 
 .PHONY: clean distclean start push
 
@@ -26,6 +26,9 @@ colores.o: colores.c
 
 printascii.o: printascii.c
 	$(CC) $(CFLAGS) -c printascii.c
+
+lista.o: lista.c
+	$(CC) $(CFLAGS) -c lista.c
 
 clean:
 	rm -f *.o zanahoria include/*.o
