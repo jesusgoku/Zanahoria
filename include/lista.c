@@ -112,10 +112,10 @@ void modificar_valor_posicion(TipoNodoNombre *lista, int pos, char *cadena)
 	}
 }
 
-TipoNodoNombre * insertar_en_orden(TipoNodoNombre *lista, char *cadena)
+/*TipoNodoNombre * insertar_en_orden(TipoNodoNombre *lista, char *cadena)
 {
 
-}
+}*/
 
 TipoNodoNombre * concatenar_listas(TipoNodoNombre *a, TipoNodoNombre *b)
 {
