@@ -12,6 +12,7 @@
 #ifndef __LISTA_H__
 #define __LISTA_H__
 
+/** @brief Largo maximo de la cadena contenida por el campo nombre en el nodo */
 #define NODO_NOMBRE_MAX_LENGTH 50
 
 /** @brief Estructura Nodo para almacenar un campo de texto */
