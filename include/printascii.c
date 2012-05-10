@@ -125,9 +125,7 @@ void printLuminoso(char *cadena){
 	for(i = 0;i < len; i++){
 		if( i == 0 ) printf("( ");
 		else printf("| ");
-		fijarColorTextoEstilo(COLOR_ROJO, ESTILO_PARPADEANTE);
-		printf("%c ", cadena[i]);
-		fijarColorNormal();
+		printf("%s%c%s ", COLOR_ROJO_CLARO_S, cadena[i], ESTILO_NORMAL_S);
 		if( i == len - 1) printf(")");
 	}
 	// Penultima Linea
