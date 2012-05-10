@@ -110,6 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 <code>#include &lt;<a class="el" href="my__function_8h_source.html">my_function.h</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="memoria_8h_source.html">memoria.h</a>&gt;</code><br/>
 <code>#include &lt;<a class="el" href="colores_8h_source.html">colores.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="lista_8h_source.html">lista.h</a>&gt;</code><br/>
 </div>
 <p><a href="zanahoria_8h_source.html">Ir al código fuente de este archivo.</a></p>
 <table class="memberdecls">
@@ -123,6 +124,10 @@ Estructuras de datos</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>TABLERO_MIN_SIZE</b>&#160;&#160;&#160;5</td></tr>
 <tr class="memitem:gad28f20b18a16c2ff4359d9e9b06c8f18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad28f20b18a16c2ff4359d9e9b06c8f18"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>TABLERO_MAX_SIZE</b>&#160;&#160;&#160;25</td></tr>
+<tr class="memitem:gae1151ada3e8814066efe4b4297b65ae9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae1151ada3e8814066efe4b4297b65ae9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CONEJOS_INICIALES_MIN</b>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:gade1eafc662f20b0b3be32a94dec49557"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gade1eafc662f20b0b3be32a94dec49557"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CONEJOS_INICIALES_MAX_TASA</b>&#160;&#160;&#160;0.1</td></tr>
 <tr class="memitem:gae114c8428bcced638abd21dfb7b5b4aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae114c8428bcced638abd21dfb7b5b4aa"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>ZANAHORIA</b>&#160;&#160;&#160;'z'</td></tr>
 <tr class="memitem:gaedf66f9aa204f794b3040813148eec15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaedf66f9aa204f794b3040813148eec15"></a>
@@ -226,6 +231,9 @@ Estructuras de datos</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>RANKING_NUM</b>&#160;&#160;&#160;10</td></tr>
 <tr class="memitem:gab5ae0d334910343a4bbe4112d1b02650"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab5ae0d334910343a4bbe4112d1b02650"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>FILE_RANKING</b>&#160;&#160;&#160;&quot;ranking.dat&quot;</td></tr>
+<tr class="memitem:a3a5c30abb0d14412f8674443cc65589f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#a3a5c30abb0d14412f8674443cc65589f">FOLDER_PARTIDAS</a>&#160;&#160;&#160;&quot;partidas/&quot;</td></tr>
+<tr class="memitem:a2f876b82490643ca5e0dc20df7cdc38e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#a2f876b82490643ca5e0dc20df7cdc38e">FILE_PARTIDA_PREFIX</a>&#160;&#160;&#160;&quot;partida-&quot;</td></tr>
+<tr class="memitem:ae05977d99f4316af1f8fb063579823d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#ae05977d99f4316af1f8fb063579823d9">FILE_PARTIDA_EXT</a>&#160;&#160;&#160;&quot;.dat&quot;</td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 'typedefs'</h2></td></tr>
 <tr class="memitem:abbb2527e37ec9dec9af4c0deda64f717"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbb2527e37ec9dec9af4c0deda64f717"></a>
@@ -267,8 +275,10 @@ Funciones</h2></td></tr>
 <tr class="memdesc:ab186e440ee1b91e7c691c3b913162b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica la segunda vencindad en caso de peligros.  <a href="#ab186e440ee1b91e7c691c3b913162b70"></a><br/></td></tr>
 <tr class="memitem:ac0663343c973c54714da93ef4f5d23fe"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#ac0663343c973c54714da93ef4f5d23fe">cargarPartida</a> (char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje)</td></tr>
 <tr class="memdesc:ac0663343c973c54714da93ef4f5d23fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carga una partida desde un fichero.  <a href="#ac0663343c973c54714da93ef4f5d23fe"></a><br/></td></tr>
-<tr class="memitem:a2e50971af05cf2da1ba553a1dec0c20c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#a2e50971af05cf2da1ba553a1dec0c20c">guardarPartida</a> (char *ficheroName, char **tablero, const int filas, const int columnas, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje)</td></tr>
-<tr class="memdesc:a2e50971af05cf2da1ba553a1dec0c20c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda una partida en un fichero.  <a href="#a2e50971af05cf2da1ba553a1dec0c20c"></a><br/></td></tr>
+<tr class="memitem:a51b8638f8a250e5881e90c38b6a25dfa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#a51b8638f8a250e5881e90c38b6a25dfa">guardarPartida</a> (char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje)</td></tr>
+<tr class="memdesc:a51b8638f8a250e5881e90c38b6a25dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda una partida en un fichero.  <a href="#a51b8638f8a250e5881e90c38b6a25dfa"></a><br/></td></tr>
+<tr class="memitem:af36a37c8c557cd5870941ceaa2e656da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lista_8h.html#a3275dc87355c2eefc5983f44c1ce5294">TipoNodoNombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#af36a37c8c557cd5870941ceaa2e656da">generar_lista_partidas</a> ()</td></tr>
+<tr class="memdesc:af36a37c8c557cd5870941ceaa2e656da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera una lista con las partidas disponibles en el directorio de partidas.  <a href="#af36a37c8c557cd5870941ceaa2e656da"></a><br/></td></tr>
 <tr class="memitem:a4e73e3940df12bc1978a666ae88f9c16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#a4e73e3940df12bc1978a666ae88f9c16">mostrarRanking</a> (<a class="el" href="zanahoria_8h.html#abbb2527e37ec9dec9af4c0deda64f717">ItemRanking</a> *ranking, const int n)</td></tr>
 <tr class="memdesc:a4e73e3940df12bc1978a666ae88f9c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muesta el ranking.  <a href="#a4e73e3940df12bc1978a666ae88f9c16"></a><br/></td></tr>
 <tr class="memitem:a3443ec8943b22b9c2f138dea82052bdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zanahoria_8h.html#a3443ec8943b22b9c2f138dea82052bdc">mostrarRankingDestacado</a> (<a class="el" href="zanahoria_8h.html#abbb2527e37ec9dec9af4c0deda64f717">ItemRanking</a> *ranking, const int n, const int pos)</td></tr>
@@ -291,7 +301,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zana
 <dl class="section version"><dt>Versión:</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Fecha:</dt><dd>22/04/2012 </dd></dl>
 <dl class="section author"><dt>Autor:</dt><dd>JesusGoku </dd></dl>
-</div><hr/><h2>Documentación de las funciones</h2>
+</div><hr/><h2>Documentación de los 'defines'</h2>
+<a class="anchor" id="ae05977d99f4316af1f8fb063579823d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="zanahoria_8h.html#ae05977d99f4316af1f8fb063579823d9">FILE_PARTIDA_EXT</a>&#160;&#160;&#160;&quot;.dat&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Extension de los archivos de partida </p>
+
+</div>
+</div>
+<a class="anchor" id="a2f876b82490643ca5e0dc20df7cdc38e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="zanahoria_8h.html#a2f876b82490643ca5e0dc20df7cdc38e">FILE_PARTIDA_PREFIX</a>&#160;&#160;&#160;&quot;partida-&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Prefijo para las partidas guardas </p>
+
+</div>
+</div>
+<a class="anchor" id="a3a5c30abb0d14412f8674443cc65589f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="zanahoria_8h.html#a3a5c30abb0d14412f8674443cc65589f">FOLDER_PARTIDAS</a>&#160;&#160;&#160;&quot;partidas/&quot;</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Carpeta donde se guardas las partidas </p>
+
+</div>
+</div>
+<hr/><h2>Documentación de las funciones</h2>
 <a class="anchor" id="ac0663343c973c54714da93ef4f5d23fe"></a>
 <div class="memitem">
 <div class="memproto">
@@ -570,12 +623,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zana
 
 </div>
 </div>
-<a class="anchor" id="a2e50971af05cf2da1ba553a1dec0c20c"></a>
+<a class="anchor" id="af36a37c8c557cd5870941ceaa2e656da"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="zanahoria_8h.html#a2e50971af05cf2da1ba553a1dec0c20c">guardarPartida</a> </td>
+          <td class="memname"><a class="el" href="lista_8h.html#a3275dc87355c2eefc5983f44c1ce5294">TipoNodoNombre</a>* <a class="el" href="zanahoria_8h.html#af36a37c8c557cd5870941ceaa2e656da">generar_lista_partidas</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Genera una lista con las partidas disponibles en el directorio de partidas. </p>
+<p>Va intentando abrir archivos consecutivos que sean posibles partidas guardadas, cuando el primero de ellos no se puede abrir significa que no hay mas.</p>
+<dl class="section return"><dt>Devuelve:</dt><dd>devulve un puntero a la lista de partidas </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a51b8638f8a250e5881e90c38b6a25dfa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="zanahoria_8h.html#a51b8638f8a250e5881e90c38b6a25dfa">guardarPartida</a> </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>ficheroName</em>, </td>
@@ -597,6 +670,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zana
           <td></td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>columnas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>partida_nombre</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -638,6 +717,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zana
     <tr><td class="paramname">tablero</td><td>puntero a el tablero que se desea guardar </td></tr>
     <tr><td class="paramname">filas</td><td>entero con la cantidad de filas del tablero </td></tr>
     <tr><td class="paramname">columnas</td><td>entero con la cantidad de columnas del tablero </td></tr>
+    <tr><td class="paramname">partina_nombre</td><td>puntero a cadena con el nombre asignado a la partida </td></tr>
     <tr><td class="paramname">conejosIniciales</td><td>entero con la cantidad inicial de conejos ingresada por el usuario </td></tr>
     <tr><td class="paramname">conejosVivos</td><td>entero con la cantidad de conejos vivos al momento de llamar la funcion </td></tr>
     <tr><td class="paramname">nivel</td><td>entero con el nivel al momento de llamar a la funcion </td></tr>
@@ -1463,7 +1543,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zana
 
 
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 6 de Mayo de 2012 01:14:19 para Juego Zanahoria por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Jueves, 10 de Mayo de 2012 10:01:41 para Juego Zanahoria por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

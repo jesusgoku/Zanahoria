@@ -126,7 +126,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 <a name="l00049"></a>00049 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_GRIS 47</span>
 <a name="l00050"></a>00050 <span class="preprocessor"></span> <span class="comment">// end of ColoresCodigos</span>
 <a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="preprocessor">#ifndef WINDOWS</span>
+<a name="l00053"></a>00053 <span class="preprocessor">#if !defined(WINDOWS) || defined(ANSICON)</span>
 <a name="l00054"></a>00054 <span class="preprocessor"></span>
 <a name="l00062"></a>00062 <span class="preprocessor">#define ESTILO_NORMAL_S &quot;\033[0m&quot;</span>
 <a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">#define ESTILO_CLARO_S &quot;\033[1m&quot;</span>
@@ -172,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 <a name="l00103"></a>00103 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_GRIS_CLARO_S &quot;\033[1;47m&quot;</span>
 <a name="l00104"></a>00104 <span class="preprocessor"></span> <span class="comment">// end of CadenasColor</span>
 <a name="l00106"></a>00106 
-<a name="l00107"></a>00107 <span class="preprocessor">#elif</span>
+<a name="l00107"></a>00107 <span class="preprocessor">#else</span>
 <a name="l00108"></a>00108 <span class="preprocessor"></span>
 <a name="l00119"></a>00119 <span class="preprocessor">#define ESTILO_NORMAL_S &quot;&quot;</span>
 <a name="l00120"></a>00120 <span class="preprocessor"></span><span class="preprocessor">#define ESTILO_CLARO_S &quot;&quot;</span>
@@ -181,65 +181,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 <a name="l00123"></a>00123 <span class="preprocessor"></span><span class="preprocessor">#define ESTILO_INVERSO_S &quot;&quot;</span>
 <a name="l00124"></a>00124 <span class="preprocessor"></span><span class="preprocessor">#define ESTILO_OCULTO_S &quot;&quot;</span>
 <a name="l00125"></a>00125 <span class="preprocessor"></span>
-<a name="l00126"></a>00126 <span class="preprocessor">#define COLOR_NEGRO_S &quot;\033[0;30m&quot;</span>
-<a name="l00127"></a>00127 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_ROJO_S &quot;\033[0;31m&quot;</span>
-<a name="l00128"></a>00128 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_VERDE_S &quot;\033[0;32m&quot;</span>
-<a name="l00129"></a>00129 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_MARRON_S &quot;\033[0;33m&quot;</span>
-<a name="l00130"></a>00130 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_AZUL_S &quot;\033[0;34m&quot;</span>
-<a name="l00131"></a>00131 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_PURPURA_S &quot;\033[0;35m&quot;</span>
-<a name="l00132"></a>00132 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_CYAN_S &quot;\033[0;36m&quot;</span>
-<a name="l00133"></a>00133 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_GRIS_S &quot;\033[0;37m&quot;</span>
+<a name="l00126"></a>00126 <span class="preprocessor">#define COLOR_NEGRO_S &quot;&quot;</span>
+<a name="l00127"></a>00127 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_ROJO_S &quot;&quot;</span>
+<a name="l00128"></a>00128 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_VERDE_S &quot;&quot;</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_MARRON_S &quot;&quot;</span>
+<a name="l00130"></a>00130 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_AZUL_S &quot;&quot;</span>
+<a name="l00131"></a>00131 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_PURPURA_S &quot;&quot;</span>
+<a name="l00132"></a>00132 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_CYAN_S &quot;&quot;</span>
+<a name="l00133"></a>00133 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_GRIS_S &quot;&quot;</span>
 <a name="l00134"></a>00134 <span class="preprocessor"></span>
-<a name="l00135"></a>00135 <span class="preprocessor">#define COLOR_NEGRO_CLARO_S &quot;\033[1;30m&quot;</span>
-<a name="l00136"></a>00136 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_ROJO_CLARO_S &quot;\033[1;31m&quot;</span>
-<a name="l00137"></a>00137 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_VERDE_CLARO_S &quot;\033[1;32m&quot;</span>
-<a name="l00138"></a>00138 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_MARRON_CLARO_S &quot;\033[1;33m&quot;</span>
-<a name="l00139"></a>00139 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_AZUL_CLARO_S &quot;\033[1;34m&quot;</span>
-<a name="l00140"></a>00140 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_PURPURA_CLARO_S &quot;\033[1;35m&quot;</span>
-<a name="l00141"></a>00141 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_CYAN_CLARO_S &quot;\033[1;36m&quot;</span>
-<a name="l00142"></a>00142 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_GRIS_CLARO_S &quot;\033[1;37m&quot;</span>
+<a name="l00135"></a>00135 <span class="preprocessor">#define COLOR_NEGRO_CLARO_S &quot;&quot;</span>
+<a name="l00136"></a>00136 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_ROJO_CLARO_S &quot;&quot;</span>
+<a name="l00137"></a>00137 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_VERDE_CLARO_S &quot;&quot;</span>
+<a name="l00138"></a>00138 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_MARRON_CLARO_S &quot;&quot;</span>
+<a name="l00139"></a>00139 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_AZUL_CLARO_S &quot;&quot;</span>
+<a name="l00140"></a>00140 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_PURPURA_CLARO_S &quot;&quot;</span>
+<a name="l00141"></a>00141 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_CYAN_CLARO_S &quot;&quot;</span>
+<a name="l00142"></a>00142 <span class="preprocessor"></span><span class="preprocessor">#define COLOR_GRIS_CLARO_S &quot;&quot;</span>
 <a name="l00143"></a>00143 <span class="preprocessor"></span>
-<a name="l00144"></a>00144 <span class="preprocessor">#define FONDO_NEGRO_S &quot;\033[0;40m&quot;</span>
-<a name="l00145"></a>00145 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_ROJO_S &quot;\033[0;41m&quot;</span>
-<a name="l00146"></a>00146 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_VERDE_S &quot;\033[0;42m&quot;</span>
-<a name="l00147"></a>00147 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_MARRON_S &quot;\033[0;43m&quot;</span>
-<a name="l00148"></a>00148 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_AZUL_S &quot;\033[0;44m&quot;</span>
-<a name="l00149"></a>00149 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_PURPURA_S &quot;\033[0;45m&quot;</span>
-<a name="l00150"></a>00150 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_CYAN_S &quot;\033[0;46m&quot;</span>
-<a name="l00151"></a>00151 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_GRIS_S &quot;\033[0;47m&quot;</span>
+<a name="l00144"></a>00144 <span class="preprocessor">#define FONDO_NEGRO_S &quot;&quot;</span>
+<a name="l00145"></a>00145 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_ROJO_S &quot;&quot;</span>
+<a name="l00146"></a>00146 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_VERDE_S &quot;&quot;</span>
+<a name="l00147"></a>00147 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_MARRON_S &quot;&quot;</span>
+<a name="l00148"></a>00148 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_AZUL_S &quot;&quot;</span>
+<a name="l00149"></a>00149 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_PURPURA_S &quot;&quot;</span>
+<a name="l00150"></a>00150 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_CYAN_S &quot;&quot;</span>
+<a name="l00151"></a>00151 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_GRIS_S &quot;&quot;</span>
 <a name="l00152"></a>00152 <span class="preprocessor"></span>
-<a name="l00153"></a>00153 <span class="preprocessor">#define FONDO_NEGRO_CLARO_S &quot;\033[1;40m&quot;</span>
-<a name="l00154"></a>00154 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_ROJO_CLARO_S &quot;\033[1;41m&quot;</span>
-<a name="l00155"></a>00155 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_VERDE_CLARO_S &quot;\033[1;42m&quot;</span>
-<a name="l00156"></a>00156 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_MARRON_CLARO_S &quot;\033[1;43m&quot;</span>
-<a name="l00157"></a>00157 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_AZUL_CLARO_S &quot;\033[1;44m&quot;</span>
-<a name="l00158"></a>00158 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_PURPURA_CLARO_S &quot;\033[1;45m&quot;</span>
-<a name="l00159"></a>00159 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_CYAN_CLARO_S &quot;\033[1;46m&quot;</span>
-<a name="l00160"></a>00160 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_GRIS_CLARO_S &quot;\033[1;47m&quot;</span>
+<a name="l00153"></a>00153 <span class="preprocessor">#define FONDO_NEGRO_CLARO_S &quot;&quot;</span>
+<a name="l00154"></a>00154 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_ROJO_CLARO_S &quot;&quot;</span>
+<a name="l00155"></a>00155 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_VERDE_CLARO_S &quot;&quot;</span>
+<a name="l00156"></a>00156 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_MARRON_CLARO_S &quot;&quot;</span>
+<a name="l00157"></a>00157 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_AZUL_CLARO_S &quot;&quot;</span>
+<a name="l00158"></a>00158 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_PURPURA_CLARO_S &quot;&quot;</span>
+<a name="l00159"></a>00159 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_CYAN_CLARO_S &quot;&quot;</span>
+<a name="l00160"></a>00160 <span class="preprocessor"></span><span class="preprocessor">#define FONDO_GRIS_CLARO_S &quot;&quot;</span>
 <a name="l00161"></a>00161 <span class="preprocessor"></span> <span class="comment">// end of CadenasColorWindows</span>
 <a name="l00163"></a>00163 
 <a name="l00164"></a>00164 <span class="preprocessor">#endif // WINDOWS</span>
 <a name="l00165"></a>00165 <span class="preprocessor"></span>
-<a name="l00168"></a>00168 <span class="keywordtype">void</span> <a class="code" href="colores_8h.html#ab677e1b8797e8b14fa01e648139b3071" title="Resetea la terminal a sus colores originales.">fijarColorNormal</a>();
+<a name="l00168"></a>00168 <span class="keywordtype">void</span> fijarColorNormal();
 <a name="l00169"></a>00169 
-<a name="l00174"></a>00174 <span class="keywordtype">void</span> <a class="code" href="colores_8h.html#ad3c74b4128c1d2f9030e90397f0e42ea" title="Fija el color del texto a color.">fijarColorTexto</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> color);
+<a name="l00174"></a>00174 <span class="keywordtype">void</span> fijarColorTexto(<span class="keyword">const</span> <span class="keywordtype">int</span> color);
 <a name="l00175"></a>00175 
-<a name="l00180"></a>00180 <span class="keywordtype">void</span> <a class="code" href="colores_8h.html#aeea44224ff6879a603ce46a77d96a874" title="Fija el color del fondo a fondo.">fijarColorFondo</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> fondo);
+<a name="l00180"></a>00180 <span class="keywordtype">void</span> fijarColorFondo(<span class="keyword">const</span> <span class="keywordtype">int</span> fondo);
 <a name="l00181"></a>00181 
-<a name="l00186"></a>00186 <span class="keywordtype">void</span> <a class="code" href="colores_8h.html#adf2fff2de45b891b0f751d2ddce917ce" title="Fija el estilo de la terminal.">fijarColorEstilo</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> estilo);
+<a name="l00186"></a>00186 <span class="keywordtype">void</span> fijarColorEstilo(<span class="keyword">const</span> <span class="keywordtype">int</span> estilo);
 <a name="l00187"></a>00187 
-<a name="l00193"></a>00193 <span class="keywordtype">void</span> <a class="code" href="colores_8h.html#a5678210aa1351a17a4ea017bb8d924c8" title="Fija el color y el fondo del texto.">fijarColorTextoFondo</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> texto, <span class="keyword">const</span> <span class="keywordtype">int</span> fondo);
+<a name="l00193"></a>00193 <span class="keywordtype">void</span> fijarColorTextoFondo(<span class="keyword">const</span> <span class="keywordtype">int</span> texto, <span class="keyword">const</span> <span class="keywordtype">int</span> fondo);
 <a name="l00194"></a>00194 
-<a name="l00201"></a>00201 <span class="keywordtype">void</span> <a class="code" href="colores_8h.html#aa600db3b6ac94125bc653269ceeb172f" title="Fija el color, el estilo y el fondo del texto.">fijarColorTextoFondoEstilo</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> texto, <span class="keyword">const</span> <span class="keywordtype">int</span> fondo, <span class="keyword">const</span> <span class="keywordtype">int</span> estilo);
+<a name="l00201"></a>00201 <span class="keywordtype">void</span> fijarColorTextoFondoEstilo(<span class="keyword">const</span> <span class="keywordtype">int</span> texto, <span class="keyword">const</span> <span class="keywordtype">int</span> fondo, <span class="keyword">const</span> <span class="keywordtype">int</span> estilo);
 <a name="l00202"></a>00202 
-<a name="l00208"></a>00208 <span class="keywordtype">void</span> <a class="code" href="colores_8h.html#a5523cff5d16cbeb701c63f28e79ce812" title="Fija el color y el estilo del texto.">fijarColorTextoEstilo</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> texto, <span class="keyword">const</span> <span class="keywordtype">int</span> estilo);
+<a name="l00208"></a>00208 <span class="keywordtype">void</span> fijarColorTextoEstilo(<span class="keyword">const</span> <span class="keywordtype">int</span> texto, <span class="keyword">const</span> <span class="keywordtype">int</span> estilo);
 <a name="l00209"></a>00209 
 <a name="l00210"></a>00210 <span class="preprocessor">#endif // __COLORES_H__</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 6 de Mayo de 2012 01:14:18 para Juego Zanahoria por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Jueves, 10 de Mayo de 2012 10:01:41 para Juego Zanahoria por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>

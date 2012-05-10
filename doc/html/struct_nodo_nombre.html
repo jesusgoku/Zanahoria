@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Juego Zanahoria: Fichero Fuente include/printascii.h</title>
+<title>Juego Zanahoria: Referencia de la Estructura NodoNombre</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;principal</span></a></li>
       <li><a href="modules.html"><span>Módulos</span></a></li>
-      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
-      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,11 +70,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
-      <li><a href="globals.html"><span>Globales</span></a></li>
+      <li><a href="annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
     </ul>
   </div>
-</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,48 +88,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 </iframe>
 </div>
 
+</div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
   <div class="headertitle">
-<div class="title">include/printascii.h</div>  </div>
+<div class="title">Referencia de la Estructura NodoNombre</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="printascii_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00011"></a>00011 <span class="preprocessor">#ifndef __PRINTASCII_H__</span>
-<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#define __PRINTASCII_H__</span>
-<a name="l00013"></a>00013 <span class="preprocessor"></span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;<a class="code" href="my__function_8h.html" title="Mis Funciones Reutilizables.">my_function.h</a>&gt;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;string.h&gt;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;<a class="code" href="colores_8h.html" title="Para implementar colores en terminales ANSI.">colores.h</a>&gt;</span>
-<a name="l00018"></a>00018 
-<a name="l00021"></a>00021 <span class="keywordtype">void</span> printZanahoria();
-<a name="l00022"></a>00022 
-<a name="l00025"></a>00025 <span class="keywordtype">void</span> printConejoZanahoria();
-<a name="l00026"></a>00026 
-<a name="l00029"></a>00029 <span class="keywordtype">void</span> printConejoGameOver();
-<a name="l00030"></a>00030 
-<a name="l00033"></a>00033 <span class="keywordtype">void</span> printGraciasPorJugar();
-<a name="l00034"></a>00034 
-<a name="l00037"></a>00037 <span class="keywordtype">void</span> printJuegoDeLaZanahoriaLetras();
-<a name="l00038"></a>00038 
-<a name="l00043"></a>00043 <span class="keywordtype">void</span> printLuminoso(<span class="keywordtype">char</span> *cadena);
-<a name="l00044"></a>00044 
-<a name="l00049"></a>00049 <span class="keywordtype">void</span> printMasMenos(<span class="keywordtype">char</span> *cadena);
-<a name="l00050"></a>00050 
-<a name="l00055"></a>00055 <span class="keywordtype">void</span> printMsjError(<span class="keyword">const</span> <span class="keywordtype">char</span> *msj);
-<a name="l00056"></a>00056 
-<a name="l00061"></a>00061 <span class="keywordtype">void</span> printMsjErrorPausa(<span class="keyword">const</span> <span class="keywordtype">char</span> *msj);
-<a name="l00062"></a>00062 
-<a name="l00067"></a>00067 <span class="keywordtype">void</span> printMsjOk(<span class="keyword">const</span> <span class="keywordtype">char</span> *msj);
-<a name="l00068"></a>00068 
-<a name="l00073"></a>00073 <span class="keywordtype">void</span> printMsjOkPausa(<span class="keyword">const</span> <span class="keywordtype">char</span> *msj);
-<a name="l00074"></a>00074 
-<a name="l00079"></a>00079 <span class="keywordtype">void</span> printMsjInfo(<span class="keyword">const</span> <span class="keywordtype">char</span> *msj);
-<a name="l00080"></a>00080 
-<a name="l00085"></a>00085 <span class="keywordtype">void</span> printMsjInfoPausa(<span class="keyword">const</span> <span class="keywordtype">char</span> *msj);
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087 <span class="preprocessor">#endif // __PRINTASCII_H__</span>
-</pre></div></div><!-- contents -->
+
+<p>Estructura Nodo para almacenar un campo de texto.  
+ <a href="struct_nodo_nombre.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="lista_8h_source.html">lista.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:adfba672ad596d3b4a44c4e17331efd2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfba672ad596d3b4a44c4e17331efd2d"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>nombre</b> [<a class="el" href="lista_8h.html#afc43073678031e49ec314388a77948c6">NODO_NOMBRE_MAX_LENGTH</a>+1]</td></tr>
+<tr class="memitem:a380af3b044cbe310defceb5475ce68c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a380af3b044cbe310defceb5475ce68c6"></a>
+struct <a class="el" href="struct_nodo_nombre.html">NodoNombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>sig</b></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Descripción detallada</h2>
+<div class="textblock"><p>Estructura Nodo para almacenar un campo de texto. </p>
+</div><hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="lista_8h_source.html">lista.h</a></li>
+</ul>
+</div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>

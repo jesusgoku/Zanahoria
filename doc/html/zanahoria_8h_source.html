@@ -106,140 +106,155 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 <a name="l00020"></a>00020 <span class="preprocessor">#include &lt;<a class="code" href="my__function_8h.html" title="Mis Funciones Reutilizables.">my_function.h</a>&gt;</span>
 <a name="l00021"></a>00021 <span class="preprocessor">#include &lt;<a class="code" href="memoria_8h.html" title="Libreria para solicitar y Liberar Memoria.">memoria.h</a>&gt;</span>
 <a name="l00022"></a>00022 <span class="preprocessor">#include &lt;<a class="code" href="colores_8h.html" title="Para implementar colores en terminales ANSI.">colores.h</a>&gt;</span>
-<a name="l00023"></a>00023 
-<a name="l00035"></a>00035 <span class="preprocessor">#define TABLERO_MIN_SIZE 5</span>
-<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#define TABLERO_MAX_SIZE 25</span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span> <span class="comment">// end of TableroConf</span>
-<a name="l00038"></a>00038 
-<a name="l00045"></a>00045 <span class="preprocessor">#define ZANAHORIA &#39;z&#39;</span>
-<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#define CONEJO &#39;&amp;&#39;</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#define CADAVER &#39;#&#39;</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#define TRAMPOLIN &#39;&lt;&#39;</span>
-<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="preprocessor">#define CONEJO_TRAMPOLIN &#39;?&#39;</span>
-<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="preprocessor">#define CELDA_VACIA &#39; &#39;</span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span><span class="preprocessor">#define ZANAHORIA_MUERTA &#39;x&#39;</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span> <span class="comment">// end of ElementosTablero</span>
-<a name="l00054"></a>00054 
-<a name="l00062"></a>00062 <span class="preprocessor">#define MOV_TOP_N &#39;8&#39;</span>
-<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOP_C &#39;u&#39;</span>
-<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPLEFT_N &#39;7&#39;</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPLEFT_C &#39;y&#39;</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span><span class="preprocessor">#define MOV_LEFT_N &#39;4&#39;</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span><span class="preprocessor">#define MOV_LEFT_C &#39;h&#39;</span>
-<a name="l00068"></a>00068 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMLEFT_N &#39;1&#39;</span>
-<a name="l00069"></a>00069 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMLEFT_C &#39;n&#39;</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOM_N &#39;2&#39;</span>
-<a name="l00071"></a>00071 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOM_C &#39;m&#39;</span>
-<a name="l00072"></a>00072 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMRIGHT_N &#39;3&#39;</span>
-<a name="l00073"></a>00073 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMRIGHT_C &#39;,&#39;</span>
-<a name="l00074"></a>00074 <span class="preprocessor"></span><span class="preprocessor">#define MOV_RIGHT_N &#39;6&#39;</span>
-<a name="l00075"></a>00075 <span class="preprocessor"></span><span class="preprocessor">#define MOV_RIGHT_C &#39;k&#39;</span>
-<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPRIGHT_N &#39;9&#39;</span>
-<a name="l00077"></a>00077 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPRIGHT_C &#39;i&#39;</span>
-<a name="l00078"></a>00078 <span class="preprocessor"></span><span class="preprocessor">#define MOV_CENTER_N &#39;5&#39;</span>
-<a name="l00079"></a>00079 <span class="preprocessor"></span><span class="preprocessor">#define MOV_CENTER_C &#39;j&#39;</span>
-<a name="l00080"></a>00080 <span class="preprocessor"></span>
-<a name="l00081"></a>00081 <span class="preprocessor">#define MOV_TRANSPORT_C &#39;t&#39;</span>
-<a name="l00082"></a>00082 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_QUIT_C &#39;q&#39;</span>
-<a name="l00083"></a>00083 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_SAVE_C &#39;s&#39;</span>
-<a name="l00084"></a>00084 <span class="preprocessor"></span> <span class="comment">// end of MovimientosPermitidos</span>
-<a name="l00086"></a>00086 
-<a name="l00093"></a>00093 <span class="preprocessor">#define MOVE_TOP 8</span>
-<a name="l00094"></a>00094 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_TOPLEFT 7</span>
-<a name="l00095"></a>00095 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_LEFT 4</span>
-<a name="l00096"></a>00096 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOMLEFT 1</span>
-<a name="l00097"></a>00097 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOM 2</span>
-<a name="l00098"></a>00098 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOMRIGHT 3</span>
-<a name="l00099"></a>00099 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_RIGHT 6</span>
-<a name="l00100"></a>00100 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_TOPRIGHT 9</span>
-<a name="l00101"></a>00101 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_CENTER 5</span>
-<a name="l00102"></a>00102 <span class="preprocessor"></span>
-<a name="l00103"></a>00103 <span class="preprocessor">#define MOVE_TRANSPORT 10</span>
-<a name="l00104"></a>00104 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_QUIT 11</span>
-<a name="l00105"></a>00105 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_SAVE 12</span>
-<a name="l00106"></a>00106 <span class="preprocessor"></span> <span class="comment">// end of MovimientosCodigos</span>
-<a name="l00108"></a>00108 
-<a name="l00115"></a>00115 <span class="preprocessor">#define PUNTAJE_MOV 5</span>
-<a name="l00116"></a>00116 <span class="preprocessor"></span><span class="preprocessor">#define PUNTAJE_CHOQUE 50</span>
-<a name="l00117"></a>00117 <span class="preprocessor"></span><span class="preprocessor">#define PUNTAJE_NIVEL 100</span>
-<a name="l00118"></a>00118 <span class="preprocessor"></span> <span class="comment">// end of MontoPuntajes</span>
-<a name="l00119"></a>00119 
-<a name="l00127"></a>00127 <span class="preprocessor">#define TASA_AUMENTO_CONEJOS 0.25</span>
-<a name="l00128"></a>00128 <span class="preprocessor"></span><span class="preprocessor">#define TASA_AUMENTO_TRAMPOLINES 0.2</span>
-<a name="l00129"></a>00129 <span class="preprocessor"></span> <span class="comment">// end of TasasIncremento</span>
-<a name="l00130"></a>00130 
-<a name="l00138"></a>00138 <span class="preprocessor">#define NIVEL_TRAMPOLINES_START 2</span>
-<a name="l00139"></a>00139 <span class="preprocessor"></span><span class="preprocessor">#define TRAMPOLINES_INICIALES 2</span>
-<a name="l00140"></a>00140 <span class="preprocessor"></span> <span class="comment">// end of TrampolinesConfig</span>
-<a name="l00141"></a>00141 
-<a name="l00143"></a><a class="code" href="zanahoria_8h.html#ab574bb9d2f8cb1fdafba3d3878a67c12">00143</a> <span class="preprocessor">#define FILE_PARTIDA &quot;partida.dat&quot;</span>
-<a name="l00144"></a>00144 <span class="preprocessor"></span>
-<a name="l00153"></a>00153 <span class="preprocessor">#define MAX_SIZE_NAME 20</span>
-<a name="l00154"></a>00154 <span class="preprocessor"></span><span class="preprocessor">#define RANKING_NUM 10</span>
-<a name="l00155"></a>00155 <span class="preprocessor"></span><span class="preprocessor">#define FILE_RANKING &quot;ranking.dat&quot;</span>
-<a name="l00156"></a>00156 <span class="preprocessor"></span> <span class="comment">// end of RankingConf</span>
-<a name="l00157"></a>00157 
-<a name="l00160"></a><a class="code" href="structitem_ranking.html">00160</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">itemRanking</a> {
-<a name="l00161"></a>00161         <span class="keywordtype">char</span> nombre[MAX_SIZE_NAME + 1];
-<a name="l00162"></a>00162         <span class="keywordtype">int</span> puntaje;
-<a name="l00163"></a>00163 } <a class="code" href="zanahoria_8h.html#abbb2527e37ec9dec9af4c0deda64f717" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a>;
-<a name="l00164"></a>00164 
-<a name="l00180"></a>00180 <span class="keywordtype">void</span> pedirConejosIniciales(<span class="keywordtype">int</span> *f, <span class="keywordtype">int</span> *c, <span class="keywordtype">int</span> *ci);
-<a name="l00181"></a>00181 
-<a name="l00198"></a>00198 <span class="keywordtype">void</span> pedirDimensionTablero(<span class="keywordtype">int</span> *f, <span class="keywordtype">int</span> *c);
-<a name="l00199"></a>00199 
-<a name="l00210"></a>00210 <span class="keywordtype">void</span> tablero_ini(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">int</span> f, <span class="keywordtype">int</span> c);
-<a name="l00211"></a>00211 
-<a name="l00219"></a>00219 <span class="keywordtype">void</span> tablero_view(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">int</span> f, <span class="keywordtype">int</span> c);
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;<a class="code" href="lista_8h.html" title="Funciones para la implementacion de una lista simplemente enlazada.">lista.h</a>&gt;</span>
+<a name="l00024"></a>00024 
+<a name="l00036"></a>00036 <span class="preprocessor">#define TABLERO_MIN_SIZE 5</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#define TABLERO_MAX_SIZE 25</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span> <span class="comment">// end of TableroConf</span>
+<a name="l00039"></a>00039 
+<a name="l00047"></a>00047 <span class="preprocessor">#define CONEJOS_INICIALES_MIN 2</span>
+<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#define CONEJOS_INICIALES_MAX_TASA 0.1</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span> <span class="comment">// end of ConejosInicialesConf</span>
+<a name="l00050"></a>00050 
+<a name="l00057"></a>00057 <span class="preprocessor">#define ZANAHORIA &#39;z&#39;</span>
+<a name="l00058"></a>00058 <span class="preprocessor"></span><span class="preprocessor">#define CONEJO &#39;&amp;&#39;</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span><span class="preprocessor">#define CADAVER &#39;#&#39;</span>
+<a name="l00060"></a>00060 <span class="preprocessor"></span><span class="preprocessor">#define TRAMPOLIN &#39;&lt;&#39;</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span><span class="preprocessor">#define CONEJO_TRAMPOLIN &#39;?&#39;</span>
+<a name="l00062"></a>00062 <span class="preprocessor"></span><span class="preprocessor">#define CELDA_VACIA &#39; &#39;</span>
+<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">#define ZANAHORIA_MUERTA &#39;x&#39;</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span> <span class="comment">// end of ElementosTablero</span>
+<a name="l00066"></a>00066 
+<a name="l00074"></a>00074 <span class="preprocessor">#define MOV_TOP_N &#39;8&#39;</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOP_C &#39;u&#39;</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPLEFT_N &#39;7&#39;</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPLEFT_C &#39;y&#39;</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span><span class="preprocessor">#define MOV_LEFT_N &#39;4&#39;</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span><span class="preprocessor">#define MOV_LEFT_C &#39;h&#39;</span>
+<a name="l00080"></a>00080 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMLEFT_N &#39;1&#39;</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMLEFT_C &#39;n&#39;</span>
+<a name="l00082"></a>00082 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOM_N &#39;2&#39;</span>
+<a name="l00083"></a>00083 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOM_C &#39;m&#39;</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMRIGHT_N &#39;3&#39;</span>
+<a name="l00085"></a>00085 <span class="preprocessor"></span><span class="preprocessor">#define MOV_BOTTOMRIGHT_C &#39;,&#39;</span>
+<a name="l00086"></a>00086 <span class="preprocessor"></span><span class="preprocessor">#define MOV_RIGHT_N &#39;6&#39;</span>
+<a name="l00087"></a>00087 <span class="preprocessor"></span><span class="preprocessor">#define MOV_RIGHT_C &#39;k&#39;</span>
+<a name="l00088"></a>00088 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPRIGHT_N &#39;9&#39;</span>
+<a name="l00089"></a>00089 <span class="preprocessor"></span><span class="preprocessor">#define MOV_TOPRIGHT_C &#39;i&#39;</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span><span class="preprocessor">#define MOV_CENTER_N &#39;5&#39;</span>
+<a name="l00091"></a>00091 <span class="preprocessor"></span><span class="preprocessor">#define MOV_CENTER_C &#39;j&#39;</span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span>
+<a name="l00093"></a>00093 <span class="preprocessor">#define MOV_TRANSPORT_C &#39;t&#39;</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_QUIT_C &#39;q&#39;</span>
+<a name="l00095"></a>00095 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_SAVE_C &#39;s&#39;</span>
+<a name="l00096"></a>00096 <span class="preprocessor"></span> <span class="comment">// end of MovimientosPermitidos</span>
+<a name="l00098"></a>00098 
+<a name="l00105"></a>00105 <span class="preprocessor">#define MOVE_TOP 8</span>
+<a name="l00106"></a>00106 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_TOPLEFT 7</span>
+<a name="l00107"></a>00107 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_LEFT 4</span>
+<a name="l00108"></a>00108 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOMLEFT 1</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOM 2</span>
+<a name="l00110"></a>00110 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_BOTTOMRIGHT 3</span>
+<a name="l00111"></a>00111 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_RIGHT 6</span>
+<a name="l00112"></a>00112 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_TOPRIGHT 9</span>
+<a name="l00113"></a>00113 <span class="preprocessor"></span><span class="preprocessor">#define MOVE_CENTER 5</span>
+<a name="l00114"></a>00114 <span class="preprocessor"></span>
+<a name="l00115"></a>00115 <span class="preprocessor">#define MOVE_TRANSPORT 10</span>
+<a name="l00116"></a>00116 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_QUIT 11</span>
+<a name="l00117"></a>00117 <span class="preprocessor"></span><span class="preprocessor">#define ACTION_SAVE 12</span>
+<a name="l00118"></a>00118 <span class="preprocessor"></span> <span class="comment">// end of MovimientosCodigos</span>
+<a name="l00120"></a>00120 
+<a name="l00127"></a>00127 <span class="preprocessor">#define PUNTAJE_MOV 5</span>
+<a name="l00128"></a>00128 <span class="preprocessor"></span><span class="preprocessor">#define PUNTAJE_CHOQUE 50</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span><span class="preprocessor">#define PUNTAJE_NIVEL 100</span>
+<a name="l00130"></a>00130 <span class="preprocessor"></span> <span class="comment">// end of MontoPuntajes</span>
+<a name="l00131"></a>00131 
+<a name="l00139"></a>00139 <span class="preprocessor">#define TASA_AUMENTO_CONEJOS 0.25</span>
+<a name="l00140"></a>00140 <span class="preprocessor"></span><span class="preprocessor">#define TASA_AUMENTO_TRAMPOLINES 0.2</span>
+<a name="l00141"></a>00141 <span class="preprocessor"></span> <span class="comment">// end of TasasIncremento</span>
+<a name="l00142"></a>00142 
+<a name="l00150"></a>00150 <span class="preprocessor">#define NIVEL_TRAMPOLINES_START 2</span>
+<a name="l00151"></a>00151 <span class="preprocessor"></span><span class="preprocessor">#define TRAMPOLINES_INICIALES 2</span>
+<a name="l00152"></a>00152 <span class="preprocessor"></span> <span class="comment">// end of TrampolinesConfig</span>
+<a name="l00153"></a>00153 
+<a name="l00155"></a><a class="code" href="zanahoria_8h.html#ab574bb9d2f8cb1fdafba3d3878a67c12">00155</a> <span class="preprocessor">#define FILE_PARTIDA &quot;partida.dat&quot;</span>
+<a name="l00156"></a>00156 <span class="preprocessor"></span>
+<a name="l00165"></a>00165 <span class="preprocessor">#define MAX_SIZE_NAME 20</span>
+<a name="l00166"></a>00166 <span class="preprocessor"></span><span class="preprocessor">#define RANKING_NUM 10</span>
+<a name="l00167"></a>00167 <span class="preprocessor"></span><span class="preprocessor">#define FILE_RANKING &quot;ranking.dat&quot;</span>
+<a name="l00168"></a>00168 <span class="preprocessor"></span> <span class="comment">// end of RankingConf</span>
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170 <span class="comment">/* @defgoup ConfigListaPartidas Configuracion lista de partidas</span>
+<a name="l00171"></a>00171 <span class="comment">*</span>
+<a name="l00172"></a>00172 <span class="comment">* @{</span>
+<a name="l00173"></a>00173 <span class="comment">*/</span>
+<a name="l00174"></a><a class="code" href="zanahoria_8h.html#a3a5c30abb0d14412f8674443cc65589f">00174</a> <span class="preprocessor">#define FOLDER_PARTIDAS &quot;partidas/&quot; </span>
+<a name="l00175"></a><a class="code" href="zanahoria_8h.html#a2f876b82490643ca5e0dc20df7cdc38e">00175</a> <span class="preprocessor">#define FILE_PARTIDA_PREFIX &quot;partida-&quot; </span>
+<a name="l00176"></a><a class="code" href="zanahoria_8h.html#ae05977d99f4316af1f8fb063579823d9">00176</a> <span class="preprocessor">#define FILE_PARTIDA_EXT &quot;.dat&quot;  // end of ConfigListaPartidas</span>
+<a name="l00178"></a>00178 <span class="preprocessor"></span>
+<a name="l00181"></a><a class="code" href="structitem_ranking.html">00181</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">itemRanking</a> {
+<a name="l00182"></a>00182         <span class="keywordtype">char</span> nombre[MAX_SIZE_NAME + 1];
+<a name="l00183"></a>00183         <span class="keywordtype">int</span> puntaje;
+<a name="l00184"></a>00184 } <a class="code" href="zanahoria_8h.html#abbb2527e37ec9dec9af4c0deda64f717" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a>;
+<a name="l00185"></a>00185 
+<a name="l00201"></a>00201 <span class="keywordtype">void</span> pedirConejosIniciales(<span class="keywordtype">int</span> *f, <span class="keywordtype">int</span> *c, <span class="keywordtype">int</span> *ci);
+<a name="l00202"></a>00202 
+<a name="l00219"></a>00219 <span class="keywordtype">void</span> pedirDimensionTablero(<span class="keywordtype">int</span> *f, <span class="keywordtype">int</span> *c);
 <a name="l00220"></a>00220 
-<a name="l00234"></a>00234 <span class="keywordtype">void</span> tablero_pretty_view(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas);
-<a name="l00235"></a>00235 
-<a name="l00242"></a>00242 <span class="keywordtype">void</span> ubicarZanahoriaInicial(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
-<a name="l00243"></a>00243 
-<a name="l00253"></a>00253 <span class="keywordtype">void</span> ubicarConejosIniciales(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> conejos);
-<a name="l00254"></a>00254 
-<a name="l00262"></a>00262 <span class="keywordtype">void</span> ubicarTrampolines(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> trampolines);
-<a name="l00263"></a>00263 
-<a name="l00272"></a>00272 <span class="keywordtype">void</span> posicionZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keywordtype">int</span> *coordZF, <span class="keywordtype">int</span> *coordZC);
-<a name="l00273"></a>00273 
-<a name="l00280"></a>00280 <span class="keywordtype">int</span> pedirSiguienteMovimiento();
-<a name="l00281"></a>00281 
-<a name="l00315"></a>00315 <span class="keywordtype">int</span> ejecutarMovimientoZanahoria(<span class="keyword">const</span> <span class="keywordtype">int</span> mov, <span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keyword">const</span> <span class="keywordtype">int</span> nivel);
-<a name="l00316"></a>00316 
-<a name="l00328"></a>00328 <span class="keywordtype">int</span> ejecutarMovimientoConejos(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">char</span> **tableroCopy, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keywordtype">int</span> *conejosVivos, <span class="keywordtype">int</span> *puntaje);
-<a name="l00329"></a>00329 
-<a name="l00338"></a>00338 <span class="keywordtype">void</span> ejecutarTeletransportacion(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas);
-<a name="l00339"></a>00339 
-<a name="l00351"></a>00351 <span class="keywordtype">int</span> verificarVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c, <span class="keyword">const</span> <span class="keywordtype">int</span> salto);
-<a name="l00352"></a>00352 
-<a name="l00363"></a>00363 <span class="keywordtype">int</span> verificarPrimeraVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
-<a name="l00364"></a>00364 
-<a name="l00376"></a>00376 <span class="keywordtype">int</span> verificarSegundaVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
-<a name="l00377"></a>00377 
-<a name="l00392"></a>00392 <span class="keywordtype">char</span> **cargarPartida(<span class="keywordtype">char</span> *ficheroName, <span class="keywordtype">int</span> *filas, <span class="keywordtype">int</span> *columnas, <span class="keywordtype">int</span> *conejosIniciales, <span class="keywordtype">int</span> *conejosVivos, <span class="keywordtype">int</span> *nivel, <span class="keywordtype">int</span> *puntaje);
-<a name="l00393"></a>00393 
-<a name="l00406"></a>00406 <span class="keywordtype">int</span> guardarPartida(<span class="keywordtype">char</span> *ficheroName, <span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keyword">const</span> <span class="keywordtype">int</span> conejosIniciales, <span class="keyword">const</span> <span class="keywordtype">int</span> conejosVivos, <span class="keyword">const</span> <span class="keywordtype">int</span> nivel, <span class="keyword">const</span> <span class="keywordtype">int</span> puntaje);
-<a name="l00407"></a>00407 
-<a name="l00415"></a>00415 <span class="keywordtype">void</span> mostrarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
-<a name="l00416"></a>00416 
-<a name="l00425"></a>00425 <span class="keywordtype">void</span> mostrarRankingDestacado(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> pos);
-<a name="l00426"></a>00426 
-<a name="l00436"></a>00436 <span class="keywordtype">int</span> ingresarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *elemento);
-<a name="l00437"></a>00437 
-<a name="l00448"></a>00448 <span class="keywordtype">int</span> guardarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
-<a name="l00449"></a>00449 
-<a name="l00458"></a>00458 <span class="keywordtype">int</span> cargarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
-<a name="l00459"></a>00459 
-<a name="l00466"></a>00466 <span class="keywordtype">void</span> inicializarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
-<a name="l00467"></a>00467 
-<a name="l00471"></a>00471 <span class="keywordtype">void</span> mostrarAyuda();
-<a name="l00472"></a>00472 
-<a name="l00473"></a>00473 <span class="preprocessor">#endif // __ZANAHORIA_H__</span>
+<a name="l00231"></a>00231 <span class="keywordtype">void</span> tablero_ini(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">int</span> f, <span class="keywordtype">int</span> c);
+<a name="l00232"></a>00232 
+<a name="l00240"></a>00240 <span class="keywordtype">void</span> tablero_view(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">int</span> f, <span class="keywordtype">int</span> c);
+<a name="l00241"></a>00241 
+<a name="l00255"></a>00255 <span class="keywordtype">void</span> tablero_pretty_view(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas);
+<a name="l00256"></a>00256 
+<a name="l00263"></a>00263 <span class="keywordtype">void</span> ubicarZanahoriaInicial(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
+<a name="l00264"></a>00264 
+<a name="l00274"></a>00274 <span class="keywordtype">void</span> ubicarConejosIniciales(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> conejos);
+<a name="l00275"></a>00275 
+<a name="l00283"></a>00283 <span class="keywordtype">void</span> ubicarTrampolines(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> trampolines);
+<a name="l00284"></a>00284 
+<a name="l00293"></a>00293 <span class="keywordtype">void</span> posicionZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keywordtype">int</span> *coordZF, <span class="keywordtype">int</span> *coordZC);
+<a name="l00294"></a>00294 
+<a name="l00301"></a>00301 <span class="keywordtype">int</span> pedirSiguienteMovimiento();
+<a name="l00302"></a>00302 
+<a name="l00336"></a>00336 <span class="keywordtype">int</span> ejecutarMovimientoZanahoria(<span class="keyword">const</span> <span class="keywordtype">int</span> mov, <span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keyword">const</span> <span class="keywordtype">int</span> nivel);
+<a name="l00337"></a>00337 
+<a name="l00349"></a>00349 <span class="keywordtype">int</span> ejecutarMovimientoConejos(<span class="keywordtype">char</span> **tablero, <span class="keywordtype">char</span> **tableroCopy, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keywordtype">int</span> *conejosVivos, <span class="keywordtype">int</span> *puntaje);
+<a name="l00350"></a>00350 
+<a name="l00359"></a>00359 <span class="keywordtype">void</span> ejecutarTeletransportacion(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas);
+<a name="l00360"></a>00360 
+<a name="l00372"></a>00372 <span class="keywordtype">int</span> verificarVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c, <span class="keyword">const</span> <span class="keywordtype">int</span> salto);
+<a name="l00373"></a>00373 
+<a name="l00384"></a>00384 <span class="keywordtype">int</span> verificarPrimeraVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
+<a name="l00385"></a>00385 
+<a name="l00397"></a>00397 <span class="keywordtype">int</span> verificarSegundaVecindadZanahoria(<span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> m, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> f, <span class="keyword">const</span> <span class="keywordtype">int</span> c);
+<a name="l00398"></a>00398 
+<a name="l00413"></a>00413 <span class="keywordtype">char</span> **cargarPartida(<span class="keywordtype">char</span> *ficheroName, <span class="keywordtype">int</span> *filas, <span class="keywordtype">int</span> *columnas, <span class="keywordtype">int</span> *conejosIniciales, <span class="keywordtype">int</span> *conejosVivos, <span class="keywordtype">int</span> *nivel, <span class="keywordtype">int</span> *puntaje);
+<a name="l00414"></a>00414 
+<a name="l00428"></a>00428 <span class="keywordtype">int</span> guardarPartida(<span class="keywordtype">char</span> *ficheroName, <span class="keywordtype">char</span> **tablero, <span class="keyword">const</span> <span class="keywordtype">int</span> filas, <span class="keyword">const</span> <span class="keywordtype">int</span> columnas, <span class="keywordtype">char</span> *partida_nombre, <span class="keyword">const</span> <span class="keywordtype">int</span> conejosIniciales, <span class="keyword">const</span> <span class="keywordtype">int</span> conejosVivos, <span class="keyword">const</span> <span class="keywordtype">int</span> nivel, <span class="keyword">const</span> <span class="keywordtype">int</span> puntaje);
+<a name="l00429"></a>00429 
+<a name="l00437"></a>00437 <a class="code" href="struct_nodo_nombre.html" title="Estructura Nodo para almacenar un campo de texto.">TipoNodoNombre</a> * generar_lista_partidas();
+<a name="l00438"></a>00438 
+<a name="l00446"></a>00446 <span class="keywordtype">void</span> mostrarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00447"></a>00447 
+<a name="l00456"></a>00456 <span class="keywordtype">void</span> mostrarRankingDestacado(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <span class="keyword">const</span> <span class="keywordtype">int</span> pos);
+<a name="l00457"></a>00457 
+<a name="l00467"></a>00467 <span class="keywordtype">int</span> ingresarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n, <a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *elemento);
+<a name="l00468"></a>00468 
+<a name="l00479"></a>00479 <span class="keywordtype">int</span> guardarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00480"></a>00480 
+<a name="l00489"></a>00489 <span class="keywordtype">int</span> cargarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00490"></a>00490 
+<a name="l00497"></a>00497 <span class="keywordtype">void</span> inicializarRanking(<a class="code" href="structitem_ranking.html" title="Estructura de Datos para los datos del Ranking.">ItemRanking</a> *ranking, <span class="keyword">const</span> <span class="keywordtype">int</span> n);
+<a name="l00498"></a>00498 
+<a name="l00502"></a>00502 <span class="keywordtype">void</span> mostrarAyuda();
+<a name="l00503"></a>00503 
+<a name="l00504"></a>00504 <span class="preprocessor">#endif // __ZANAHORIA_H__</span>
 </pre></div></div><!-- contents -->
 
 
 <hr class="footer"/><address class="footer"><small>
-Generado el Domingo, 6 de Mayo de 2012 01:14:18 para Juego Zanahoria por &#160;<a href="http://www.doxygen.org/index.html">
+Generado el Jueves, 10 de Mayo de 2012 10:01:41 para Juego Zanahoria por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.0
 </small></address>
