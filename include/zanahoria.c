@@ -649,7 +649,8 @@ void mostrarAyuda(){
 	println("\nEl juego consiste en unos %sconejos hambrientos%s que perseguiran a la %szanahoria%s", COLOR_MARRON_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
 	println("(osea tu) hasta alcanzarla y poder %sdevorarla%s.", COLOR_ROJO_S, ESTILO_NORMAL_S);
 	println("\nPara salvarte de la voraz hambre de los conejos debes moverte por el escenario");
-	println("logrando que ellos %schoquen%s entre si o con los %scadaveres%s que hayan dejado choques anteriores.", COLOR_VERDE_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("logrando que ellos %schoquen%s entre si o con los %scadaveres%s que hayan dejado", COLOR_VERDE_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("choques anteriores.");
 
 	pausaMensaje("\nSiguiente... (Presiona Enter)");
 
@@ -678,10 +679,9 @@ void mostrarAyuda(){
 	clearScr();
 	println("Juego de la Zanahoria - Movimientos (Otra Vista)");
 	println("------------------------------------------------");
-	println("\nUna forma mas grafica de los movimientos disponibles");
-	println("donde la tecla %s5%s o la tecla %sj%s equivale a quedarse", COLOR_VERDE_S, ESTILO_NORMAL_S, COLOR_VERDE_S, ESTILO_NORMAL_S);
-	println("en la posicion.");
-	println("Y los demas a moverse en la direccion esperada a partir de la posicion central.");
+	println("\nPara entender los movimientos disponibles, debes darte cuenta que la tecla %s5%s", COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("o la tecla %sj%s equivale a quedarse en la posicion, Y los demas a moverse en la", COLOR_VERDE_S, ESTILO_NORMAL_S);
+	println("direccion esperada a partir de la posicion central.");
 	println("\n\t-------------   -------------");
 	println("\t| Tec. Num. |   | Tec. Norm.|");
 	println("\t-------------   -------------");
