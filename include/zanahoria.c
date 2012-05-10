@@ -464,7 +464,10 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 	fscanf(fp, "%i\n", puntaje);
 	fscanf(fp, "%i\n", filas);
 	fscanf(fp, "%i\n", columnas);
+	// Solicito Memoria para el tablero
 	tablero = (char **)pedirMemoriaMatriz(*filas, *columnas, 'c');
+	if(tablero == NULL) return NULL;
+	// Pueblo el tablero con los datos guardados
 	for(i = 0; i < *filas; i++){
 		for(j = 0; j < (*columnas) - 1; j++){
 			fscanf(fp, "%c", &tablero[i][j]);

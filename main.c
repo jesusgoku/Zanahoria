@@ -90,6 +90,10 @@ int main(int argc, char **argv)
 			}while(i < 1 || i > lista_partidas_num);
 			sprintf(partida_ruta, "%s%s%i%s", FOLDER_PARTIDAS, FILE_PARTIDA_PREFIX, i - 1, FILE_PARTIDA_EXT);
 			tablero = cargarPartida(partida_ruta, &m, &n, &conejosIniciales, &conejosVivos, &nivel, &puntaje);
+			if(tablero == NULL){
+				printMsjError("Error: No se logro conseguir memoria para el tablero!");
+				return 1;
+			}
 		}
 	}
 
@@ -126,6 +130,11 @@ int main(int argc, char **argv)
 		
 		// Reservo memoria para el tablero
 		tablero = (char **)pedirMemoriaMatriz(m, n, 'c');
+		if(tablero == NULL)
+		{
+			printMsjError("Error: No se logro conseguir memoria para el tablero!");
+			return 1;
+		}
 		tablero_ini(tablero, m , n);
 
 		// Ubico la zanahoria
@@ -139,6 +148,10 @@ int main(int argc, char **argv)
 
 	// Reservo la memoria para una copia del tablero
 	tableroCopia = (char **)pedirMemoriaMatriz(m, n, 'c');
+	if(tableroCopia == NULL){
+		printMsjError("Error: No se logro conseguir memoria para el tablero!");
+		return 1;
+	}
 	// Doy valores iniciales al tablero
 	tablero_ini(tableroCopia, m, n);
 
