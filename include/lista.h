@@ -122,12 +122,12 @@ void modificar_valor_posicion(TipoNodoNombre *lista, int pos, char *cadena);
 
 // TipoNodoNombre * insertar_en_orden(TipoNodoNombre *lista, char *cadena);
 
-/** @brief Concatena dos listas en la primera
+/** @brief Concatena dos listas de nodos y devuelve una nueva lista
 *
 * @param a puntero a una lista de nodos
 * @param b puntero a una lista de nodos
 *
-* @return retorna el puntero a ahora con b apuntado por el fin de el ultimo nodo de a
+* @return Retorna un puntero al primer nodo de una nueva lista con los nodos de a y b
 */
 TipoNodoNombre * concatenar_listas(TipoNodoNombre *a, TipoNodoNombre *b);
 

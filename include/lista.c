@@ -88,17 +88,65 @@ int pertenece(TipoNodoNombre *lista, char *cadena)
 
 TipoNodoNombre * borrar_primera_ocurrencia(TipoNodoNombre *lista, char *cadena)
 {
-
+	TipoNodoNombre *aux, *prev;
+	for(prev = NULL, aux = lista; aux != NULL; prev = aux, aux = aux->sig)
+	{
+		if(!strcmp(aux->nombre, cadena))
+		{
+			if(prev == NULL)
+			{
+				lista = aux->sig;
+			}
+			else
+			{
+				prev->sig = aux->sig;
+			}
+			free(aux);
+			return(lista);
+		}
+	}
+	return lista;
 }
 
 TipoNodoNombre * borrar_valor(TipoNodoNombre *lista, char *cadena)
 {
+	TipoNodoNombre *aux, *prev;
+	prev = NULL;
+	aux = lista;
+	while(aux != NULL)
+	{
+		if(!strcmp(aux->nombre, cadena))
+		{
+			if(prev == NULL) lista = aux->sig;
+			else prev->sig = aux->sig;
 
+			free(aux);
+			
+			if(prev == NULL) aux = lista;
+			else aux = prev->sig;
+		}
+		else
+		{
+			prev = aux;
+			aux = aux->sig;
+		}
+	}
+	return lista;
 }
 
 TipoNodoNombre * insertar_en_posicion(TipoNodoNombre *lista, int pos, char *cadena)
 {
+	TipoNodoNombre *aux, *prev, *nuevo;
+	int i;
 
+	nuevo = (TipoNodoNombre *)malloc(sizeof(TipoNodoNombre));
+	strcpy(nuevo->nombre, cadena);
+
+	for(i = 0, prev = NULL, aux = lista; i < pos && aux != NULL; i++, prev = NULL, aux = aux->sig);
+	nuevo->sig = NULL;
+	if(prev == NULL) lista = nuevo;
+	else prev->sig = nuevo;
+	return lista;
 }
 
 void modificar_valor_posicion(TipoNodoNombre *lista, int pos, char *cadena)
@@ -119,7 +167,30 @@ void modificar_valor_posicion(TipoNodoNombre *lista, int pos, char *cadena)
 
 TipoNodoNombre * concatenar_listas(TipoNodoNombre *a, TipoNodoNombre *b)
 {
+	TipoNodoNombre *c, *aux, *nuevo, *prev;
+	c = NULL;
+	prev = NULL;
 
+	for(aux = a; aux != NULL; aux = aux->sig)
+	{
+		nuevo = (TipoNodoNombre *)malloc(sizeof(TipoNodoNombre));
+		strcpy(nuevo->nombre, aux->nombre);
+		if(prev != NULL) prev->sig = nuevo;
+		else c = nuevo;
+		prev = nuevo;
+	}
+
+	for(aux = b; aux != NULL; aux = aux->sig)
+	{
+		nuevo = (TipoNodoNombre *)malloc(sizeof(TipoNodoNombre));
+		strcpy(nuevo->nombre, aux->nombre);
+		if(prev != NULL) prev->sig = nuevo;
+		else c = nuevo;
+		prev = nuevo;
+	}
+
+	if(prev != NULL) prev->sig = NULL;
+	return c;
 }
 
 TipoNodoNombre * liberar_lista(TipoNodoNombre *lista)
