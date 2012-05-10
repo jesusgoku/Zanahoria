@@ -3,9 +3,9 @@
 * Funciones para trabajar con una lista enlazada simple de un campo de texto
 * de tamano NODO_NOMBRE_MAX_LENGTH
 *
-* @file zanahoria.h
+* @file lista.h
 * @version 0.1
-* @date 22/04/2012
+* @date 08/05/2012
 * @author JesusGoku
 * 
 */
