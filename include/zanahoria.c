@@ -92,13 +92,13 @@ void tablero_pretty_view(char **tablero, const int filas, const int columnas){
 		for( j = 0; j < columnas; j++){
 			switch(tablero[i][j]){
 				case ZANAHORIA:
-					fijarColorTextoEstilo(COLOR_ROJO, ESTILO_PARPADEANTE);
+					fijarColorTexto(COLOR_ROJO);
 					break;
 				case CONEJO:
 					fijarColorTexto(COLOR_MARRON);
 					break;
 				case CONEJO_TRAMPOLIN:
-					fijarColorTexto(COLOR_ROJO);
+					fijarColorTexto(COLOR_VERDE);
 					break;
 				case TRAMPOLIN:
 					fijarColorTexto(COLOR_AZUL);
