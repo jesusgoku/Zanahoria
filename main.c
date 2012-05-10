@@ -161,7 +161,10 @@ int main(int argc, char **argv)
 		// Muestro el tablero
 		tablero_pretty_view(tablero, m , n);
 		// Muestro el estado del juego
-		println("Conejos Vivos: %i - Nivel: %i - Puntaje: %i", conejosVivos, nivel + 1, puntaje);
+		//println("Conejos Vivos: %i - Nivel: %i - Puntaje: %i", conejosVivos, nivel + 1, puntaje);
+		printf("%sConejos Vivos: %i%s", COLOR_ROJO_CLARO_S, conejosVivos, ESTILO_NORMAL_S);
+		printf(" - %sNivel: %i%s", COLOR_VERDE_CLARO_S, nivel + 1, ESTILO_NORMAL_S);
+		printf(" - %sPuntaje: %i%s\n", COLOR_MARRON_CLARO_S, puntaje, ESTILO_NORMAL_S);
 		// Pido movimiento al usuario
 		siguienteMovimiento = pedirSiguienteMovimiento();
 		// Establesco el movimiento como no valido hasta que se demuestre lo contrario
