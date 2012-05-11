@@ -4,7 +4,7 @@
 * @file main.c
 * @author JesusGoku
 * @date 22/04/2012
-* @version 0.1
+* @version 0.2
 *
 */
 #include <stdio.h>
