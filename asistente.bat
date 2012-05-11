@@ -17,7 +17,7 @@ echo *******************************
 echo.
 echo 1. Asistente de Compilacion
 echo 2. Agregar gcc al PATH
-echo 3. Instalar ANSICON
+echo 3. Habilitar ANSICON
 echo 4. Compilar
 echo 5. Ejecutar
 echo S. Salir
@@ -51,6 +51,10 @@ if errorlevel 0 goto Menu
 		echo ANSICON, es una utilidad que le permitira habilitar comandos ANSI
 		echo que le permitira disfrutar mas de la experiencia del juego
 		echo permitiendole ejecutar a todo color.
+		echo.
+		echo Para poder habilitarlo debe descargarlo de la siguiente direccion:
+		echo http://adoxa.110mb.com/ansicon/dl.php?f=ansicon
+		echo Y descomprimirlo en la carpeta del juego.
 		echo.
 		echo 1. Habilitar ANSICON 32 bits
 		echo 2. Habilitar ANSICON 64 bits
@@ -171,8 +175,16 @@ if errorlevel 0 goto Menu
 :Ansicon
 	cls
 	echo **********************
-	echo ** Instalar ANSICON **
+	echo ** Habilitar ANSICON **
 	echo **********************
+	echo.
+	echo ANSICON, es una utilidad que le permitira habilitar comandos ANSI
+	echo que le permitira disfrutar mas de la experiencia del juego
+	echo permitiendole ejecutar a todo color.
+	echo.
+	echo Para poder habilitarlo debe descargarlo de la siguiente direccion:
+	echo http://adoxa.110mb.com/ansicon/dl.php?f=ansicon
+	echo Y descomprimirlo en la carpeta del juego.
 	echo.
 	echo 1. Windows 32 bits
 	echo 2. Windows 64 bits
