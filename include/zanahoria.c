@@ -735,7 +735,7 @@ void mostrarAyuda(){
 	println("Juego de la Zanahoria - Elementos del Tablero");
 	println("---------------------------------------------");
 	println("\nEstos son los posibles elementos que encontraras en el tablero:");
-	println("\n\t%s%s%c%s: Zanahoria", COLOR_ROJO_S, ESTILO_PARPADEANTE_S, ZANAHORIA, ESTILO_NORMAL_S);
+	println("\n\t%s%c%s: Zanahoria", COLOR_ROJO_S, ZANAHORIA, ESTILO_NORMAL_S);
 	println("\t%s%c%s: Conejo", COLOR_MARRON_S, CONEJO, ESTILO_NORMAL_S);
 	println("\t%s%c%s: Cadaveres", COLOR_PURPURA_S, CADAVER, ESTILO_NORMAL_S);
 	println("\t%s%c%s: Trampolin", COLOR_AZUL_S, TRAMPOLIN, ESTILO_NORMAL_S);
