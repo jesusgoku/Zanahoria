@@ -406,6 +406,7 @@ int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, 
 * @param conejosVivos puntero a entero donde se alamacenara la cantidad de conejos vivos en la partida guardada
 * @param nivel puntero a entero donde se almacenara el nivel de la partida guardada
 * @param puntaje puntero a entero donde se almacenara el puntaje en la partida guardada
+* @param trampolnes puntero a flotante donde se almacenara la cantidad de trampolines guardadas
 *
 * @return devulve un puntero al tablero con los datos de la partida guardada
 *
@@ -424,6 +425,7 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 * @param conejosVivos entero con la cantidad de conejos vivos al momento de llamar la funcion
 * @param nivel entero con el nivel al momento de llamar a la funcion
 * @param puntaje entero con el puntaje al momento de llamar a la funcion
+* @param trampolines flotante con la cantidad de trampolines en el nivel
 */
 int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje, const float trampolines);
 

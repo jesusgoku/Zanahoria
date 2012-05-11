@@ -434,7 +434,7 @@ int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, 
 	int quiebre[4];
 	for(i = 0; i < 4; i++) quiebre[i] = (int)(saltos * (i + 1) / 4);
 		
-	for( i = 1; i <= 8; i++){
+	for( i = 1; i <= 16; i++){
 		if(j >= 0 && j < m && k >= 0 && k < n) // Verifico si es una coordenada valida
 			if(tablero[j][k] == CONEJO_TRAMPOLIN) // Verifico si hay un conejo o un conejo en trampolin
 				return 0;
