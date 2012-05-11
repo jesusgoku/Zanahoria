@@ -450,7 +450,7 @@ int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, 
 /* FUNCIONES SALVAR Y CARGAR PARTIDA
 /***********************************/
 
-char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje){
+char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje, float *trampolines){
 	FILE *fp;
 	char **tablero;
 	char basura[NODO_NOMBRE_MAX_LENGTH + 1];
@@ -462,6 +462,7 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 	fscanf(fp, "%i\n", conejosVivos);
 	fscanf(fp, "%i\n", nivel);
 	fscanf(fp, "%i\n", puntaje);
+	fscanf(fp, "%f\n", trampolines);
 	fscanf(fp, "%i\n", filas);
 	fscanf(fp, "%i\n", columnas);
 	// Solicito Memoria para el tablero
@@ -480,7 +481,7 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 	return tablero;
 }
 
-int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje){
+int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje, const float trampolines){
 	FILE *fp;
 	int i,j;
 	char guardar;
@@ -491,6 +492,7 @@ int guardarPartida(char *ficheroName, char **tablero, const int filas, const int
 	fprintf(fp, "%i\n", conejosVivos);
 	fprintf(fp, "%i\n", nivel);
 	fprintf(fp, "%i\n", puntaje);
+	fprintf(fp, "%f\n", trampolines);
 	fprintf(fp, "%i\n", filas);
 	fprintf(fp, "%i\n", columnas);
 	for(i = 0; i < filas; i++){

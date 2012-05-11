@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	int i = 0, j = 0, k = 0; // Variables auxiliares
 	int conejosIniciales = 0; // Se almacenaran los conejos ingresados por el usuario
 	int puntaje = 0, nivel = 0, conejosVivos = 0; // Estado del juego
-	int trampolines = 0; // Se llevara la cantidad de trampolines
+	float trampolines = 0; // Se llevara la cantidad de trampolines
 	int coordZF = 0, coordZC = 0;
 	int siguienteMovimiento = 0;
 	Bool gameOver = False;
@@ -89,7 +89,7 @@ int main(int argc, char **argv)
 				if(i < 1 || i > lista_partidas_num) printMsjError("Partida no valida!");
 			}while(i < 1 || i > lista_partidas_num);
 			sprintf(partida_ruta, "%s%s%i%s", FOLDER_PARTIDAS, FILE_PARTIDA_PREFIX, i - 1, FILE_PARTIDA_EXT);
-			tablero = cargarPartida(partida_ruta, &m, &n, &conejosIniciales, &conejosVivos, &nivel, &puntaje);
+			tablero = cargarPartida(partida_ruta, &m, &n, &conejosIniciales, &conejosVivos, &nivel, &puntaje, &trampolines);
 			if(tablero == NULL){
 				printMsjError("Error: No se logro conseguir memoria para el tablero!");
 				return 1;
@@ -202,7 +202,7 @@ int main(int argc, char **argv)
 				// Sobreescribir una partida
 				sprintf(partida_ruta, "%s%s%i%s", FOLDER_PARTIDAS, FILE_PARTIDA_PREFIX, i - 1, FILE_PARTIDA_EXT);
 				pedirCadena("\nBreve descripcion partida", partida_nombre, NODO_NOMBRE_MAX_LENGTH);
-				if(guardarPartida(partida_ruta, tablero, m, n, partida_nombre, conejosIniciales, conejosVivos, nivel, puntaje)){
+				if(guardarPartida(partida_ruta, tablero, m, n, partida_nombre, conejosIniciales, conejosVivos, nivel, puntaje, trampolines)){
 					modificar_valor_posicion(lista_partidas, i - 1, partida_nombre);
 					printMsjOkPausa("Partida Guardada!");
 				}
@@ -211,7 +211,7 @@ int main(int argc, char **argv)
 				sprintf(partida_ruta, "%s%s%i%s", FOLDER_PARTIDAS, FILE_PARTIDA_PREFIX, lista_partidas_num, FILE_PARTIDA_EXT);
 				clearScr();
 				pedirCadena("Breve descripcion partida", partida_nombre, NODO_NOMBRE_MAX_LENGTH);
-				if(guardarPartida(partida_ruta, tablero, m, n, partida_nombre, conejosIniciales, conejosVivos, nivel, puntaje)){
+				if(guardarPartida(partida_ruta, tablero, m, n, partida_nombre, conejosIniciales, conejosVivos, nivel, puntaje, trampolines)){
 					lista_partidas = insertar_por_cola(lista_partidas, partida_nombre);
 					printMsjOkPausa("Partida Guardada!");
 				}
@@ -259,8 +259,8 @@ int main(int argc, char **argv)
 				ubicarConejosIniciales(tablero, m , n, conejosVivos);
 				// Ubico los Trampolines
 				if(nivel >= NIVEL_TRAMPOLINES_START){
-					trampolines = TRAMPOLINES_INICIALES + redondeoEntero(TASA_AUMENTO_TRAMPOLINES * (nivel - NIVEL_TRAMPOLINES_START));
-					ubicarTrampolines(tablero, m, n, trampolines);
+					trampolines += nivel == NIVEL_TRAMPOLINES_START ? TRAMPOLINES_INICIALES : trampolines * TASA_AUMENTO_TRAMPOLINES;
+					ubicarTrampolines(tablero, m, n, (int)trampolines);
 				}
 			}
 		}

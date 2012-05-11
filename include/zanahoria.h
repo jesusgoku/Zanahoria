@@ -410,7 +410,7 @@ int verificarSegundaVecindadZanahoria(char **tablero, const int m, const int n, 
 * @return devulve un puntero al tablero con los datos de la partida guardada
 *
 */
-char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje);
+char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosIniciales, int *conejosVivos, int *nivel, int *puntaje, float *trampolines);
 
 /**
 * @brief Guarda una partida en un fichero.
@@ -425,7 +425,7 @@ char **cargarPartida(char *ficheroName, int *filas, int *columnas, int *conejosI
 * @param nivel entero con el nivel al momento de llamar a la funcion
 * @param puntaje entero con el puntaje al momento de llamar a la funcion
 */
-int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje);
+int guardarPartida(char *ficheroName, char **tablero, const int filas, const int columnas, char *partida_nombre, const int conejosIniciales, const int conejosVivos, const int nivel, const int puntaje, const float trampolines);
 
 /** @brief Genera una lista con las partidas disponibles en el directorio de partidas.
 *
