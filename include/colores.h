@@ -1,28 +1,28 @@
 /** @brief Para implementar colores en terminales ANSI.
-*
-* Con esta libreria se podran utilizar las caracteristicas de las terminales ANSI para
-* poder dar color, fondo y estilo a la terminal y asi agregar un poco de riquesa al
-* contenido mostrado.
-*
-* @file colores.h
-* @version 0.1
-* @date 22/04/2012
-* @author JesusGoku
-* 
-*/
+ *
+ * Con esta libreria se podran utilizar las caracteristicas de las terminales
+ * ANSI para poder dar color, fondo y estilo a la terminal y asi agregar un poco
+ * de riquesa al contenido mostrado.
+ *
+ * @file colores.h
+ * @version 0.1
+ * @date 22/04/2012
+ * @author JesusGoku
+ *
+ */
 #ifndef __COLORES_H__
 #define __COLORES_H__
 
 #include <stdio.h>
 
 /** @defgroup ColoresCodigos Codigos Funciones de Colores.h
-*
-* Constantes con los codigos disponibles para pasarle a las funciones
-* definidas en colores.h que representan los diferentes colores, estilos
-* y fondos que son capaces de representar.
-*
-* @{
-*/
+ *
+ * Constantes con los codigos disponibles para pasarle a las funciones
+ * definidas en colores.h que representan los diferentes colores, estilos
+ * y fondos que son capaces de representar.
+ *
+ * @{
+ */
 #define ESTILO_NORMAL 0
 #define ESTILO_CLARO 1
 #define ESTILO_SUBRAYADO 4
@@ -48,17 +48,17 @@
 #define FONDO_CYAN 46
 #define FONDO_GRIS 47
 
-/** @} */ // end of ColoresCodigos
+/** @} */  // end of ColoresCodigos
 
 #if !defined(WINDOWS) || defined(ANSICON)
 
 /** @defgroup CadenasColor Cadenas De Color y Estilo
-*
-* Cadenas de colores, estilos y fondo para el texto en la consola
-* basado, soportado por todas las consalas ANSI
-*
-* @{
-*/
+ *
+ * Cadenas de colores, estilos y fondo para el texto en la consola
+ * basado, soportado por todas las consalas ANSI
+ *
+ * @{
+ */
 #define ESTILO_NORMAL_S "\033[0m"
 #define ESTILO_CLARO_S "\033[1m"
 #define ESTILO_SUBRAYADO_S "\033[4m"
@@ -102,19 +102,19 @@
 #define FONDO_CYAN_CLARO_S "\033[1;46m"
 #define FONDO_GRIS_CLARO_S "\033[1;47m"
 
-/** @} */ // end of CadenasColor
+/** @} */  // end of CadenasColor
 
 #else
 
 /** @defgroup CadenasColorWindows Cadenas De Color y Estilo
-*
-* La consola de comandos por defecto no soporta el estandar ANSI
-* por lo tanto las cadenas se mostrarian como caracteres extranos
-* por eso para agregar compatibilidad se usan las mismas constantes
-* pero como una cadena vacia.
-*
-* @{
-*/
+ *
+ * La consola de comandos por defecto no soporta el estandar ANSI
+ * por lo tanto las cadenas se mostrarian como caracteres extranos
+ * por eso para agregar compatibilidad se usan las mismas constantes
+ * pero como una cadena vacia.
+ *
+ * @{
+ */
 
 #define ESTILO_NORMAL_S ""
 #define ESTILO_CLARO_S ""
@@ -159,52 +159,63 @@
 #define FONDO_CYAN_CLARO_S ""
 #define FONDO_GRIS_CLARO_S ""
 
-/** @} */ // end of CadenasColorWindows
+/** @} */  // end of CadenasColorWindows
 
-#endif // WINDOWS
+#endif  // WINDOWS
 
 /** @brief Resetea la terminal a sus colores originales.
-*/
+ */
 void fijarColorNormal();
 
 /** @brief Fija el color del texto a color.
-*
-* @param color corresponde a las constantes COLOR_XXX donde XXX puede ser cualquier color de los disponibles
-*/
+ *
+ * @param color corresponde a las constantes COLOR_XXX donde XXX puede ser
+ * cualquier color de los disponibles
+ */
 void fijarColorTexto(const int color);
 
 /** @brief Fija el color del fondo a fondo.
-*
-* @param fondo corresponde a las constantes FONDO_XXX donde XXX puede ser cualquiera de los fondos disponibles
-*/
+ *
+ * @param fondo corresponde a las constantes FONDO_XXX donde XXX puede ser
+ * cualquiera de los fondos disponibles
+ */
 void fijarColorFondo(const int fondo);
 
 /** @brief Fija el estilo de la terminal.
-*
-* @param estilo corresponde a la constantes ESTILO_XXX donde XXX son los estilos dentro de los disponibles
-*/
+ *
+ * @param estilo corresponde a la constantes ESTILO_XXX donde XXX son los
+ * estilos dentro de los disponibles
+ */
 void fijarColorEstilo(const int estilo);
 
 /** @brief Fija el color y el fondo del texto.
-*
-* @param texto corresponde a las constantes COLOR_XXX donde XXX puede ser cualquier color de los disponibles
-* @param fondo corresponde a las constantes FONDO_XXX donde XXX puede ser cualquiera de los fondos disponibles
-*/
+ *
+ * @param texto corresponde a las constantes COLOR_XXX donde XXX puede ser
+ * cualquier color de los disponibles
+ * @param fondo corresponde a las constantes FONDO_XXX donde XXX puede ser
+ * cualquiera de los fondos disponibles
+ */
 void fijarColorTextoFondo(const int texto, const int fondo);
 
 /** @brief Fija el color, el estilo y el fondo del texto.
-*
-* @param texto corresponde a las constantes COLOR_XXX donde XXX puede ser cualquier color de los disponibles
-* @param fondo corresponde a las constantes FONDO_XXX donde XXX puede ser cualquiera de los fondos disponibles
-* @param estilo corresponde a las constantes ESTILO_XXX donde XXX puede ser cualquier estilo de los disponibles
-*/
-void fijarColorTextoFondoEstilo(const int texto, const int fondo, const int estilo);
+ *
+ * @param texto corresponde a las constantes COLOR_XXX donde XXX puede ser
+ * cualquier color de los disponibles
+ * @param fondo corresponde a las constantes FONDO_XXX donde XXX puede ser
+ * cualquiera de los fondos disponibles
+ * @param estilo corresponde a las constantes ESTILO_XXX donde XXX puede ser
+ * cualquier estilo de los disponibles
+ */
+void fijarColorTextoFondoEstilo(const int texto, const int fondo,
+                                const int estilo);
 
 /** @brief Fija el color y el estilo del texto.
-*
-* @param texto corresponde a las constantes COLOR_XXX donde XXX puede ser cualquier color de los disponibles
-* @param estilo corresponde a las constantes ESTILO_XXX donde XXX puede ser cualquier estilo de los disponibles
-*/
+ *
+ * @param texto corresponde a las constantes COLOR_XXX donde XXX puede ser
+ * cualquier color de los disponibles
+ * @param estilo corresponde a las constantes ESTILO_XXX donde XXX puede ser
+ * cualquier estilo de los disponibles
+ */
 void fijarColorTextoEstilo(const int texto, const int estilo);
 
-#endif // __COLORES_H__
+#endif  // __COLORES_H__
